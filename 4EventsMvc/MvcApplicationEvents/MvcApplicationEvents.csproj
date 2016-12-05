@@ -117,6 +117,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BusinessLayer\Account.cs" />
+    <Compile Include="Models\BusinessLayer\Contribution.cs" />
+    <Compile Include="Models\BusinessLayer\Copy.cs" />
+    <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCreateAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseCreateContribution.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseCreateEvent.cs" />
@@ -138,6 +142,17 @@
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseEditAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseGetAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAcces.cs" />
+    <Compile Include="Models\BusinessLayer\Event.cs" />
+    <Compile Include="Models\BusinessLayer\File.cs" />
+    <Compile Include="Models\BusinessLayer\Location.cs" />
+    <Compile Include="Models\BusinessLayer\Message.cs" />
+    <Compile Include="Models\BusinessLayer\Person.cs" />
+    <Compile Include="Models\BusinessLayer\Place.cs" />
+    <Compile Include="Models\BusinessLayer\Product.cs" />
+    <Compile Include="Models\BusinessLayer\Rental.cs" />
+    <Compile Include="Models\BusinessLayer\Reservation.cs" />
+    <Compile Include="Models\BusinessLayer\Wristband.cs" />
+    <Compile Include="Models\BusinessLayer\Enum\Function.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\BusinessLayer\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
