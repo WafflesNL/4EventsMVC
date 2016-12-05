@@ -132,7 +132,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Accountview\Accountview.cshtml" />
     <Content Include="Views\MaterialPage\MaterialPage.cshtml" />
-    <Content Include="Views\Rental\RentalPage.cshtml" />
+    <Content Include="Views\RentalPage\RentalPage.cshtml" />
     <Content Include="Views\ReservationsPage\ReservationsPage.cshtml" />
     <Content Include="Views\TimelinePage\TimelinePage.cshtml" />
     <None Include="Web.Debug.config">
