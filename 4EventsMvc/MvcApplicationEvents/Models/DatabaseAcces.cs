@@ -7,5 +7,6 @@ namespace MvcApplicationEvents.Models
 {
     public class DatabaseAcces
     {
+        //test 
     }
 }
