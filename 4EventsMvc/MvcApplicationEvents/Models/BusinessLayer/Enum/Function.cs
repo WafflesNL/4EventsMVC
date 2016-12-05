@@ -10,7 +10,7 @@ namespace MvcApplicationEvents.Models
         {
             Beheerder,
             AccountBeheerder,
-            Mederwerker,
+            Medewerker,
             Bezoeker
         }
     
