@@ -5,8 +5,7 @@ using System.Web;
 
 namespace MvcApplicationEvents.Models
 {
-    public class DatabaseAcces
+    public static class DatabaseEditContribution
     {
-        //test 
     }
 }

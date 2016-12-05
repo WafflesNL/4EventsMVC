@@ -117,7 +117,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DatabaseAcces.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCreateAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseCreateContribution.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseCreateEvent.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseMaterialManagement\DatabaseCreateMaterial.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseReservationManagement\DatabaseCreateReservation.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseReservationManagement\DatabaseDeleteReservation.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseReservationManagement\DatabaseEditReservation.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseReservationManagement\DatabaseGetReservation.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseMaterialManagement\DatabaseDeleteMaterial.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseMaterialManagement\DatabaseEditMaterial.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseMaterialManagement\DatabaseGetMaterial.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseDeleteEvent.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseEditEvent.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseGetEvent.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseDeleteContribution.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseEditContribution.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseGetContribution.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseDeleteAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseEditAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseGetAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAcces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\BusinessLayer\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
