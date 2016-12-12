@@ -13,5 +13,7 @@ namespace MvcApplicationEvents.Controllers
         {
             return View();
         }
+
+        //vanuit hier zou constant de lijst van event opgevraagd moeten gaan worden
     }
 }

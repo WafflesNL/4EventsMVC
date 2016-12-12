@@ -61,29 +61,41 @@ namespace MvcApplicationEvents.Models
             this.ReservationList = ReservationList;
         }
 
+        /// <summary>
+        /// Used to edit a event in the database
+        /// </summary>
+        /// /// <param name="id">The id of the event as int<param>
+        /// <param name="Name">The name of the event as string<param>
+        /// <param name="Description">The description of the event as string</param>
+        public Event(int id, string Name, string description)
+        {
+            this.ID = id;
+            this.Name = Name;
+            this.Description = description;        
+        }
+
 
         /// <summary>
         /// Creates a new event in the database.
         /// </summary>
         /// <param name="Event">The event to be created as Event object.</param>
         /// <returns>Return true if it was created false if it was not.</returns>
-        //public bool CreateEvent(Event Event)
-        //{
-        //    bool Check = DatabaseCreateEvent.CreateEvent(Event);
-        //    return Check;
-        //}
-
+        public bool CreateEvent(Event Event)
+        {
+            bool Check = DatabaseCreateEvent.CreateEvent(Event);
+            return Check;
+        }
 
         /// <summary>
         /// Checks if the changes for Event are allowed in the database
         /// </summary>
         /// <param name="Event">The event to be checked as Event object.</param>
         /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
-        //public bool EditEvent(Event Event)
-        //{
-        //    bool Check = DatabaseEditEvent.EditEvent(Event);
-        //    return Check;
-        //}
+        public bool EditEvent(Event Event)
+        {
+            bool Check = DatabaseEditEvent.EditEvent(Event);
+            return Check;
+        }
 
 
         /// <summary>

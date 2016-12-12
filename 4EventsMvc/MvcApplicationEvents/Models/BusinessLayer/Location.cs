@@ -28,9 +28,19 @@ namespace MvcApplicationEvents.Models
             this.Place = place;
         }
 
+        public Location(string name)
+        {    
+            this.Name = name;   
+        }
+
         public void Getplaces()
         {
           //  this.PlaceList = //datebase
+        }
+
+        public void GetlocationID()
+        {
+            this.ID = DatabaseGetlocation.GetLocationID(this.Name);
         }
 
     }

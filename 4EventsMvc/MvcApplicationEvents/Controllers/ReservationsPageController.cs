@@ -13,5 +13,16 @@ namespace MvcApplicationEvents.Controllers
         {
             return View();
         }
+
+        //hiermee maakt gebruiker nieuwe reservering mee aan
+        public ActionResult btnCreateReservation()
+        {
+
+
+
+
+            return View();
+        }
+
     }
 }

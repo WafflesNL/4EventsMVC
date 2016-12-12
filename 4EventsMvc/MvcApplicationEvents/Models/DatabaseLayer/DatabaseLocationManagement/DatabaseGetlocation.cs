@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
 namespace MvcApplicationEvents.Models
 {
-    public static class DatabaseEditEvent
+    public static class DatabaseGetlocation
     {
-        public static bool EditEvent(Event Event)
+        public static int GetLocationID(string name)
         {
+            int check = 0;
+
             if (DatabaseAcces.OpenConnection())
             {
 
@@ -20,16 +21,17 @@ namespace MvcApplicationEvents.Models
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "SELECT * FROM LOCATION Where name = @name";
+                    cmd.Parameters.Add(new SqlParameter("name", name));
 
-                    cmd.CommandText = "EditEvent";
-                    cmd.Parameters.AddWithValue("@Name", Event.Name);
-                    cmd.Parameters.AddWithValue("@Description", Event.Description);
-                    cmd.Parameters.AddWithValue("@ID", Event.DateStart);         
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                    cmd.ExecuteNonQuery();
-
-                    return true;                 
+                    while (reader.Read())
+                    {
+                        int ID = Convert.ToInt32(reader["ID"]);
+                        check = ID; 
+                    }
+                    return check;
                 }
                 catch (SqlException e)
                 {
@@ -42,9 +44,11 @@ namespace MvcApplicationEvents.Models
                 }
             }
 
-            return false ;
+            return check;
 
         }
+
+
 
 
     }

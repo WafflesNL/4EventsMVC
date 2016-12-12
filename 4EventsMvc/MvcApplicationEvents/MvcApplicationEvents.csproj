@@ -121,6 +121,7 @@
     <Compile Include="Models\BusinessLayer\Contribution.cs" />
     <Compile Include="Models\BusinessLayer\Copy.cs" />
     <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseLocationManagement\DatabaseGetlocation.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCreateAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseCreateContribution.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseEventManagement\DatabaseCreateEvent.cs" />
