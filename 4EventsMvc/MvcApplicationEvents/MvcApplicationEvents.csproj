@@ -110,6 +110,7 @@
     <Compile Include="Controllers\CreateEventController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MaterialPageController.cs" />
     <Compile Include="Controllers\RentalPageController.cs" />
     <Compile Include="Controllers\ReservationsPageController.cs" />
@@ -171,6 +172,7 @@
     <Content Include="Views\RentalPage\RentalPage.cshtml" />
     <Content Include="Views\ReservationsPage\ReservationsPage.cshtml" />
     <Content Include="Views\TimelinePage\TimelinePage.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

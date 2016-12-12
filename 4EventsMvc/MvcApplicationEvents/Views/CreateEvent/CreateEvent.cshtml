@@ -3,5 +3,46 @@
     ViewBag.Title = "CreateEvent";
 }
 
-<h2>CreateEvent</h2>
+<br />
+<div class="container_16">
+    <div class="grid_3 push_4">
+        <form>
+            Eventnaam:
+            <input type="text" name="Eventname"><br>
+            Eventbeschrijving:
+            <textarea type="text" name="Eventdescription" cols="40" rows="6"></textarea>
+        </form>
+        <p>Locatie:</p>
+        <select>
+            <option value="Tilburg">Tilburg</option>
+            <option value="Eindhoven">Eindhoven</option>
+            <option value="Amsterdam">Amsterdam</option>
+            <option value="Den Haag">Den Haag</option>
+        </select>
+        <form>
+            BeginEventdatum
+            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+        </form>
+        <form>
+            EindEventdatum
+            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+        </form>
+        <form>
+            Max aantal Bezoekers:
+            <input type="number" name="quantity" min="5"><br />
+        </form>
+        <button class="buttonstyle1">@Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        <div class="push_3">
+            <button class="buttonstyle2">@Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+    </div>
+
+    <div class="grid_1 push_10">
+        <div class="logo">
+            <img src="http://placehold.it/150">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+    </div>
+</div>
 

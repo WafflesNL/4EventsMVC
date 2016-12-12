@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<br />
+<div class="container_16">
+    <div class="grid_1 push_6">
+            <form>
+                Username:
+                <input class="inputtype" type="text" name="Username"><br>
+                Password:
+                <input class="inputtype" type="text" name="Password">
+            </form>
+        <div class="grid_1 push_1">
+            <button class="buttonstyle2">@Html.ActionLink("Login", "Home", "Home", new { area = "" })</button>
+            <button class="buttonstyle2">@Html.ActionLink("Register", "Accountview", "Accountview", new { area = "" })</button><br />
+        </div>
+    </div>
+        
+</div>

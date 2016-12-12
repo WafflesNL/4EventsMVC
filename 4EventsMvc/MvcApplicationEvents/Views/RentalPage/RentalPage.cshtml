@@ -2,6 +2,27 @@
 @{
     ViewBag.Title = "RentalPage";
 }
-
-<h2>RentalPage</h2>
-
+<br />
+<div class="container_16">
+    <div class="grid_1">
+        <form>
+            <textarea class="materiallist" type="text" name="Eventdescription" rows="20">Lijst van Materiaal Beschikbaar</textarea>
+        </form>
+        <button class="buttonstyle3">@Html.ActionLink("Toevoegen", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+    </div>
+    <div class="grid_1 push_5">
+        <form>
+            <textarea class="materiallist" type="text" name="Eventdescription" rows="20">Lijst van Materiaal Huurlijst</textarea>
+        </form>
+        <button class="buttonstyle3">@Html.ActionLink("Verwijderen", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+        <button class="buttonstyle2">@Html.ActionLink("Totaal", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+        <input type="text" name="totaal"><br>
+    </div>
+    <div class="grid_1 push_11">
+        <div class="logo">
+            <img src="http://placehold.it/150">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+    </div>
+</div>
