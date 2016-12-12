@@ -21,7 +21,7 @@ namespace MvcApplicationEvents.Models
 
             try
             {
-                connect.ConnectionString = "connection string goes here"; 
+                connect.ConnectionString = "Data Source=mssql.fhict.local;Initial Catalog=dbi336545;User ID=dbi336545;Password=***********"; 
 
                 connect.Open();
             }
