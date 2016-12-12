@@ -127,13 +127,14 @@ namespace MvcApplicationEvents.Models
         /// Gets all events from the database
         /// </summary>
         /// <returns>A list with all events that are currently active</returns>
-        //public static List<Event> GetEvents()
-        //{
-        //List<Event> EventList = DatabaseGetEvents.GetEvents();
-        //return EventList;
-        //}
+        public static List<Event> GetEvents()
+        {
+            List<Event> EventList = DatabaseGetEvent.GetEvents();
+            return EventList;
+        }
 
-        /// <summary>
+        /// <summ
+        /// ary>
         /// Gets the password that belongs to the corresponding AccountID
         /// </summary>
         /// <returns>Void</returns>

@@ -13,5 +13,10 @@ namespace MvcApplicationEvents.Controllers
         {
             return View();
         }
+
+        public ActionResult btnLogin(string Username, string Password)
+        {
+            return View();
+        }
     }
 }
