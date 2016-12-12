@@ -3,11 +3,26 @@
     ViewBag.Title = "Home";
 }
 
-<h2>Home</h2>
-<button>@Html.ActionLink("Event", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button>
-<button>@Html.ActionLink("Event", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button>
-<button>@Html.ActionLink("Event", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button>
-<button>@Html.ActionLink("Event", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button>
-<button>@Html.ActionLink("Event", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button>
-
-
+<br />
+    <div class="container_16">
+        <div class="grid_1 pull_1">
+            <button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Materiaal", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Event Aanmaken", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Betalingsstatus", "", "", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Eventinformatie", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Reserveren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Plaats Registreren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+        <div class="grid_1 push_2">
+            <img src="http://placehold.it/580x300">
+        </div>
+        <div class="grid_1 push_11">
+            <div class="logo">
+                <img src="http://placehold.it/150">
+                <p class="logotext">ICT4Events</p>
+            </div>
+            <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+    </div>

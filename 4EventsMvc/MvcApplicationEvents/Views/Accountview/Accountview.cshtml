@@ -2,6 +2,24 @@
 @{
     ViewBag.Title = "Accountview";
 }
-
-<h2>Accountview</h2>
+<br />
+<div class="container_16">
+    <div class="grid_1 pull_1">
+        <button class="buttonstyle">@Html.ActionLink("Account Aanmaken", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+        <button class="buttonstyle">@Html.ActionLink("Account Aanpassen", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+        <button class="buttonstyle">@Html.ActionLink("Account Verwijderen", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />       
+    </div>
+    <div class="grid_1 push_2">
+        <form>
+            <textarea class="accountlist" type="text" name="Eventdescription" rows="20"></textarea>
+        </form>
+    </div>
+    <div class="grid_1 push_11">
+        <div class="logo">
+            <img src="http://placehold.it/150">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+    </div>
+</div>
 
