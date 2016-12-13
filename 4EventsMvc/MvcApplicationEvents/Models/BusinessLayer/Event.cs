@@ -97,6 +97,19 @@ namespace MvcApplicationEvents.Models
             return Check;
         }
 
+        public bool GetContributions()
+        {
+            ContributionList = DatabaseGetContribution.GetContributions(ID);
+            if (ContributionList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         /// <summary>
         /// Checks if the date for an newly created event is valid

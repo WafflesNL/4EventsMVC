@@ -14,8 +14,8 @@ namespace MvcApplicationEvents.Models
         public int Likes { get; set; }
         public int Reports { get; set; }    
         public int PostID { get; set; }
-
-        public File File { get; set; }
+        public byte[] File { get; set; }
+        public string Attachment { get { return "none"; } set { } }
         public Message Message { get; set; }
 
    
@@ -44,7 +44,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="postID">This is the ID of the post reacted to</param>
         /// <param name="file">The file belonging to the post</param>
         /// <param name="Message">This is the ID of the post reacted to</param>
-        public Contribution(int id, DateTime datetime, string category, int likes, int reports, int postid, File file, Message message)
+        public Contribution(int id, DateTime datetime, string category, int likes, int reports, int postid, byte[] file, Message message)
         {
             this.ID = id;
             this.Category = category;
@@ -69,7 +69,7 @@ namespace MvcApplicationEvents.Models
          
         }
 
-        public void AddFile(File file)
+        public void AddFile(byte[] file)
         {
             this.File = file;
         }
