@@ -2,6 +2,47 @@
 @{
     ViewBag.Title = "TimelinePage";
 }
-
-<h2>TimelinePage</h2>
-
+<br />
+<div class="container_16">
+    <div class="grid_9 pull_1">
+        <form>
+            <textarea class="timeline" type="text" name="Timeline" rows="20">Timeline</textarea>
+        </form>
+        <div class="grid_1 push_4">
+            <button class="buttonstyle6">@Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+        <div class="grid_1 push_9">
+            <div class="marginsforbuttonstimeline">
+                <button class="buttonstyle5">@Html.ActionLink("Like", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <button class="buttonstyle5">@Html.ActionLink("Report", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <button class="buttonstyle5">@Html.ActionLink("Open", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <button class="buttonstyle5">@Html.ActionLink("Download", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+            </div>
+        </div>
+        <br />
+        <div class="grid_1 pull_2">
+            <form>
+                <textarea class="postbox" type="text" name="Post Box" rows="5">Write text Here</textarea>
+            </form>
+            <div class="grid_1">
+                <div class="paddingfortimeline">
+                    <select>
+                        <option value="Tilburg">Tilburg</option>
+                        <option value="Eindhoven">Eindhoven</option>
+                        <option value="Amsterdam">Amsterdam</option>
+                        <option value="Den Haag">Den Haag</option>
+                    </select>
+                    <button class="buttonstyle4">@Html.ActionLink("Post", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Account sidebar-->
+    <div class="grid_1 push_4">
+        <div class="logo">
+            <img src="http://placehold.it/150">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+    </div>
+</div>

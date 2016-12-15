@@ -43,6 +43,22 @@ textarea {
     min-width: 140px;
 }
 
+.buttonstyle4 {
+    margin-top: 10px;
+    min-width: 50px;
+}
+
+.buttonstyle5 {
+    margin-top: 10px;
+    min-width: 100px;
+}
+
+.buttonstyle6 {
+    margin-top: 10px;
+    margin-left: -30px;
+    min-width: 140px;
+}
+
 
 .logo{
     margin-left: 33px;
@@ -61,6 +77,25 @@ textarea {
 
 .inputtype{
     width: 270px;
+}
+
+.timeline{
+    min-width: 750px;
+}
+
+.postbox{
+    margin-top: -10px;
+    margin-left: -10px;
+    min-width: 200px;
+}
+
+.paddingfortimeline{
+    margin-left: -20px;
+    margin-top: 10px;
+}
+
+.marginsforbuttonstimeline{
+    margin-left: 40px;
 }
 
 /* Container
