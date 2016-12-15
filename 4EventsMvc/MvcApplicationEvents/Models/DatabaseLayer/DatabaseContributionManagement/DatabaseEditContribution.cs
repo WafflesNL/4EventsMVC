@@ -23,7 +23,8 @@ namespace MvcApplicationEvents.Models
 
                     cmd.CommandText = "LikePost";
                     cmd.Parameters.AddWithValue("@PostID", PostID);
-              
+                    cmd.Parameters.AddWithValue("@AccountID", CurrentAccount.ID);
+
                     cmd.ExecuteNonQuery();
 
                     return true;
@@ -42,11 +43,37 @@ namespace MvcApplicationEvents.Models
         }
 
 
-
-
-
         public static bool ReportPost(int PostID)
         {
+            if (DatabaseAcces.OpenConnection())
+            {
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.CommandText = "ReportPost";
+                    cmd.Parameters.AddWithValue("@PostID", PostID);
+                    cmd.Parameters.AddWithValue("@AccountID", CurrentAccount.ID);
+
+                    cmd.ExecuteNonQuery();
+
+                    return true;
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
+
+            }
+            return false;
 
             return true;
         }
