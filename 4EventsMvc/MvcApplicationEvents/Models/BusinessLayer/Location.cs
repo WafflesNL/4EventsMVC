@@ -13,12 +13,12 @@ namespace MvcApplicationEvents.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public string Street { get; set; }
-        public int NR { get; set; }
+        public string NR { get; set; }
         public string Postcode { get; set; }
         public string Place { get; set; }
 
 
-        public Location(int id, string name, string street, int nr, string postcode, string place)
+        public Location(int id, string name, string street, string nr, string postcode, string place)
         {
             this.ID = id;
             this.Name = name;

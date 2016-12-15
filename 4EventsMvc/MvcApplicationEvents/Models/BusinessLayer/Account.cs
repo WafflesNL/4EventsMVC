@@ -54,6 +54,20 @@ namespace MvcApplicationEvents.Models
         }
 
         /// <summary>
+        /// Used to create account information in the database
+        /// </summary>
+        /// <param name="username">Username of a user used for Authentication</param>
+        /// <param name="password">Password of a user used for Authentication</param>
+        /// <param name="id">Function of a user used for authorization<param> 
+        public Account(int ID, string username, string password)
+        {
+            this.ID = ID;
+            this.Username = username;
+            this.Password = password;
+  
+        }
+
+        /// <summary>
         /// Check if changes for account are allowed in the database
         /// </summary>
         /// <returns>True if changes are allowed false if not</returns>
