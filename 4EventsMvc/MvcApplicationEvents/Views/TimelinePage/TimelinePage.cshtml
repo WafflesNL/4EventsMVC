@@ -5,6 +5,21 @@
 @using MvcApplicationEvents.Models;
 @model List<Contribution>
 
+<script type="text/javascript">
+
+function getSelectedItems(){
+    var items = "";
+    var frm = document.forms[0].s1;
+    var len = frm.length;
+    for(i=0;i<len;i++){
+        if(frm[i].selected){
+            items += frm[i].value + "~";
+        }
+    }
+    return items;
+}
+</script>
+
 <br />
 <div class="container_16">
     <div class="grid_9 pull_1">
@@ -14,6 +29,7 @@
                     <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
                 }
         </select>
+        <input type="button" value="Submit" onclick="alert(getSelectedItems());" />
         <div class="grid_1 push_4">
             <button class="buttonstyle6">@Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
