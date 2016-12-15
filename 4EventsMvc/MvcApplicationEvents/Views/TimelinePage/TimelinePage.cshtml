@@ -2,12 +2,18 @@
 @{
     ViewBag.Title = "TimelinePage";
 }
+@using MvcApplicationEvents.Models;
+@model List<Contribution>
+
 <br />
 <div class="container_16">
     <div class="grid_9 pull_1">
-        <form>
-            <textarea class="timeline" type="text" name="Timeline" rows="20">Timeline</textarea>
-        </form>
+        <select class="timeline" size="20" name="Options">
+                @foreach (var C in Model)
+                {
+                    <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
+                }
+        </select>
         <div class="grid_1 push_4">
             <button class="buttonstyle6">@Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
