@@ -111,23 +111,21 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        //maakt nieuw contribution aan voor huidig event
+        public bool CreateContribution(Contribution Contribution)
+        {
+            if (DatabaseCreateContribution.CreateContribution(Contribution, this.ID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
-        /// <summary>
-        /// Checks if the date for an newly created event is valid
-        /// </summary>
-        /// <returns>True if date is valid false if not</returns>
-        //public bool CheckDateAndLocation()
-        //{
-        //    DateTime Date = DateTime.Now.AddDays(14); //De datum mag niet zijn op een datum waar al een ander event voor staat gepland (en op dezelfde plaats)
-        //    if (DatabaseGetEvent(Date, DateEnd, Location)) //database query die 1 row teruggeeft als er al een event bestaat en niets wanneer niet
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //
+
+
 
         /// <summary>
         /// Get a Guests list for a specific event (people who are present at an event)
