@@ -4,18 +4,45 @@
 }
 @using MvcApplicationEvents.Models;
 @model List<Place>
-
-<table>
-    <tbody>
-        @for (int i = 0; i < Model.Count/3; i++)
-        {
-            <tr>
-                @for (int k = 0; k < 3; k++)
+<br />
+<div class="container_16">
+    <div class="grid_1 pull_1">
+        <table>
+            <tbody>
+                @for (int i = 0; i < Model.Count / 4; i++)
                 {
-                    <td>test</td>
+                    <tr>
+                        @for (int k = 0; k < 4; k++)
+                        {
+                            <td class="tablepadding"><button class="buttonstyle5">@Html.ActionLink("Placeholder", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand buttonstyle7" })</button></td>
+                        }
+                    </tr>
                 }
-            </tr>
-        }
-    </tbody>
-</table>
+            </tbody>
+        </table>
+        <div class="grid_1">
+            <form>
+                <textarea class="accountlistbox" type="text" name="Post Box" rows="10">Lijst van Accounts</textarea>
+            </form>
+            <button class="buttonstyle8">@Html.ActionLink("Voeg Toe", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+            <button class="buttonstyle8">@Html.ActionLink("Verwijder", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+        <div class="grid_1 push_3">
+            <form>
+                <textarea class="accountlistbox1" type="text" name="Post Box" rows="10">Lijst van Gereserveerde Accounts</textarea>
+            </form>
+        </div>
+        <div class="grid_1">
+            <button class="buttonstyle8">@Html.ActionLink("Geselecteerde Plaatsen", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        </div>
+    </div>
 
+    <!--Account sidebar-->
+    <div class="grid_1 push_12">
+        <div class="logo">
+            <img src="~/Content/Images/4Events.jpg">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+    </div>
+    </div>
