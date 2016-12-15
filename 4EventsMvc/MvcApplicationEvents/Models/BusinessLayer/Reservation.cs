@@ -29,7 +29,7 @@ namespace MvcApplicationEvents.Models
         }
 
         //ophalen
-        public Reservation(int id, bool paid, DateTime datestart, DateTime dateend, Place place, Person person, List<Account> accountlist)
+        public Reservation(int id, bool paid, DateTime datestart, DateTime dateend, Place place, Person person, List<Account> accountlist, Event Event)
         {
             this.ID = id;
             this.paid = paid;
@@ -38,6 +38,7 @@ namespace MvcApplicationEvents.Models
             this.Place = place;
             this.Person = person;
             this.AccountList = accountlist;
+            this.Event = Event;
         }
 
 
