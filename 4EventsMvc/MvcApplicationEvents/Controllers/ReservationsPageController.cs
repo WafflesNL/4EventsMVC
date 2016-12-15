@@ -12,6 +12,11 @@ namespace MvcApplicationEvents.Controllers
         // GET: ReservationsPage
         public ActionResult ReservationsPage()
         {
+            List<Place> placelist = new List<Place>();
+            for (int i = 0; i < 12; i++)
+            {
+                placelist.Add(new Place(1, 5, 10, false));
+            }
             return View();
         }
 

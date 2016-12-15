@@ -2,6 +2,20 @@
 @{
     ViewBag.Title = "ReservationsPage";
 }
+@using MvcApplicationEvents.Models;
+@model List<Place>
 
-<h2>ReservationsPage</h2>
+<table>
+    <tbody>
+        @for (int i = 0; i < Model.Count/3; i++)
+        {
+            <tr>
+                @for (int k = 0; k < 3; k++)
+                {
+                    <td>test</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
 
