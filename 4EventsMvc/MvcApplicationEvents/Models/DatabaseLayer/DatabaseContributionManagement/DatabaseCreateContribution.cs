@@ -7,5 +7,14 @@ namespace MvcApplicationEvents.Models
 {
     public static class DatabaseCreateContribution
     {
+        public static bool CreateContribution(Contribution Contribution, int EventID)
+        {
+
+
+
+
+
+            return true;
+        }
     }
 }

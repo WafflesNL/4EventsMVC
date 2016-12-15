@@ -123,6 +123,25 @@ namespace MvcApplicationEvents.Models
             return function;
         }
 
+        //verkrijg het password en gebruikersnaam uit de database
+        public static bool GetIDandPassword()
+        {
+            Account Account = DatabaseGetAccount.GetUserIDPassword(Username);
+            if (Account != null)
+            {
+                Password = Account.Password;
+                ID = Account.ID;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
         /// <summary>
         /// Gets all events from the database
         /// </summary>

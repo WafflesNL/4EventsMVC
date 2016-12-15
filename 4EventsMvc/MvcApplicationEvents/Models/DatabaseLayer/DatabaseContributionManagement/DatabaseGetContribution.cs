@@ -10,6 +10,7 @@ namespace MvcApplicationEvents.Models
 {
     public static class DatabaseGetContribution
     {
+        //haald alle posts op van desbetreffend event
         public static List<Contribution> GetContributions(int EventID)
         {
             List<Contribution> ContributionList = new List<Contribution>();
