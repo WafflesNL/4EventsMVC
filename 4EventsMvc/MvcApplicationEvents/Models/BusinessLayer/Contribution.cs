@@ -27,13 +27,14 @@ namespace MvcApplicationEvents.Models
         /// <param name="likes">The amount of likes of a post</param> 
         /// <param name="file">The file belonging to the post</param>
         /// <param name="postID">This is the ID of the post reacted to</param>
-        public Contribution(DateTime datetime, string category, int likes, int reports, int postid)
+        public Contribution(DateTime datetime, string category, int likes, int reports, int postid, Message message)
         {           
             this.Category = category;    
             this.Likes = likes;
             this.Reports = reports;
             this.PostID = postid;
             this.DateTime = datetime;
+            this.Message = message;
         }
 
         /// <summary>

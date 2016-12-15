@@ -10,11 +10,15 @@ namespace MvcApplicationEvents.Controllers
     public class TimelinePageController : Controller
     {
         Event Event; //Ik weet niet of dit zo werkt dus er zal mee getest moeten worden.
-
+        public List<Contribution> Contriblist = new List<Contribution>();
         // GET: TimelinePage
         public ActionResult TimelinePage()
-        {
-            return View();
+        {        
+            for (int i = 0; i < 12; i++)
+            {
+                Contriblist.Add(new Contribution(DateTime.Now, "Dank", 2, 2, 1, new Message("Cunt", "Content")));
+            }
+            return View(Contriblist);
         }
 
         public ActionResult SetEvent(Event Event) //test

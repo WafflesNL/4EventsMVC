@@ -102,7 +102,7 @@ textarea {
 }
 
 .postbox{
-    margin-top: -10px;
+    margin-top: 10px;
     margin-left: -10px;
     min-width: 200px;
 }
