@@ -60,6 +60,32 @@ namespace MvcApplicationEvents.Models
             this.DateTime = datetime;
         }
 
+        public bool likePost()
+        {
+            if (DatabaseEditContribution.LikePost(ID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ReportPost()
+        {
+            if (DatabaseEditContribution.ReportPost(ID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
         public void AddReply(int ContributionID)
         {
             this.ContributionID = ContributionID;
