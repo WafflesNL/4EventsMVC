@@ -97,6 +97,7 @@ namespace MvcApplicationEvents.Models
             return Check;
         }
 
+        //alle post van huidig event worden hiermee opgehaald
         public bool GetContributions()
         {
             ContributionList = DatabaseGetContribution.GetContributions(ID);
