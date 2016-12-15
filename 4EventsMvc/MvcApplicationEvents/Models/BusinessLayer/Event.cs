@@ -127,6 +127,7 @@ namespace MvcApplicationEvents.Models
 
 
 
+
         /// <summary>
         /// Get a Guests list for a specific event (people who are present at an event)
         /// </summary>
