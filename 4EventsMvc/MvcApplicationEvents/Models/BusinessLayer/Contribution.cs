@@ -9,6 +9,7 @@ namespace MvcApplicationEvents.Models
     {
 
         public int ID { get; set; }
+        public int ContributionID { get; set; }
         public DateTime DateTime { get; set; }    
         public string Category { get; set; }
         public int Likes { get; set; }
@@ -32,6 +33,7 @@ namespace MvcApplicationEvents.Models
             this.Likes = likes;
             this.Reports = reports;
             this.PostID = postid;
+            this.DateTime = datetime;
         }
 
         /// <summary>
@@ -54,20 +56,38 @@ namespace MvcApplicationEvents.Models
             this.File = file;
             this.Message = message;
             this.Attachment = attachment;
+            this.DateTime = datetime;
         }
 
-        public bool CreateContribution(Contribution Contribution)
+        public bool likePost()
         {
-            //if (DatabaseCreateContribution.somemethod(Contribution))
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
-         
+            if (DatabaseEditContribution.LikePost(ID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool ReportPost()
+        {
+            if (DatabaseEditContribution.ReportPost(ID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        public void AddReply(int ContributionID)
+        {
+            this.ContributionID = ContributionID;
         }
 
         public void AddFile(byte[] file)

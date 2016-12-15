@@ -14,7 +14,6 @@ namespace MvcApplicationEvents.Models
         public static string Email { get; set; }
 
       
-
         /// <summary>
         /// Checks if an account exists in the database.
         /// </summary>

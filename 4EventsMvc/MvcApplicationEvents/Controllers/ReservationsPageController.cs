@@ -17,7 +17,7 @@ namespace MvcApplicationEvents.Controllers
             {
                 placelist.Add(new Place(1, 5, 10, false));
             }
-            return View();
+            return View(placelist);
         }
 
         //hiermee maakt gebruiker nieuwe reservering mee aan
