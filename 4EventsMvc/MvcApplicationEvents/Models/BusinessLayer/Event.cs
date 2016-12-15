@@ -111,6 +111,19 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        public bool GetReservations()
+        {
+            ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
+            if (ReservationList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //maakt nieuw contribution aan voor huidig event
         public bool CreateContribution(Contribution Contribution)
         {

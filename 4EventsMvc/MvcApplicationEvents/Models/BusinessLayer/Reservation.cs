@@ -7,6 +7,7 @@ namespace MvcApplicationEvents.Models
 {
     public class Reservation
     {
+        public List<Account> AccountList { get; set; }
         public Account Account { get; set; }
         public Event Event { get; set; }
         public Person Person { get; set; }
@@ -28,16 +29,16 @@ namespace MvcApplicationEvents.Models
         }
 
         //ophalen
-        //public Reservation(int id, bool paid, DateTime datestart, DateTime dateend, Place place, Person person, List<Account> accountlist)
-        //{
-        //    this.ID = id;
-        //    this.paid = paid;
-        //    this.Datestart = datestart;
-        //    this.Dateend = dateend;
-        //    this.Place = place;
-        //    this.Person = person;
-        //    //this.AccountList = accountlist;
-        //}
+        public Reservation(int id, bool paid, DateTime datestart, DateTime dateend, Place place, Person person, List<Account> accountlist)
+        {
+            this.ID = id;
+            this.paid = paid;
+            this.Datestart = datestart;
+            this.Dateend = dateend;
+            this.Place = place;
+            this.Person = person;
+            this.AccountList = accountlist;
+        }
 
 
 

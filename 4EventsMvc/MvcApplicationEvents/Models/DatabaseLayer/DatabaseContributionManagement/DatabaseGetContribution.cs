@@ -73,7 +73,7 @@ namespace MvcApplicationEvents.Models
                 }
 
             }
-            return null; ;
+            return null; 
         }
     }
 }
