@@ -59,6 +59,24 @@ textarea {
     min-width: 140px;
 }
 
+.buttonstyle7 {
+    min-width: 140px;
+    min-height: 40px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.buttonstyle8 {
+    margin-top: 10px;
+    margin-left: inherit;
+    min-width: 140px;
+    width: auto;
+}
+
+.buttonstyle9 {
+    min-width: 140px;
+    display: inline-block;
+}
 
 .logo{
     margin-left: 33px;
@@ -89,6 +107,19 @@ textarea {
     min-width: 200px;
 }
 
+.accountlistbox{
+    margin-top: -10px;
+    margin-left: 10px;
+    min-width: 250px;
+}
+
+.accountlistbox1{
+    margin-top: -280px;
+    margin-left: 120px;
+    min-width: 250px;
+    width: auto;
+}
+
 .paddingfortimeline{
     margin-left: -20px;
     margin-top: 10px;
@@ -96,6 +127,15 @@ textarea {
 
 .marginsforbuttonstimeline{
     margin-left: 40px;
+}
+
+.tablepadding{
+    padding: 20px;
+}
+
+.spacingselect{
+    min-width: 140px;
+    margin-left: inherit;
 }
 
 /* Container

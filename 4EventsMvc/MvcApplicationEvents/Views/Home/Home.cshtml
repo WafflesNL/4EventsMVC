@@ -6,6 +6,12 @@
 <br />
     <div class="container_16">
         <div class="grid_1 pull_1">
+            <select>
+                <option value="Mededeling">Mededeling</option>
+                <option value="Muziek">Muziek</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Gezelligheid">Gezelligheid</option>
+            </select>
             <button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Materiaal", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Event Aanmaken", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
@@ -16,12 +22,12 @@
             <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
         <div class="grid_1 push_2">
-            <img src="http://placehold.it/580x300">
+            <img src="~/Content/Images/Frontpage.jpg">
         </div>
         <!--Account sidebar-->
         <div class="grid_1 push_11">
             <div class="logo">
-                <img src="http://placehold.it/150">
+                <img src="~/Content/Images/4Events.jpg">
                 <p class="logotext">ICT4Events</p>
             </div>
             <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
