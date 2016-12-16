@@ -22,7 +22,7 @@ namespace MvcApplicationEvents.Models
                     cmd.Connection = DatabaseAcces.connect;
 
 
-                    cmd.CommandText = "select * from RESERVATION rwhere r.EventID = @EventID";
+                    cmd.CommandText = "select * from RESERVATION where r.EventID = @EventID";
                     cmd.Parameters.Add(new SqlParameter("EventID", EventID));
 
                     SqlDataReader reader = cmd.ExecuteReader();
