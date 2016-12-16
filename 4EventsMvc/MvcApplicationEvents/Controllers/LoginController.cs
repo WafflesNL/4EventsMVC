@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcApplicationEvents.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,7 +17,19 @@ namespace MvcApplicationEvents.Controllers
 
         public ActionResult btnLogin(string Username, string Password)
         {
-            return View();
+            if (CurrentAccount.Login(Username, Password) == true)
+            {
+                return RedirectToAction("Home", "Home");
+            }
+
+            else
+            {
+                Username = null;
+                Password = null;
+                return View();
+            }
+           
+            
         }
     }
 }

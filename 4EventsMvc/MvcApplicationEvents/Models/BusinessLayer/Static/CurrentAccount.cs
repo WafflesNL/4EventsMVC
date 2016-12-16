@@ -1,5 +1,4 @@
-﻿using MvcApplicationEvents.Models.ActiveDirectory;
-using MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement;
+﻿using MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +12,7 @@ namespace MvcApplicationEvents.Models
         public static string Password{ get; set; }
         public static int ID { get; set; }
         public static Function Function { get; set; }
-        public static string Email { get; set; }
+     //   public static string Email { get; set; }
 
       
         /// <summary>
@@ -25,19 +24,18 @@ namespace MvcApplicationEvents.Models
         public static bool Login(string password, string username)
         {
             Account account = DatabaseLogin.CheckUser(Password, Username);
-            if (account != null)
-            {   
+            string user = ActiveDirectory.GetUser(username);
+            Function func = ActiveDirectory.GetGroupFromUser(username);
+            if (account != null && user != null && func != 0)
+            {
+                ID = account.ID;
+                Username = user;
+                Function = func;
+                Password = account.Password;
+                return true;
+            }
 
-                account.Password = Password; }
-            //if (ID != 0 && GetUserName(ID) && GetPassword(ID) && GetName(ID) && GetFunction(ID) && GetEventID(ID))
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
+            else { return false; }
         }
 
         /// <summary>
