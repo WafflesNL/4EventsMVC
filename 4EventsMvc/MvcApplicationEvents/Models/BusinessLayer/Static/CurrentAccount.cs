@@ -27,6 +27,7 @@ namespace MvcApplicationEvents.Models
             Account account = DatabaseLogin.CheckUser(Password, Username);
             if (account != null)
             {   
+
                 account.Password = Password; }
             //if (ID != 0 && GetUserName(ID) && GetPassword(ID) && GetName(ID) && GetFunction(ID) && GetEventID(ID))
             //{
