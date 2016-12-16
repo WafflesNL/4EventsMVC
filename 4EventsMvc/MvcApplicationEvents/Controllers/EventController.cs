@@ -29,6 +29,12 @@ namespace MvcApplicationEvents.Controllers
             }      
         }
 
+        public ActionResult GetEventInformation(Event parameterEvent)
+        {
+            return View("Event", parameterEvent);
+        }
+
+
         public ActionResult btnGuestList()
         {
             return View();
