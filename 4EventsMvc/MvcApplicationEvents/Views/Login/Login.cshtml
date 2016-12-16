@@ -2,19 +2,28 @@
 @{
     ViewBag.Title = "Login";
 }
+
+<img class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4" alt="Logo goes here" />
 <br />
-<div class="container_16">
-    <div class="grid_1 push_6">
-            <form>
-                Username:
-                <input class="inputtype" type="text" name="Username"><br>
-                Password:
-                <input class="inputtype" type="text" name="Password">
-            </form>
-        <div class="grid_1 push_1">
-            <button class="buttonstyle2">@Html.ActionLink("Login", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</button>
-            <button class="buttonstyle2">@Html.ActionLink("Register", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+<form role="form" class="form-horizontal" action=@Url.Action("", "") method="post">
+
+    <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            <label for="naam">Naam</label>
+            <input type="text" id="tbName" name="tbName" class="form-control" placeholder="tbName" />
         </div>
     </div>
-        
-</div>
+
+    <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            <label for="naam">Wachtwoord</label>
+            <input type="password" id="tbPassword" name="tbPassword" class="form-control" placeholder="tbPassword" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-xs-12 col-sm-12 col-md-offset-3 col-md-6 col-lg-offset-4 col-lg-4">
+            <input name="LoginSubmit" type="submit" value="Login" class="btn btn-primary" />&nbsp; &nbsp;<input name="LoginSubmit" type="submit" value="Register" class="btn btn-primary" />
+        </div>
+    </div>
+</form>

@@ -15,6 +15,7 @@ namespace MvcApplicationEvents.Controllers
             List<Event> EventList = CurrentAccount.GetEvents();
             return View(EventList);
         }
+  
 
         //public ActionResult HomeGetEvents()
         //{
@@ -22,6 +23,6 @@ namespace MvcApplicationEvents.Controllers
 
         //    //return View("Home", EventsList);
         //}
-      
+
     }
 }
