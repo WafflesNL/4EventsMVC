@@ -12,7 +12,8 @@ namespace MvcApplicationEvents.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            return View();
+            List<Event> EventList = CurrentAccount.GetEvents();
+            return View(EventList);
         }
 
         //public ActionResult HomeGetEvents()
@@ -21,6 +22,6 @@ namespace MvcApplicationEvents.Controllers
 
         //    //return View("Home", EventsList);
         //}
-        //vanuit hier zou constant de lijst van event opgevraagd moeten gaan worden
+      
     }
 }
