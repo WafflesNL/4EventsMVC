@@ -124,6 +124,32 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        //public bool GetGuests()
+        //{
+        //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
+        //    if (ReservationList.Count != 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        //public bool GetMaterial()
+        //{
+        //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
+        //    if (ReservationList.Count != 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
         //maakt nieuw contribution aan voor huidig event
         public bool CreateContribution(Contribution Contribution)
         {

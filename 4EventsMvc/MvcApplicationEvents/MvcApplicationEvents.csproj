@@ -114,11 +114,14 @@
     <Compile Include="Controllers\AccountviewController.cs" />
     <Compile Include="Controllers\CreateEventController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventViews\GuestListViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\EventViews\MaterialViewController.cs" />
     <Compile Include="Controllers\MaterialPageController.cs" />
     <Compile Include="Controllers\RentalPageController.cs" />
     <Compile Include="Controllers\ReservationsPageController.cs" />
+    <Compile Include="Controllers\EventViews\ReservationViewController.cs" />
     <Compile Include="Controllers\TimelinePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -190,6 +193,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GuestListView\" />
+    <Folder Include="Views\Material\" />
+    <Folder Include="Views\ReservationView\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
