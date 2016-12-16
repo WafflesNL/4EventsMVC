@@ -23,20 +23,24 @@ function getSelectedItems(){
 <br />
 <div class="container_16">
     <div class="grid_9 pull_1">
-        <select class="timeline" size="20" name="Options">
-                @foreach (var C in Model)
-                {
-                    <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
-                }
-        </select>
-        <input type="button" value="Submit" onclick="alert(getSelectedItems());" />
+        <form id="form1">
+            <div>
+                    <select id="s1" class="timeline" size="20" name="Options">
+                        @foreach (var C in Model)
+                        {
+                            <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
+                        }
+                    </select>
+                <input type="button" value="Submit" onclick="getSelectedItems();" />
+            </div>
+        </form>
         <div class="grid_1 push_4">
             <button class="buttonstyle6">@Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
         <div class="grid_1 push_9">
             <div class="marginsforbuttonstimeline">
                 <button class="buttonstyle5">@Html.ActionLink("Like", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
-                <button class="buttonstyle5">@Html.ActionLink("Report", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <input type="button" value="Report" onclick="alert(getSelectedItems());" />
                 <button class="buttonstyle5">@Html.ActionLink("Open", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
                 <button class="buttonstyle5">@Html.ActionLink("Download", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
             </div>
