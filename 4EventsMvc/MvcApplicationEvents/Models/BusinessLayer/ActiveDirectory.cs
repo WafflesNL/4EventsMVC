@@ -4,15 +4,32 @@ using System.Linq;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
 
-namespace MvcApplicationEvents.Models.ActiveDirectory
+namespace MvcApplicationEvents.Models
 {
-    public static class AD
+    public static class ActiveDirectory
     {
         public static string GetUser(string accountname)
-        {   
-            UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
-           (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
-            return "";
+        {
+            try
+            {
+                UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
+               (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
+
+                if (user.SamAccountName == accountname)
+                {
+                    return user.SamAccountName;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception)
+            {
+                // do something with this error
+                return null;
+            }
+           
         }
         public static void CreateUser(string accountname, string password, string email)
         {
