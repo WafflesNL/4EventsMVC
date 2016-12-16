@@ -123,10 +123,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessLayer\Account.cs" />
-    <Compile Include="Models\BusinessLayer\AD.cs" />
+    <Compile Include="Models\BusinessLayer\ActiveDirectory.cs" />
     <Compile Include="Models\BusinessLayer\Contribution.cs" />
     <Compile Include="Models\BusinessLayer\Copy.cs" />
     <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseLogin.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseLocationManagement\DatabaseGetlocation.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCreateAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseCreateContribution.cs" />
