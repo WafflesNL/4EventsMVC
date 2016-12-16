@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MvcApplicationEvents.Models.ActiveDirectory;
+using MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,13 +19,15 @@ namespace MvcApplicationEvents.Models
         /// <summary>
         /// Checks if an account exists in the database.
         /// </summary>
-        /// <param name="Password">The password of an account</param>
+        /// <param name="password">The password of an account</param>
         /// <param name="Username">The username of an account</param>
         /// <returns>Trie if an account exists false if not</returns>
-        public static bool Login(string Password, string Username)
+        public static bool Login(string password, string username)
         {
-            //ID = DatabaseLogin.CheckUser(Password, Username);
-
+            Account account = DatabaseLogin.CheckUser(Password, Username);
+            if (account != null)
+            {   ActiveDirectory.CheckUser
+                account.Password = Password; }
             //if (ID != 0 && GetUserName(ID) && GetPassword(ID) && GetName(ID) && GetFunction(ID) && GetEventID(ID))
             //{
             //    return true;
