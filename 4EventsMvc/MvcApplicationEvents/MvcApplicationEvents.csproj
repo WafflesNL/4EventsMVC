@@ -48,6 +48,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,6 +123,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessLayer\Account.cs" />
+    <Compile Include="Models\BusinessLayer\AD.cs" />
     <Compile Include="Models\BusinessLayer\Contribution.cs" />
     <Compile Include="Models\BusinessLayer\Copy.cs" />
     <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
