@@ -34,12 +34,11 @@ namespace MvcApplicationEvents.Models
                         DateTime dateend = Convert.ToDateTime(reader["dateend"]);
                         bool Paid = Convert.ToBoolean(reader["paid"]);
 
-                        //Place Palce = databasegetplace
+                        Place Place = DatabaseGetPlace.GetPlaceByReservation(ID);
+                        Event Event = DatabaseGetEvent.GetEventByID(EventID);
+                        List<Account> AccountList = DatabaseGetAccount.GetAccountsInReservation(ID);
 
-                        //Event Event = DatabaseGetEvent
-                        //List<Account> AccountList = databasegetaccountList
-
-                        Reservation Reservation = new Reservation(ID, Paid, datestart, dateend, null, null, null, null);                 
+                        Reservation Reservation = new Reservation(ID, Paid, datestart, dateend, Place, null, AccountList, null);                 
                         ReservationList.Add(Reservation);
                     }
 

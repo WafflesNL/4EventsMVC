@@ -165,6 +165,7 @@
     <Compile Include="Models\BusinessLayer\Reservation.cs" />
     <Compile Include="Models\BusinessLayer\Wristband.cs" />
     <Compile Include="Models\BusinessLayer\Enum\Function.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabasePlaceManagement\DatabaseGetPlace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

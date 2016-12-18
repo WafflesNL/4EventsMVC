@@ -9,6 +9,7 @@ namespace MvcApplicationEvents.Models
     {
         public List<Reservation> ReservationList = new List<Reservation>();
         public List<Contribution> ContributionList = new List<Contribution>();
+        public List<Account> GuestList = new List<Account>();
 
         public int ID { get; set; } 
         public string Name { get; set; }
@@ -124,6 +125,19 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        public bool GetGuestList()
+        {
+            GuestList = DatabaseGetAccount.GetGuest(ID);
+            if (ReservationList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         //public bool GetGuests()
         //{
         //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
@@ -197,13 +211,15 @@ namespace MvcApplicationEvents.Models
         //    return ReservationList;
         //}
 
-        public void CheckinAccount()
+        public void CheckinAccount(int Barcode)
         {
+
             //met barcode
         }
 
-        public void CheckoutAccount()
+        public void CheckoutAccount(int barcode)
         {
+
             //met barcode
         }
 
