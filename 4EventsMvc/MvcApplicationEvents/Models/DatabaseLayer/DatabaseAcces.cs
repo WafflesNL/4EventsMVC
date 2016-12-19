@@ -22,8 +22,8 @@ namespace MvcApplicationEvents.Models
             try
             {
                 connect.ConnectionString =
-                    // "Data Source=mssql.fhict.local;Initial Catalog=dbi336545;User ID=dbi336545;Password=Fontysproject"; 
-                    "Server=4EVENTSDATABASE;Database=4Events;User ID=4Events;Password=Password1";
+                    "Data Source=mssql.fhict.local;Initial Catalog=dbi336545;User ID=dbi336545;Password=Fontysproject"; 
+                    //"Server=4EVENTSDATABASE;Database=4Events;User ID=4Events;Password=Password1";
                 //  "Server=4EVENTSDATABASE;Database=4EVENTSDATABASE;User ID=4Events;Password=Password1";
 
                 connect.Open();

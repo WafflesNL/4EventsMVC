@@ -6,36 +6,35 @@
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
-        <form>
+        <form></form>
             Eventnaam:
-            <input type="text" name="Eventname"><br>
+            <input class="form-control" type="text" name="Eventname"><br>
             Eventbeschrijving:
-            <textarea type="text" name="Eventdescription" cols="40" rows="6"></textarea>
-        </form>
+            <textarea class="form-control" type="text" name="Eventdescription" cols="60" rows="6"></textarea>
+     
         <p>Locatie:</p>
-        <select>
+        <select class="form-control">
             <option value="Tilburg">Tilburg</option>
             <option value="Eindhoven">Eindhoven</option>
             <option value="Amsterdam">Amsterdam</option>
             <option value="Den Haag">Den Haag</option>
         </select>
-        <form>
+  
             Begin Eventdatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
-            Eind maximum Eventdatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
+            <input type="date" class="form-control" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+     
+            Eind Eventdatum
+            <input type="date" class="form-control" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+   
             Max aantal Bezoekers:
-            <input type="number" name="quantity" min="5"><br />
-        </form>
+            <input class="form-control" type="number" name="quantity" min="5"><br />
+      
         <button class="buttonstyle1">@Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
         <div class="push_3">
             <button class="buttonstyle2">@Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
     </div>
+    </form>
 
     <!--Account sidebar-->
     <div class="grid_1 push_11">
