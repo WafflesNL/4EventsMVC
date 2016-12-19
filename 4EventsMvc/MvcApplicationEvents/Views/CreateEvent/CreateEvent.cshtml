@@ -6,35 +6,37 @@
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
-        <form></form>
+        <form role="form" class="form-horizontal" action=@Url.Action("btnCreate", "CreateEvent") method="post">
             Eventnaam:
             <input class="form-control" type="text" name="Eventname"><br>
             Eventbeschrijving:
-            <textarea class="form-control" type="text" name="Eventdescription" cols="60" rows="6"></textarea>
-     
-        <p>Locatie:</p>
-        <select class="form-control">
-            <option value="Tilburg">Tilburg</option>
-            <option value="Eindhoven">Eindhoven</option>
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Den Haag">Den Haag</option>
-        </select>
-  
+            <textarea class="form-control btnOpmaak3" type="text" name="Eventdescription" cols="60" rows="6"></textarea>
+
+            <p>Locatie:</p>
+            <select class="form-control" name="Location">
+                <option value="Tilburg">Tilburg</option>
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Den Haag">Den Haag</option>
+            </select>
+
             Begin Eventdatum
-            <input type="date" class="form-control" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-     
+            <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+
             Eind Eventdatum
-            <input type="date" class="form-control" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-   
+            <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+
             Max aantal Bezoekers:
             <input class="form-control" type="number" name="quantity" min="5"><br />
-      
-        <button class="buttonstyle1">@Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        <div class="push_3">
-            <button class="buttonstyle2">@Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+
+            <div class="push_3">
+                <input type="submit" class="btn btn-primary btnOpmaak1" value="Create Event" />
+                </div>
+        </form>
         </div>
     </div>
-    </form>
+    
+
+
 
     <!--Account sidebar-->
     <div class="grid_1 push_11">
@@ -44,5 +46,5 @@
         </div>
         @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
     </div>
-</div>
+
 

@@ -579,7 +579,7 @@ textarea {
 
 .btnOpmaak1
 {
-    width: 100px; 
+    width: 200px; 
     height: 40px;
 }
 .btnOpmaak2
@@ -588,6 +588,13 @@ textarea {
     height: 40px;
     margin-left: 40px;
 }
+
+.btnOpmaak3
+{
+    width: 400px; 
+}
+
+
 
 .btnAccountPosition {
     position: absolute;
