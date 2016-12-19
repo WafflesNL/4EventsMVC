@@ -112,6 +112,20 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        //alle contribution met een bepaalde category
+        public bool GetcontributionsCategory(string category)
+        {
+            ContributionList = DatabaseGetContribution.GetContributionsCategory(ID, category);
+            if (ContributionList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool GetReservations()
         {
             ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
@@ -179,7 +193,7 @@ namespace MvcApplicationEvents.Models
 
         public bool CheckinAccount(string Barcode)
         {
-            if (DatabaseEditEvent.checkIn(Barcode))
+            if (DatabaseEditEvent.checkIn(Barcode, ID))
             {
                 return true;
             }
@@ -191,7 +205,7 @@ namespace MvcApplicationEvents.Models
 
         public bool CheckoutAccount(string barcode)
         {
-            if (DatabaseEditEvent.checkOut(barcode))
+            if (DatabaseEditEvent.checkOut(barcode, ID))
             {
                 return true;
             }
