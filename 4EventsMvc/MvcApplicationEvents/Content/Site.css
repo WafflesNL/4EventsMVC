@@ -573,11 +573,23 @@ textarea {
 
 .btnOpmaak
 {
-    width: 210%; 
+    width: 200%; 
     height: 40px;
+}
+
+.btnOpmaak1
+{
+    width: 100px; 
+    height: 40px;
+}
+.btnOpmaak2
+{
+    width: 200px; 
+    height: 40px;
+    margin-left: 40px;
 }
 
 .btnAccountPosition {
     position: absolute;
     left: 60px;
-}
+}/*test*/

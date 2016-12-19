@@ -32,5 +32,10 @@ namespace MvcApplicationEvents.Controllers
             Event.GetContributions();
             return View("TimelinePage", Event);
         }
+
+        public ActionResult btnSelectpost(int contrib)
+        {           
+            return View(contrib);
+        }
     }
 }

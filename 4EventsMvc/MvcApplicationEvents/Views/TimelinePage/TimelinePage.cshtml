@@ -18,6 +18,23 @@ function getSelectedItems(){
     }
     return items;
 }
+
+    function post()
+    {
+        document.getElementById('contrib').value = getSelectedItems();
+    }
+
+    function Getindex() {
+        var x = document.getElementById("s1").selectedIndex;
+        var y = document.getElementById("s1").options;
+        var z = y[x].index;
+        return setMyValue(z);
+    }
+
+    function setMyValue(value) {
+        $('#Index').val(value);
+        alert(value);
+    }
 </script>
 
 <br />
@@ -25,25 +42,46 @@ function getSelectedItems(){
     <div class="grid_9 pull_1">
         <form id="form1">
             <div>
-                    <select id="s1" class="timeline" size="20" name="Options">
+                 <select id="s1" class="timeline" size="20" name="Options">
                         @foreach (var C in Model)
                         {
                             <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
                         }
-                    </select>
+                 </select>
             </div>
         </form>
         <div class="grid_1 push_4">
-            <button class="buttonstyle6">@Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+            @Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak" })
         </div>
         <div class="grid_1 push_9">
             <div class="marginsforbuttonstimeline">
-                <input type="button" value="Like" onclick="alert(getSelectedItems());" />
-                <input type="button" value="Report" onclick="alert(getSelectedItems());" />
-                <input type="button" value="Open" onclick="alert(getSelectedItems());" />
-                <input type="button" value="Download" onclick="alert(getSelectedItems());" />
+                <form role="form" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        @using (Html.BeginForm("btnSelectPost", "TimelinePageController"))
+                        {
+                            <input type="hidden" name="contrib" id="contrib" />
+                            <input type="submit" value="Like" onclick="setMyValue()" class="btn btn-primary btnOpmaak1" />
+                            @Html.Hidden("Index", null)
+                        }                       
+                    </div>
+                </form>       
+                <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                    <div class="form-group">
+                         <input type="button" value="Report" class="btn btn-primary btnOpmaak1" />
+                    </div>
+                </form>  
+                <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                    <div class="form-group">
+                         <input type="button" value="Open" class="btn btn-primary btnOpmaak1" />
+                    </div>
+                </form>  
+                <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                    <div class="form-group">
+                         <input type="button" value="Download" class="btn btn-primary btnOpmaak1" />
+                    </div>
+                </form>  
+                    </div>
             </div>
-        </div>
         <br />
         <div class="grid_1 pull_2">
             <form>
@@ -68,6 +106,6 @@ function getSelectedItems(){
             <img src="~/Content/Images/4Events.jpg">
             <p class="logotext">ICT4Events</p>
         </div>
-        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
     </div>
 </div>
