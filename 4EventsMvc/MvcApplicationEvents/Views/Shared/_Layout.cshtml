@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using MvcApplicationEvents.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,11 +19,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            
+            </div>     
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (CurrentAccount.ID != 0)
+                    {                   
+                    <li>@Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    }
                 </ul>
             </div>
         </div>
