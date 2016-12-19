@@ -15,18 +15,16 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult btnLogin(string Username, string Password)
+        public ActionResult Validate(string tbName, string tbPassword)
         {
-            if (CurrentAccount.Login(Username, Password) == true)
+            if (CurrentAccount.Login(tbPassword, tbName) == true)
             {
                 return RedirectToAction("Home", "Home");
             }
 
             else
             {
-                Username = null;
-                Password = null;
-                return View();
+                return View("Login");
             }
            
             

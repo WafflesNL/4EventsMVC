@@ -23,15 +23,18 @@ namespace MvcApplicationEvents.Models
         /// <returns>Trie if an account exists false if not</returns>
         public static bool Login(string password, string username)
         {
-            Account account = DatabaseLogin.CheckUser(Password, Username);
-            string user = ActiveDirectory.GetUser(username);
-            Function func = ActiveDirectory.GetGroupFromUser(username);
-            if (account != null && user != null && func != 0)
+            Account account = DatabaseLogin.CheckUser(password, username);
+          //  string user = ActiveDirectory.GetUser(username);
+          //  Function func = ActiveDirectory.GetGroupFromUser(username);
+   
+            if (account != null )//&& user != null && func != 0)
             {
                 ID = account.ID;
-                Username = user;
-                Function = func;
-                Password = account.Password;
+               Username = account.Username;
+             //  Username = user;
+               Function = Function.Bezoeker;
+             //  Function = func;
+               Password = account.Password;
                 return true;
             }
 
@@ -110,7 +113,7 @@ namespace MvcApplicationEvents.Models
             switch (ParameterFunction)
             {
                 case "Bezoeker":
-                    function = Function.Bezoeker;
+                    function = Function.Bezoeker;                   
                     break;
                 case "Beheerder":
                     function = Function.Beheerder;

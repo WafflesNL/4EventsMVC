@@ -3,3 +3,5 @@
 ################################################################################
 
 *.doc
+/4EventsMvc/MvcApplicationEvents/Properties/PublishProfiles
+/4EventsMvc/MvcApplicationEvents/obj/Release

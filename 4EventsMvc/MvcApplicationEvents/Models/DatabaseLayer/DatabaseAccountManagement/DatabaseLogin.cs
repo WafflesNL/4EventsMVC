@@ -8,7 +8,7 @@ namespace MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement
 {
     public class DatabaseLogin
     {
-        public static Account CheckUser(string Username, string Password)
+        public static Account CheckUser(string Password, string Username)
         {
             if (DatabaseAcces.OpenConnection())
             {
@@ -18,18 +18,20 @@ namespace MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "SELECT * FROM Account Where username = @Username AND password = @Password";
+                    cmd.CommandText = "SELECT ID , Username, Password FROM Account Where username = @Username AND password = @Password";
 
-                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    
                     cmd.Parameters.Add(new SqlParameter("Password", Password));
                     cmd.Parameters.Add(new SqlParameter("Username", Username));
-
+                    SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        int ID = Convert.ToInt32(reader["id"]);
+                        int ID = Convert.ToInt32(reader["ID"]);
                         string user = (reader["Username"].ToString());
                         string password = (reader["Password"].ToString());
-                        return new Account(ID, user, password);
+                        Account account = new Account(ID, user, password);
+                        return account;
                     }
                 }
                 catch (SqlException e)

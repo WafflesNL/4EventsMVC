@@ -73,24 +73,25 @@ namespace MvcApplicationEvents.Models
         public static Function GetGroupFromUser(string accountname)
         {
            
-            try
-            {
-                UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
+           // try
+          //  {
+               UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
               (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
                 foreach (GroupPrincipal group in user.GetGroups())
                 {
                     if (group.Name != "Domain Users")
                     {
                        string function = group.Name;
-                      return CurrentAccount.TranslateFunction(function);
+                       return CurrentAccount.TranslateFunction(function);
                     }               
                 }
-            }
-            catch (Exception)
-            {
-                 // do something with the error 
-            }
             return 0;
+       //     }
+        //    catch (Exception)
+          //  {
+                 // do something with the error 
+          //  }
+          //  return 0;
         }
     }
 }
