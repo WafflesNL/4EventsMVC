@@ -46,72 +46,18 @@ namespace MvcApplicationEvents.Models
 
         }
 
-        public static bool checkIn(string Barcode, int EventID)
+        public static bool checkIn(string Barcode)
         {
-            List<Event> EventList = new List<Event>();
 
-            if (DatabaseAcces.OpenConnection())
-            {
-                try
-                {
-                    DatabaseAcces.OpenConnection();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "Update ACCOUNT_COUPLING set present = 1 FROM WRISTBAND W join Account_Coupling AC on W.ID = AC.wristbandid join RESERVATION r on ac.reservationid = r.ID where barcode = @Barcode and r.EventID = @EventID";
-                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
-                    cmd.Parameters.Add(new SqlParameter("Barcode", Barcode));
-                    cmd.ExecuteNonQuery();
-                   
-                    return true;
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
-
-                }
-                finally
-                {
-                    DatabaseAcces.CloseConnection();
-                }
-
-            }
-            return false;
+            return true;
         }
 
-
-        public static bool checkOut(string Barcode, int EventID)
+        public static bool checkOut(string Barcode)
         {
-            if (DatabaseAcces.OpenConnection())
-            {
-                try
-                {
-                    DatabaseAcces.OpenConnection();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.CommandText = "CheckOut";
-                    cmd.Parameters.AddWithValue("@EventID", EventID);
-                    cmd.Parameters.AddWithValue("@Barcode", Barcode);
-
-                    cmd.ExecuteNonQuery();
-
-                    return true;
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
-                }
-                finally
-                {
-                    DatabaseAcces.CloseConnection();
-                }
-
-            }
-            return false;
-
+            return true;
         }
     }
 }
