@@ -31,7 +31,6 @@ function getSelectedItems(){
                             <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
                         }
                     </select>
-                <input type="button" value="Submit" onclick="getSelectedItems();" />
             </div>
         </form>
         <div class="grid_1 push_4">
@@ -39,10 +38,10 @@ function getSelectedItems(){
         </div>
         <div class="grid_1 push_9">
             <div class="marginsforbuttonstimeline">
-                <button class="buttonstyle5">@Html.ActionLink("Like", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <input type="button" value="Like" onclick="alert(getSelectedItems());" />
                 <input type="button" value="Report" onclick="alert(getSelectedItems());" />
-                <button class="buttonstyle5">@Html.ActionLink("Open", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
-                <button class="buttonstyle5">@Html.ActionLink("Download", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                <input type="button" value="Open" onclick="alert(getSelectedItems());" />
+                <input type="button" value="Download" onclick="alert(getSelectedItems());" />
             </div>
         </div>
         <br />
