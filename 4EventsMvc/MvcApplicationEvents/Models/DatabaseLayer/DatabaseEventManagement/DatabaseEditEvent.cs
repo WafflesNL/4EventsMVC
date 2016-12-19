@@ -46,6 +46,18 @@ namespace MvcApplicationEvents.Models
 
         }
 
+        public static bool checkIn(string Barcode)
+        {
 
+
+            return true;
+        }
+
+        public static bool checkOut(string Barcode)
+        {
+
+
+            return true;
+        }
     }
 }

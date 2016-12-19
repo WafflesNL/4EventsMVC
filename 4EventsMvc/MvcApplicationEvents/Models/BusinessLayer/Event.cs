@@ -9,6 +9,7 @@ namespace MvcApplicationEvents.Models
     {
         public List<Reservation> ReservationList = new List<Reservation>();
         public List<Contribution> ContributionList = new List<Contribution>();
+        public List<Account> GuestList = new List<Account>();
 
         public int ID { get; set; } 
         public string Name { get; set; }
@@ -124,6 +125,45 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        public bool GetGuestList()
+        {
+            GuestList = DatabaseGetAccount.GetGuest(ID);
+            if (ReservationList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //public bool GetGuests()
+        //{
+        //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
+        //    if (ReservationList.Count != 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
+        //public bool GetMaterial()
+        //{
+        //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
+        //    if (ReservationList.Count != 0)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
+
         //maakt nieuw contribution aan voor huidig event
         public bool CreateContribution(Contribution Contribution)
         {
@@ -137,48 +177,28 @@ namespace MvcApplicationEvents.Models
             }
         }
 
-
-
-
-
-        /// <summary>
-        /// Get a Guests list for a specific event (people who are present at an event)
-        /// </summary>
-        /// <returns>A list with all Accounts for a event<returns>
-        //public List<Account> GetGuestList()
-        //{
-        //    List<Account> GuestList = DatabaseGetAccount.GetAccountsEventID(ID);
-        //    return GuestList;
-        //}
-
-        /// <summary>
-        /// Gets the material that are still rentable
-        /// </summary>
-        /// <returns>A list with all Materials for a event that are still free to rent<returns>
-        //public List<Copy> GetMaterialList()
-        //{
-        //    List<Copy> MaterialList = DatabaseGetMaterial.GetMaterialforEventNoAccount(ID);
-        //    return MaterialList;
-        //}
-
-        /// <summary>
-        /// Get a reservation list for a specific event
-        /// </summary>
-        /// <returns>A list with all reservations for a event<returns>
-        //public List<Reservation> GetReservationList()
-        //{
-        //    List<Reservation> ReservationList = DatabaseGetReservation.GetReservation(ID);
-        //    return ReservationList;
-        //}
-
-        public void CheckinAccount()
+        public bool CheckinAccount(string Barcode)
         {
-            //met barcode
+            if (DatabaseEditEvent.checkIn(Barcode))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        public void CheckoutAccount()
+        public bool CheckoutAccount(string barcode)
         {
-            //met barcode
+            if (DatabaseEditEvent.checkOut(barcode))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 

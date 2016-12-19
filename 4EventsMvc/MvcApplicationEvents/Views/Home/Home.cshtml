@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("Event", "Event") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("btnEventInformation", "Home") method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -56,14 +56,6 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("Accountview", "Accountview") method="post">
-
-                <div class="form-group">
-                    <div class="">
-                        <input name="Shopping" type="submit" value="Account Registreren" class="btn btn-primary btnOpmaak" />
-                    </div>
-                </div>
-            </form>
         
             @*<button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Materiaal", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
@@ -72,13 +64,14 @@
             <fbutton class="buttonstyle">@Html.ActionLink("Eventinformatie", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Reserveren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>*@
-           
-             <select>
-                 @foreach (Event E in Model)
-                 {
-                    <option value="@E.ID">@E.Name</option>
-                 }                 
-            </select>
+       
+                <select>
+                    @foreach (Event E in Model)
+                    {
+                        <option value="@E.ID">@E.Name</option>
+                    }
+                </select>
+         
         </div>
         <div class="grid_1 push_2">
             <img src="~/Content/Images/Frontpage.jpg">

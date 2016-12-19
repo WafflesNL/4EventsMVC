@@ -55,6 +55,50 @@ namespace MvcApplicationEvents.Models
             }
             return EventList;
         }
+
+        public static Event GetEventByID(int EventID)
+        {
+
+            if (DatabaseAcces.OpenConnection())
+            {
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
+
+                    cmd.CommandText = "Select * From Event Where id = @EventID";
+                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {                    
+                        string name = (reader["name"].ToString()); 
+                        DateTime datestart = Convert.ToDateTime(reader["datestart"].ToString()); 
+                        DateTime dateend = Convert.ToDateTime(reader["dateend"].ToString());
+                        int maxvisitors = Convert.ToInt32(reader["maxvisitors"]); ;
+                        string description = (reader["description"].ToString()); 
+
+                        Event Event = new Event(name, null, datestart, dateend, maxvisitors, description);
+                        return Event;
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
+
+            }
+            return null;
+
+        }
+
+
     }
 
 

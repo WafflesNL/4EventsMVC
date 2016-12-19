@@ -33,10 +33,22 @@ namespace MvcApplicationEvents.Models
             this.Name = name;   
         }
 
-        public void Getplaces()
-        {
-          //  this.PlaceList = //datebase
+        public bool Getplaces()
+        {     
+            PlaceList = DatabaseGetPlace.GetPlaces(ID);
+            if (PlaceList.Count != 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
+
+
+
+
 
         public void GetlocationID()
         {
