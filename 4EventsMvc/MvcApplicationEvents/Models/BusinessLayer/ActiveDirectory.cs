@@ -4,17 +4,34 @@ using System.Linq;
 using System.Web;
 using System.DirectoryServices.AccountManagement;
 
-namespace MvcApplicationEvents.Models.ActiveDirectory
+namespace MvcApplicationEvents.Models
 {
-    public class AD
+    public static class ActiveDirectory
     {
-        public string GetUser(string accountname)
-        {   
-            UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
-           (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
-            return "";
+        public static string GetUser(string accountname)
+        {
+            try
+            {
+                UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
+               (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
+
+                if (user.SamAccountName == accountname)
+                {
+                    return user.SamAccountName;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception)
+            {
+                // do something with this error
+                return null;
+            }
+           
         }
-        public void CreateUser(string accountname, string password, string email)
+        public static void CreateUser(string accountname, string password, string email)
         {
             try
             {
@@ -37,7 +54,7 @@ namespace MvcApplicationEvents.Models.ActiveDirectory
         }
 
 
-        public void AddUserToGroup(string accountname, string groupname)
+        public static void AddUserToGroup(string accountname, string groupname)
         {
             try
             {
@@ -53,7 +70,7 @@ namespace MvcApplicationEvents.Models.ActiveDirectory
                 // do something with the error
             }
         }
-        public void GetGroupFromUser(string accountname)
+        public static Function GetGroupFromUser(string accountname)
         {
            
             try
@@ -64,8 +81,8 @@ namespace MvcApplicationEvents.Models.ActiveDirectory
                 {
                     if (group.Name != "Domain Users")
                     {
-                        string function = group.Name;
-                        CurrentAccount.TranslateFunction(function);
+                       string function = group.Name;
+                      return CurrentAccount.TranslateFunction(function);
                     }               
                 }
             }
@@ -73,6 +90,7 @@ namespace MvcApplicationEvents.Models.ActiveDirectory
             {
                  // do something with the error 
             }
+            return 0;
         }
     }
 }

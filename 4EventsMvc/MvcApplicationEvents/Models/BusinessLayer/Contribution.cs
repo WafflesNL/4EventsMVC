@@ -85,7 +85,6 @@ namespace MvcApplicationEvents.Models
         }
 
 
-
         public void AddReply(int ContributionID)
         {
             this.ContributionID = ContributionID;

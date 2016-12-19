@@ -48,6 +48,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,22 +110,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountviewController.cs" />
     <Compile Include="Controllers\CreateEventController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\EventViews\GuestListViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\EventViews\MaterialViewController.cs" />
     <Compile Include="Controllers\MaterialPageController.cs" />
     <Compile Include="Controllers\RentalPageController.cs" />
     <Compile Include="Controllers\ReservationsPageController.cs" />
+    <Compile Include="Controllers\EventViews\ReservationViewController.cs" />
     <Compile Include="Controllers\TimelinePageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BusinessLayer\Account.cs" />
+    <Compile Include="Models\BusinessLayer\ActiveDirectory.cs" />
     <Compile Include="Models\BusinessLayer\Contribution.cs" />
     <Compile Include="Models\BusinessLayer\Copy.cs" />
     <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseLogin.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseLocationManagement\DatabaseGetlocation.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCreateAccount.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseContributionManagement\DatabaseCreateContribution.cs" />
@@ -157,6 +165,7 @@
     <Compile Include="Models\BusinessLayer\Reservation.cs" />
     <Compile Include="Models\BusinessLayer\Wristband.cs" />
     <Compile Include="Models\BusinessLayer\Enum\Function.cs" />
+    <Compile Include="Models\DatabaseLayer\DatabasePlaceManagement\DatabaseGetPlace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +184,7 @@
     <Content Include="Views\ReservationsPage\ReservationsPage.cshtml" />
     <Content Include="Views\TimelinePage\TimelinePage.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Account\Account.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\GuestListView\" />
+    <Folder Include="Views\Material\" />
+    <Folder Include="Views\ReservationView\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

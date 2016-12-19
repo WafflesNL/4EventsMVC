@@ -12,15 +12,36 @@ namespace MvcApplicationEvents.Controllers
         // GET: Home
         public ActionResult Home()
         {
-            return View();
+            List<Event> EventList = CurrentAccount.GetEvents();
+            return View(EventList);
         }
 
-        //public ActionResult HomeGetEvents()
-        //{
-        //    //List<Event> EventsList = CurrentAccount.methode();
 
-        //    //return View("Home", EventsList);
-        //}
-        //vanuit hier zou constant de lijst van event opgevraagd moeten gaan worden
+        public ActionResult btnEventInformation(Event Event)
+        {
+            return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });      
+        }
+
+        public ActionResult btnTimeLine(Event Event)
+        {
+            return RedirectToAction("Index", "Event", new { parameterEvent = Event });       
+        }
+
+        public ActionResult btnMaterial(Event Event)
+        {
+            return RedirectToAction("Index", "Event", new { parameterEvent = Event });
+        }
+
+        public ActionResult btnPayment(Event Event)
+        {
+            return RedirectToAction("Index", "Event", new { parameterEvent = Event });
+        }
+
+        public ActionResult btnReservation(Event Event)
+        {
+            return RedirectToAction("Index", "Event", new { parameterEvent = Event });
+        }
+
+
     }
 }

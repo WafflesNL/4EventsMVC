@@ -570,3 +570,14 @@ textarea {
 .container_16 {
   zoom: 1;
 }
+
+.btnOpmaak
+{
+    width: 210%; 
+    height: 40px;
+}
+
+.btnAccountPosition {
+    position: absolute;
+    left: 60px;
+}

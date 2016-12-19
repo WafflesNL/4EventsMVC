@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcApplicationEvents.Models.DatabaseLayer.DatabaseAccountManagement;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,28 +12,30 @@ namespace MvcApplicationEvents.Models
         public static string Password{ get; set; }
         public static int ID { get; set; }
         public static Function Function { get; set; }
-        public static string Email { get; set; }
+     //   public static string Email { get; set; }
 
       
         /// <summary>
         /// Checks if an account exists in the database.
         /// </summary>
-        /// <param name="Password">The password of an account</param>
+        /// <param name="password">The password of an account</param>
         /// <param name="Username">The username of an account</param>
         /// <returns>Trie if an account exists false if not</returns>
-        public static bool Login(string Password, string Username)
+        public static bool Login(string password, string username)
         {
-            //ID = DatabaseLogin.CheckUser(Password, Username);
+            Account account = DatabaseLogin.CheckUser(Password, Username);
+            string user = ActiveDirectory.GetUser(username);
+            Function func = ActiveDirectory.GetGroupFromUser(username);
+            if (account != null && user != null && func != 0)
+            {
+                ID = account.ID;
+                Username = user;
+                Function = func;
+                Password = account.Password;
+                return true;
+            }
 
-            //if (ID != 0 && GetUserName(ID) && GetPassword(ID) && GetName(ID) && GetFunction(ID) && GetEventID(ID))
-            //{
-            //    return true;
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
+            else { return false; }
         }
 
         /// <summary>

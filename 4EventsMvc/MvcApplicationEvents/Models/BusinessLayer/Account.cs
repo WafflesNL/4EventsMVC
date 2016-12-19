@@ -11,6 +11,7 @@ namespace MvcApplicationEvents.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public Function Function { get; set; }
+        public string Email { get; set; }
 
         public List<Wristband> WristbandList { get; set; }
         public List<Rental> RentalList { get; set; }
@@ -28,7 +29,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="RentalList">List of Rentals an account currently has</param>
         /// <param name="ContributionList">List of Contributions an account currently has</param>
         /// <param name="ReservationList">List of Reservations an account currently has<param> 
-        public Account(int ID, string username, string password, Function function, List<Wristband> WristbandList, List<Rental> RentalList, List<Contribution> ListContribution , List<Reservation> ListReservation)
+        public Account(int ID, string username, string email, string password, Function function, List<Wristband> WristbandList, List<Rental> RentalList, List<Contribution> ListContribution , List<Reservation> ListReservation)
         {
             this.ID = ID;    
             this.Username = username;
@@ -38,6 +39,16 @@ namespace MvcApplicationEvents.Models
             this.RentalList = RentalList;
             this.ContributionList = ContributionList;
             this.ReservationList = ReservationList;
+            this.Email = email;
+        } 
+
+        public Account(int ID, string username, string password, Function function, string email)
+        {
+            this.ID = ID;
+            this.Username = username;
+            this.Password = password;
+            this.Function = function;
+            this.Email = email;
         }
 
         /// <summary>

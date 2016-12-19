@@ -15,8 +15,10 @@ namespace MvcApplicationEvents.Models
         {
             this.ID = id;
             this.Serialnumber = serialnumber;
-            this.Barcode = barcode;
+            this.Barcode = barcode;     
         }
+
+        
 
     }
 }

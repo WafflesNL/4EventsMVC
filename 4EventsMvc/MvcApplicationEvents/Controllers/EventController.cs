@@ -29,19 +29,25 @@ namespace MvcApplicationEvents.Controllers
             }      
         }
 
-        public ActionResult btnGuestList()
+        public ActionResult GetEventInformation(Event parameterEvent)
         {
-            return View();
+            return View("Event", parameterEvent);
         }
 
-        public ActionResult btnMaterialList()
+        //haalt data op voor andere forms
+        public ActionResult btnGuestList(Event Event)
         {
-            return View();
+            return RedirectToAction("GetGuestList", "GuestListView", new { parameterEvent = Event });          
         }
 
-        public ActionResult btnReservationList()
+        public ActionResult btnMaterialList(Event Event)
         {
-            return View();
+            return RedirectToAction("GetMaterialList", "MaterialView", new { parameterEvent = Event });
+        }
+
+        public ActionResult btnReservationList(Event Event)
+        {
+            return RedirectToAction("GetReservationList", "ReservationView", new { parameterEvent = Event });
         }
     }
 }

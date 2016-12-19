@@ -2,24 +2,76 @@
 @{
     ViewBag.Title = "Home";
 }
+@using MvcApplicationEvents.Models;
+@model List<Event>
 
 <br />
     <div class="container_16">
         <div class="grid_1 pull_1">
-            <select>
-                <option value="Mededeling">Mededeling</option>
-                <option value="Muziek">Muziek</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Gezelligheid">Gezelligheid</option>
-            </select>
-            <button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <form role="form" class="form-horizontal" action=@Url.Action("TimelinePage", "TimelinePage") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Tijdlijn" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal" action=@Url.Action("MaterialPage", "MaterialPage") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Materiaal" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Event Aanmaken" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal" action=@Url.Action("Shopping", "Shopping") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Betalingsstatus" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal" action=@Url.Action("btnEventInformation", "Home") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Eventinformatie" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+            <form role="form" class="form-horizontal" action=@Url.Action("ReservationsPage", "ReservationsPage") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Reserveren" class="btn btn-primary btnOpmaak" />
+                    </div>
+                </div>
+            </form>
+        
+            @*<button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Materiaal", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Event Aanmaken", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Betalingsstatus", "", "", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Eventinformatie", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button><br />
+            <fbutton class="buttonstyle">@Html.ActionLink("Eventinformatie", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button><br />
             <button class="buttonstyle">@Html.ActionLink("Reserveren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Plaats Registreren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+            <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>*@
+       
+                <select>
+                    @foreach (Event E in Model)
+                    {
+                        <option value="@E.ID">@E.Name</option>
+                    }
+                </select>
+         
         </div>
         <div class="grid_1 push_2">
             <img src="~/Content/Images/Frontpage.jpg">
@@ -30,6 +82,13 @@
                 <img src="~/Content/Images/4Events.jpg">
                 <p class="logotext">ICT4Events</p>
             </div>
-            <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+            <form role="form" class="form-horizontal" action=@Url.Action("Accountview", "Accountview") method="post">
+
+                <div class="form-group">
+                    <div class="">
+                        <input name="Shopping" type="submit" value="Account informatie" class="btn btn-primary btnAccountPosition" />
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
