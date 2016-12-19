@@ -12,8 +12,8 @@ namespace MvcApplicationEvents.Controllers
         // GET: Account
         public ActionResult Account()
         {
-            Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password, CurrentAccount.Function, CurrentAccount.Email); 
-            return View(Account);
+           // Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password, CurrentAccount.Function, CurrentAccount.Email); 
+            return View();
         }
 
         public ActionResult OwnAcount()
