@@ -12,16 +12,28 @@ namespace MvcApplicationEvents.Models
         public int ID { get; set; }
         public string Brand { get; set; }
         public string Serie{ get; set; }
-        public int Typenummer { get; set; }
+        public string Type { get; set; }
         public int Prijs { get; set; }
 
-        public Product(int id, string brand, string serie, int typenummer, int prijs)
+        public int Aantal { get; set; } 
+
+        public Product(int id, string brand, string serie, string type, int prijs)
         {
             this.ID = id;
             this.Brand = brand;
             this.Serie = serie;
-            this.Typenummer = typenummer;
+            this.Type = type;
             this.Prijs = prijs;
+        }
+
+        public Product(int id, string brand, string serie, string type, int prijs, int aantal)
+        {
+            this.ID = id;
+            this.Brand = brand;
+            this.Serie = serie;
+            this.Type = type;
+            this.Prijs = prijs;
+            this.Aantal = aantal;
         }
 
         public void GetAvailableCopies()

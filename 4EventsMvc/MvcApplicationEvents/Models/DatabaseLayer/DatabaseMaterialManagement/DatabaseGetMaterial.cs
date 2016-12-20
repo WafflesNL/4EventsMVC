@@ -101,6 +101,7 @@ namespace MvcApplicationEvents.Models
             }
             return CopyList;
         }
+
         /// <summary>
         /// Gets all Products that haven't been linked to an event yet
         /// </summary>     
