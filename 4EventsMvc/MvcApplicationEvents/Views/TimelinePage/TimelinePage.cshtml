@@ -52,15 +52,19 @@ function getSelectedItems(){
             </div>
         </form>
         <div class="grid_1 push_4">
-            @Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak" })
+            <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                <div class="form-group">
+                    <input type="button" value="Filter Posts" class="btn btn-primary btnOpmaak7" />
+                </div>
+            </form>  
         </div>
-        <div class="grid_1 push_9">
+        <div class="grid_1 push_7">
             <div class="marginsforbuttonstimeline">
                 <form role="form" class="form-horizontal" method="post">
                     <div class="form-group">
                         @using (Html.BeginForm("btnSelectPost", "TimelinePageController"))
                         {
-                            <input type="submit" value="Like" onclick="Getindex()" class="btn btn-primary btnOpmaak1" />
+                            <input type="submit" value="Like" onclick="Getindex()" class="btn btn-primary btnOpmaak7" />
                             @Html.Hidden("Index", null)
                             <input id="Index" name="Index" type="hidden" value= "setMyValue()" />
                         }                       
@@ -68,17 +72,17 @@ function getSelectedItems(){
                 </form>       
                 <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
                     <div class="form-group">
-                         <input type="button" value="Report" class="btn btn-primary btnOpmaak1" />
+                         <input type="button" value="Report" class="btn btn-primary btnOpmaak7" />
                     </div>
                 </form>  
                 <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
                     <div class="form-group">
-                         <input type="button" value="Open" class="btn btn-primary btnOpmaak1" />
+                         <input type="button" value="Open" class="btn btn-primary btnOpmaak7" />
                     </div>
                 </form>  
                 <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
                     <div class="form-group">
-                         <input type="button" value="Download" class="btn btn-primary btnOpmaak1" />
+                         <input type="button" value="Download" class="btn btn-primary btnOpmaak7" />
                     </div>
                 </form>  
                     </div>
@@ -96,7 +100,11 @@ function getSelectedItems(){
                         <option value="Entertainment">Entertainment</option>
                         <option value="Gezelligheid">Gezelligheid</option>
                     </select>
-                    <button class="buttonstyle4">@Html.ActionLink("Post", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button>
+                    <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                        <div class="form-group">
+                            <input type="button" value="Post" class="btn btn-primary btnOpmaak7" />
+                        </div>
+                    </form>  
                 </div>
             </div>
         </div>
