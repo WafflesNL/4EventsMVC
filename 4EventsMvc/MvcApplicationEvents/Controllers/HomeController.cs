@@ -19,16 +19,19 @@ namespace MvcApplicationEvents.Controllers
         }
 
 
-        public ActionResult Goforms(string button)
+        public ActionResult Goforms(string button, string EventName)
         {
             Event Event = new Event();
+
+
+
             switch (button)
             {
                 case ("Event Aanmaken"):
                     return RedirectToAction("CreateEvent", "CreateEvent");
                   
                 case ("Tijdlijn"):
-                    return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });
+                    return RedirectToAction("TimeLinePage", "TimeLinePage", new { parameterEvent = Event });
                     
                 case ("Materiaal"):
                     return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });

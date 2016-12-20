@@ -54,14 +54,16 @@
                 <select name="EventName">
                     @foreach (Event E in Model)
                     {
-                        <option>@E.Name</option>
+                        <option>@E.Name</option>                             
                     }
                 </select>
+
+                @*<div>
+                    @Html.DropDownList("EventList")
+                </div>*@
             </form>
 
-            @*<div>
-                @Html.DropDownList("EventList")    
-            </div>*@
+       
          
         </div>
         <div class="grid_1 push_2">
