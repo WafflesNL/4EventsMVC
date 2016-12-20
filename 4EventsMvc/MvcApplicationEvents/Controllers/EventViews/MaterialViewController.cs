@@ -15,12 +15,12 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult GetMaterialList()
-        {
-            List<Product> MaterialList = DatabaseGetProduct.GetProductAvailable();
+        //public ActionResult GetMaterialList()
+        //{
+        //    List<Product> MaterialList = DatabaseGetProduct.GetProductAvailable();
 
              
-            return View("MaterialView", MaterialList);
-        }
+        //    return View("MaterialView", MaterialList);
+        //}
     }
 }

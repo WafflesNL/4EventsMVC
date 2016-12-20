@@ -18,6 +18,10 @@ namespace MvcApplicationEvents.Controllers
 
         public ActionResult OwnAcount()
         {
+
+
+
+
             return View();
         }
 
