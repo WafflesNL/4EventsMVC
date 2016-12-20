@@ -8,7 +8,7 @@
 <br />
     <div class="container_16">
         <div class="grid_1 pull_1">
-            <form role="form" class="form-horizontal" action=@Url.Action("TimelinePage", "TimelinePage") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("TimelinePage", "TimelinePage" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("MaterialPage", "MaterialPage") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("MaterialPage", "MaterialPage" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -32,7 +32,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("Shopping", "Shopping") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("Shopping", "Shopping" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("btnEventInformation", "Home") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("btnEventInformation", "Home" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("ReservationsPage", "ReservationsPage") method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("ReservationsPage", "ReservationsPage", new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
@@ -56,14 +56,6 @@
                     </div>
                 </div>
             </form>
-        
-            @*<button class="buttonstyle">@Html.ActionLink("Tijdlijn", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Materiaal", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Event Aanmaken", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Betalingsstatus", "", "", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <fbutton class="buttonstyle">@Html.ActionLink("Eventinformatie", "Event", "Event", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Reserveren", "ReservationsPage", "ReservationsPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-            <button class="buttonstyle">@Html.ActionLink("Account Registreren", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>*@
        
                 <select>
                     @foreach (Event E in Model)
@@ -82,13 +74,6 @@
                 <img src="~/Content/Images/4Events.jpg">
                 <p class="logotext">ICT4Events</p>
             </div>
-            <form role="form" class="form-horizontal" action=@Url.Action("Accountview", "Accountview") method="post">
-
-                <div class="form-group">
-                    <div class="">
-                        <input name="Shopping" type="submit" value="Account informatie" class="btn btn-primary btnAccountPosition" />
-                    </div>
-                </div>
-            </form>
+            @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
         </div>
     </div>

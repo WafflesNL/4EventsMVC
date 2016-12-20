@@ -6,36 +6,37 @@
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
-        <form>
+        <form role="form" class="form-horizontal" action=@Url.Action("btnCreate", "CreateEvent") method="post">
             Eventnaam:
-            <input type="text" name="Eventname"><br>
+            <input class="form-control" type="text" name="Eventname"><br>
             Eventbeschrijving:
-            <textarea type="text" name="Eventdescription" cols="40" rows="6"></textarea>
-        </form>
-        <p>Locatie:</p>
-        <select>
-            <option value="Tilburg">Tilburg</option>
-            <option value="Eindhoven">Eindhoven</option>
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Den Haag">Den Haag</option>
-        </select>
-        <form>
+            <textarea class="form-control btnOpmaak3" type="text" name="Eventdescription" cols="60" rows="6"></textarea>
+
+            <p>Locatie:</p>
+            <select class="form-control" name="Location">
+                <option value="Tilburg">Tilburg</option>
+                <option value="Amsterdam">Amsterdam</option>
+                <option value="Den Haag">Den Haag</option>
+            </select>
+
             Begin Eventdatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
-            Eind maximum Eventdatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
+            <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+
+            Eind Eventdatum
+            <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+
             Max aantal Bezoekers:
-            <input type="number" name="quantity" min="5"><br />
+            <input class="form-control" type="number" name="quantity" min="5"><br />
+
+            <div class="push_3">
+                <input type="submit" class="btn btn-primary btnOpmaak1" value="Create Event" />
+                </div>
         </form>
-        <button class="buttonstyle1">@Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        <div class="push_3">
-            <button class="buttonstyle2">@Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
         </div>
     </div>
+    
+
+
 
     <!--Account sidebar-->
     <div class="grid_1 push_11">
@@ -43,7 +44,7 @@
             <img src="~/Content/Images/4Events.jpg">
             <p class="logotext">ICT4Events</p>
         </div>
-        <button class="buttonstyle">@Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
+        @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
     </div>
-</div>
+
 
