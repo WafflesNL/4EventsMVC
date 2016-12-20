@@ -2,26 +2,29 @@
 @{
     ViewBag.Title = "Event";
 }
-@model MvcApplicationEvents.Models.Event
 
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
         <form>
             Eventnaam:
-            <input type="text" name="Eventname"><br>
+            <input id="eventname" type="text" name="Eventname" readonly><br>
             Eventbeschrijving:
-            <textarea type="text" name="Eventdescription" cols="40" rows="6"></textarea>
+            <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6" readonly></textarea>
         </form>
         <p>Locatie:</p>
-        <select>
+        <select id="select" disabled>
             <option value="Tilburg">Tilburg</option>
             <option value="Eindhoven">Eindhoven</option>
             <option value="Amsterdam">Amsterdam</option>
             <option value="Den Haag">Den Haag</option>
         </select>
         <form>
-            Eventdatum
+            BeginDatum
+            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+        </form>
+        <form>
+            EindDatum
             <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
         </form>
         <form>
