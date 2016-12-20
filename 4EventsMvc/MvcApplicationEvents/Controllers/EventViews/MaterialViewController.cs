@@ -15,11 +15,11 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult GetMaterialList()
-        {
-            //List<Account> MaterialList = 
+        //public ActionResult GetMaterialList()
+        //{
+        //    //List<Account> MaterialList = 
 
-           // return View("MaterialView", MaterialList);
-        }
+        //   // return View("MaterialView", MaterialList);
+        //}
     }
 }
