@@ -24,14 +24,17 @@
                     </div>
                 </div>
             </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
+            @if (CurrentAccount.ID == 2)
+            {
+                <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
-                <div class="form-group">
-                    <div class="">
-                        <input name="Shopping" type="submit" value="Event Aanmaken" class="btn btn-primary btnOpmaak" />
+                    <div class="form-group">
+                        <div class="">
+                            <input name="Shopping" type="submit" value="Event Aanmaken" class="btn btn-primary btnOpmaak" />
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            }
             <form role="form" class="form-horizontal" action=@Url.Action("Shopping", "Shopping" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
