@@ -17,9 +17,10 @@ namespace MvcApplicationEvents.Controllers
 
         public ActionResult GetMaterialList()
         {
-            //List<Account> MaterialList = 
+            List<Product> MaterialList = DatabaseGetProduct.GetProductAvailable();
 
-           // return View("MaterialView", MaterialList);
+             
+            return View("MaterialView", MaterialList);
         }
     }
 }
