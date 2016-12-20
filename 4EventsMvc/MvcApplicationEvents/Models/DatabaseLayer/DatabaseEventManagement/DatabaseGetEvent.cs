@@ -98,7 +98,51 @@ namespace MvcApplicationEvents.Models
 
         }
 
+        public static Event GetEventByName(string EventName)
+        {
+            if (DatabaseAcces.OpenConnection())
+            {
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
 
+                    cmd.CommandText = "Select * From Event Where Name = @EventName";
+                    cmd.Parameters.Add(new SqlParameter("EventName", EventName));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int ID = Convert.ToInt32(reader["ID"]);
+                        string name = (reader["name"].ToString());
+                        DateTime datestart = Convert.ToDateTime(reader["datestart"]);
+                        DateTime dateend = Convert.ToDateTime(reader["dateend"]);
+                        int maxvisitors = Convert.ToInt32(reader["maxvisitors"]);
+                        int LocationID = Convert.ToInt32(reader["locationid"]);
+                        string description = (reader["description"].ToString());
+                        Location Location = DatabaseGetlocation.GetLocation(LocationID);
+                        Event Event = new Event(ID, name, Location ,datestart, dateend, maxvisitors, description, null , null);
+                        return Event;
+                    }
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
+
+            }
+            return null;
+
+
+
+
+        }
     }
 
 

@@ -8,61 +8,62 @@
 <br />
     <div class="container_16">
         <div class="grid_1 pull_1">
-            <form role="form" class="form-horizontal" action=@Url.Action("TimelinePage", "TimelinePage" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
+            <form role="form" class="form-horizontal" action=@Url.Action("Goforms", "Home" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Tijdlijn" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="Tijdlijn" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("MaterialPage", "MaterialPage" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
+
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Materiaal" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="Materiaal" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("CreateEvent", "CreateEvent" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
+
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Event Aanmaken" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="Event Aanmaken" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("Shopping", "Shopping" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
+
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Betalingsstatus" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="betalingsstatus" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("btnEventInformation", "Home" , new { @class = "btn btn-primary btnOpmaak" }) method="post">
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Eventinformatie" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="Event Informatie" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-            <form role="form" class="form-horizontal" action=@Url.Action("ReservationsPage", "ReservationsPage", new { @class = "btn btn-primary btnOpmaak" }) method="post">
+
 
                 <div class="form-group">
                     <div class="">
-                        <input name="Shopping" type="submit" value="Reserveren" class="btn btn-primary btnOpmaak" />
+                        <input name="button" type="submit" value="Reserveren" class="btn btn-primary btnOpmaak" />
                     </div>
                 </div>
-            </form>
-       
-                <select>
+
+
+                <select name="EventName">
                     @foreach (Event E in Model)
                     {
-                        <option value="@E.ID">@E.Name</option>
+                        <option>@E.Name</option>                             
                     }
                 </select>
+
+                @*<div>
+                    @Html.DropDownList("EventList")
+                </div>*@
+            </form>
+
+       
          
         </div>
         <div class="grid_1 push_2">
@@ -74,6 +75,6 @@
                 <img src="~/Content/Images/4Events.jpg">
                 <p class="logotext">ICT4Events</p>
             </div>
-            @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
+            @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
         </div>
     </div>

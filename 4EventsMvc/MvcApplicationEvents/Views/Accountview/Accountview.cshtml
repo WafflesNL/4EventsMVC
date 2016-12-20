@@ -5,9 +5,9 @@
 <br />
 <div class="container_16">
     <div class="grid_1 pull_1">
-        <button class="buttonstyle">@Html.ActionLink("Account Aanmaken", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-        <button class="buttonstyle">@Html.ActionLink("Account Aanpassen", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "navbar-brand" })</button><br />
-        <button class="buttonstyle">@Html.ActionLink("Account Verwijderen", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "navbar-brand" })</button><br />       
+        @Html.ActionLink("Account Aanmaken", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak6" })<br />
+        @Html.ActionLink("Account Aanpassen", "MaterialPage", "MaterialPage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak6" })<br />
+        @Html.ActionLink("Account Verwijderen", "CreateEvent", "CreateEvent", new { area = "" }, new { @class = "btn btn-primary btnOpmaak6" })<br />       
     </div>
     <div class="grid_1 push_2">
         <form>
@@ -20,7 +20,7 @@
             <img src="~/Content/Images/4Events.jpg">
             <p class="logotext">ICT4Events</p>
         </div>
-        @Html.ActionLink("Account", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
+        @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
     </div>
 </div>
 

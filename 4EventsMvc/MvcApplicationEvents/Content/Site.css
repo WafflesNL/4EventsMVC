@@ -102,7 +102,7 @@ textarea {
 }
 
 .postbox{
-    margin-top: 10px;
+    margin-top: -10px;
     margin-left: -10px;
     min-width: 200px;
 }
@@ -594,9 +594,39 @@ textarea {
     width: 400px; 
 }
 
+.btnOpmaak4
+{
+   margin-top: 20px; 
+}
 
+.btnOpmaak5
+{
+    margin-top: 5px;
+    width: 200%; 
+    height: 40px;
+}
+
+.btnOpmaak6
+{
+    margin-top: 5px;
+    width: 200px; 
+    height: 40px;
+}
+
+.btnOpmaak7
+{
+    margin-left: 15px;
+    margin-top: 5px;
+    width: 200px; 
+    height: 40px;
+}
 
 .btnAccountPosition {
     position: absolute;
     left: 60px;
-}/*test*/
+}/*testr*/
+
+ footer{
+     padding-top: 20px;
+     clear: both;
+ }

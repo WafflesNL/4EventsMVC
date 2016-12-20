@@ -23,8 +23,8 @@
             </div>     
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (CurrentAccount.ID != 0)
-                    {                   
+                    @if (CurrentAccount.ID == 1 || CurrentAccount.ID == 2 || CurrentAccount.ID == 3 || CurrentAccount.ID == 4)
+                    {
                     <li>@Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     }
                 </ul>
@@ -34,8 +34,10 @@
 
     <div class="container body-content">
         @RenderBody()
-        <hr />
+
         <footer>
+
+            <hr />
             <p>&copy; @DateTime.Now.Year - ICT4Events</p>
         </footer>
     </div>

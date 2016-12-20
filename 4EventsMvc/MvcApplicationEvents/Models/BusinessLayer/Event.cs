@@ -39,6 +39,11 @@ namespace MvcApplicationEvents.Models
             this.Description = description;
         }
 
+        public Event()
+        {
+            //nothing
+        }
+
         /// <summary>
         /// Used to get an Event to the database
         /// </summary>
@@ -200,6 +205,16 @@ namespace MvcApplicationEvents.Models
                 return false;
             }
         }
+
+        public Event GetEventInformationByname()
+        {
+            Event Event = DatabaseGetEvent.GetEventByName(Name);        
+            return Event;
+        }
+
+
+
+
 
 
         /// <summary>
