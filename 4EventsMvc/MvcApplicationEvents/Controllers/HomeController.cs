@@ -22,8 +22,8 @@ namespace MvcApplicationEvents.Controllers
         public ActionResult Goforms(string button, string EventName)
         {
             Event Event = new Event();
-
-
+            Event.Name = EventName;
+            Event = Event.GetEventInformationByname(); //vragen locatie gooit die weg
 
             switch (button)
             {
@@ -31,19 +31,19 @@ namespace MvcApplicationEvents.Controllers
                     return RedirectToAction("CreateEvent", "CreateEvent");
                   
                 case ("Tijdlijn"):
-                    return RedirectToAction("TimeLinePage", "TimeLinePage", new { parameterEvent = Event });
+                    return RedirectToAction("TimeLinePage", "TimeLinePage", Event);
                     
                 case ("Materiaal"):
-                    return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });
+                    return RedirectToAction("MaterialPage", "MaterialPage", Event);
                     
                 case ("betalingsstatus"):
-                    return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });
+                    return RedirectToAction("", "", Event);
                                    
                 case ("Event Informatie"):
                     return RedirectToAction("GetEventInformation", "Event", Event);
                     
                 case ("Reserveren"):
-                    return RedirectToAction("GetEventInformation", "Event", new { parameterEvent = Event });
+                    return RedirectToAction("ReservationPage", "ReservationPage", Event);
                     
                 default:
                     return View("Home");

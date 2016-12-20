@@ -206,18 +206,10 @@ namespace MvcApplicationEvents.Models
             }
         }
 
-        public bool GetEventInformationByname()
+        public Event GetEventInformationByname()
         {
-            //if ()
-            //{
-            //    return true;
-
-            //}
-            //else
-            //{
-            //    return false;
-            //}
-            return true;
+            Event Event = DatabaseGetEvent.GetEventByName(Name);        
+            return Event;
         }
 
 
