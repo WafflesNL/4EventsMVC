@@ -28,12 +28,13 @@ function getSelectedItems(){
         var x = document.getElementById("s1").selectedIndex;
         var y = document.getElementById("s1").options;
         var z = y[x].index;
-        return setMyValue(z);
+        setMyValue(z);
     }
 
     function setMyValue(value) {
-        $('#Index').val(value);
-        alert(value);
+        $(document.getElementById("Index")).val(value);
+        var Q = $(document.getElementById("Index"));
+        return alert(JSON.stringify(Q));
     }
 </script>
 
@@ -51,7 +52,7 @@ function getSelectedItems(){
             </div>
         </form>
         <div class="grid_1 push_4">
-            @Html.ActionLink("Filters Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak" })
+            @Html.ActionLink("Filter Posts", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "btn btn-primary btnOpmaak" })
         </div>
         <div class="grid_1 push_9">
             <div class="marginsforbuttonstimeline">
@@ -59,9 +60,9 @@ function getSelectedItems(){
                     <div class="form-group">
                         @using (Html.BeginForm("btnSelectPost", "TimelinePageController"))
                         {
-                            <input type="hidden" name="contrib" id="contrib" />
-                            <input type="submit" value="Like" onclick="setMyValue()" class="btn btn-primary btnOpmaak1" />
+                            <input type="submit" value="Like" onclick="Getindex()" class="btn btn-primary btnOpmaak1" />
                             @Html.Hidden("Index", null)
+                            <input id="Index" name="Index" type="hidden" value= "setMyValue()" />
                         }                       
                     </div>
                 </form>       

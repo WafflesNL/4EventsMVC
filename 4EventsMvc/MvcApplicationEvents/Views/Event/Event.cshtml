@@ -26,12 +26,10 @@
             Max aantal Bezoekers:
             <input type="number" name="quantity" min="5"><br />
         </form>
-        <button class="buttonstyle1">@Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        <button class="buttonstyle1">@Html.ActionLink("Aanwezige Bezoekers", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        <button class="buttonstyle1">@Html.ActionLink("Reserveringen", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        <div class="push_3">
-            <button class="buttonstyle2">@Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        </div>
+        @Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
+        @Html.ActionLink("Aanwezige Bezoekers", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
+        @Html.ActionLink("Reserveringen", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
+        @Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
     </div>
 
     <!--Account sidebar-->
