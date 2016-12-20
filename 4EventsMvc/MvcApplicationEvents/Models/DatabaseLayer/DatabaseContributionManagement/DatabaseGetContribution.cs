@@ -35,10 +35,35 @@ namespace MvcApplicationEvents.Models
                     while (reader.Read())
                     {
                         int ID = Convert.ToInt32(reader["ID"]);
-                        int contributionid = Convert.ToInt32(reader["contributionid"]);
+                        int contributionid;
+                        if (reader["contributionid"] != DBNull.Value)
+                        {
+                            contributionid = Convert.ToInt32(reader["contributionid"]);
+                        }
+                        else
+                        {
+                            contributionid = 0;
+                        }
+                        
                         int accountid = Convert.ToInt32(reader["accountid"]);
-                        int likes = Convert.ToInt32(reader["likes"]);
-                        int reports = Convert.ToInt32(reader["reports"]);
+                        int likes;
+                        if (reader["likes"] != DBNull.Value)
+                        {
+                            likes = Convert.ToInt32(reader["likes"]);
+                        }
+                        else
+                        {
+                            likes = 0;
+                        }
+                        int reports;
+                        if (reader["reports"] != DBNull.Value)
+                        {
+                            reports = Convert.ToInt32(reader["reports"]);
+                        }
+                        else
+                        {
+                            reports = 0;
+                        }
 
                         DateTime date = Convert.ToDateTime(reader["date"]);
                         string category = (reader["category"].ToString());

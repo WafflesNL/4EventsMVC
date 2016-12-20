@@ -2,34 +2,30 @@
 @{
     ViewBag.Title = "Event";
 }
+@model MvcApplicationEvents.Models.Event
 
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
         <form>
             Eventnaam:
-            <input id="eventname" type="text" name="Eventname" readonly><br>
+            <input id="eventname" type="text" name="Eventname" value="@Model.Name"><br>
             Eventbeschrijving:
-            <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6" readonly></textarea>
+            <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6">@Model.Description</textarea>
         </form>
         <p>Locatie:</p>
-        <select id="select" disabled>
-            <option value="Tilburg">Tilburg</option>
-            <option value="Eindhoven">Eindhoven</option>
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Den Haag">Den Haag</option>
-        </select>
+        <input id="locatie" type="text" name="Location" value="@Model.Location" readonly><br>
         <form>
             BeginDatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+            <input type="text" name="EventDates" value="@Model.DateStart.ToString()" readonly><br>
         </form>
         <form>
             EindDatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
+            <input type="text" name="EventDatee" value="@Model.DateEnd.ToString()" readonly><br>
         </form>
         <form>
             Max aantal Bezoekers:
-            <input type="number" name="quantity" min="5"><br />
+            <input type="number" name="quantity" min="5" value="@Model.MaxVisitors" readonly><br />
         </form>
         @Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
         @Html.ActionLink("Aanwezige Bezoekers", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
