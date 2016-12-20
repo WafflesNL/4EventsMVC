@@ -15,12 +15,11 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult GetMaterialList(Event parameterEvent)
+        public ActionResult GetMaterialList()
         {
-            Event Event2 = parameterEvent;
-            //Event.getMaterialList
-            //get the guest list          
-            return View("MaterialView", Event2);
+            //List<Account> MaterialList = 
+
+           // return View("MaterialView", MaterialList);
         }
     }
 }

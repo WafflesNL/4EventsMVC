@@ -9,9 +9,9 @@ namespace MvcApplicationEvents.Models
     {
         public int ID { get; set; }
         public int Serialnumber { get; set; }
-        public int Barcode { get; set; }
+        public string Barcode { get; set; }
 
-        public Copy(int id, int serialnumber, int barcode)
+        public Copy(int id, int serialnumber, string barcode)
         {
             this.ID = id;
             this.Serialnumber = serialnumber;
