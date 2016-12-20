@@ -594,9 +594,19 @@ textarea {
     width: 400px; 
 }
 
+.btnOpmaak4
+{
+   margin-top: 20px; 
+}
+
 
 
 .btnAccountPosition {
     position: absolute;
     left: 60px;
 }/*test*/
+
+ footer{
+     padding-top: 20px;
+     clear: both;
+ }

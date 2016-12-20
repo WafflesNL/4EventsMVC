@@ -21,7 +21,11 @@ namespace MvcApplicationEvents.Controllers
 
             Event Event = new Event(Eventname, L, EventDatestart, EventDateend, quantity, Eventdescription);
 
-            if (Event.CreateEvent(Event))
+            if (Eventname == "" || Eventdescription =="" || EventDatestart < System.DateTime.Now || EventDateend < System.DateTime.Now || quantity < 5)
+            {
+                return View("CreateEvent");
+            }
+            else if(Event.CreateEvent(Event))
             {
                 return RedirectToAction("Home", "Home"); 
             }
