@@ -14,9 +14,9 @@ namespace MvcApplicationEvents.Models
         /// </summary>
         /// <param name="EventID">EventID int</param>
         /// <returns>A list of Products that is linked with the event</returns>
-        public static List<Product> GetProductforEvent(int EventID)
+        public static List<Copy> GetProductforEvent()
         {
-            List<Product> ProductList = new List<Product>();
+            List<Copy> CopyList = new List<Copy>();
 
             if (DatabaseAcces.OpenConnection())
             {
@@ -27,34 +27,22 @@ namespace MvcApplicationEvents.Models
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "SELECT * FROM Materiaal WHERE EventID = @EventID";
-                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
-
+                    cmd.CommandText = "SELECT * FROM Copy";
+                    
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
                         int ID = Convert.ToInt32(reader["ID"]);
-                        int Price = Convert.ToInt32(reader["Price"]);
-                        int Typenumber = Convert.ToInt32(reader["Typenumber"].ToString());
-                        string Serie = (reader["Serie"].ToString());
-                        string Brand = (reader["Brand"].ToString());
-                        int? eventid = (reader["EventID"] != DBNull.Value) ? Convert.ToInt32(reader["EventID"]) : 0;
-                        int? accountID = (reader["AccountID"] != DBNull.Value) ? Convert.ToInt32(reader["AccountID"]) : 0;
-                        if (eventid == 0)
-                        {
-                            eventid = null;
-                        }
-                        if (accountID == 0)
-                        {
-                            accountID = null;
-                        }
+                        int Productid = Convert.ToInt32(reader["Productid"]);
+                        int Serialnumber = Convert.ToInt32(reader["Serialnumber"].ToString());
+                        string Barcode = (reader["barcode"].ToString());
 
-
-                        Product Product = new Product(ID, Brand, Serie, Typenumber, Price);
-                        ProductList.Add(Product);
+                        // id brand serie typenummer prijs
+                        Copy Product = new Copy(ID, Serialnumber, Barcode);
+                        CopyList.Add(Product);
                     }
-                    return ProductList;
+                    return CopyList;
                 }
                 catch (SqlException e)
                 {
@@ -66,12 +54,12 @@ namespace MvcApplicationEvents.Models
                     DatabaseAcces.CloseConnection();
                 }
             }
-            return ProductList;
+            return CopyList;
         }
 
-        public static List<Product> GetProductforEventNoAccount(int EventID)
+        public static List<Copy> GetProductforAccount(string barcode)
         {
-            List<Product> ProductList = new List<Product>();
+            List<Copy> CopyList = new List<Copy>();
 
             if (DatabaseAcces.OpenConnection())
             {
@@ -82,34 +70,24 @@ namespace MvcApplicationEvents.Models
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "SELECT * FROM Materiaal WHERE EventID = @EventID AND AccountID IS NULL";
-                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
+                    cmd.CommandText = "SELECT * FROM Copy WHERE barcode = @barcode";
+
+                    cmd.Parameters.Add(new SqlParameter("barcode", barcode));
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
                         int ID = Convert.ToInt32(reader["ID"]);
-                        int Price = Convert.ToInt32(reader["Price"]);
-                        int Typenumber = Convert.ToInt32(reader["Typenumber"].ToString());
-                        string Serie = (reader["Serie"].ToString());
-                        string Brand = (reader["Brand"].ToString());
-                        int? eventid = (reader["EventID"] != DBNull.Value) ? Convert.ToInt32(reader["EventID"]) : 0;
-                        int? accountID = (reader["AccountID"] != DBNull.Value) ? Convert.ToInt32(reader["AccountID"]) : 0;
-                        if (eventid == 0)
-                        {
-                            eventid = null;
-                        }
-                        if (accountID == 0)
-                        {
-                            accountID = null;
-                        }
+                        int Productid = Convert.ToInt32(reader["Productid"]);
+                        int Serialnumber = Convert.ToInt32(reader["Serialnumber"].ToString());
+                        string Barcode = (reader["barcode"].ToString());
 
-
-                        Product Product = new Product(ID, Brand, Serie, Typenumber, Price);
-                        ProductList.Add(Product);
+                        // id brand serie typenummer prijs
+                        Copy Product = new Copy(ID, Serialnumber, Barcode);
+                        CopyList.Add(Product);
                     }
-                    return ProductList;
+                    return CopyList;
                 }
                 catch (SqlException e)
                 {
@@ -121,71 +99,15 @@ namespace MvcApplicationEvents.Models
                     DatabaseAcces.CloseConnection();
                 }
             }
-            return ProductList;
-        }
-
-        public static List<Product> GetProductforAccountonEvent(int EventID, int AccountID)
-        {
-            List<Product> ProductList = new List<Product>();
-
-            if (DatabaseAcces.OpenConnection())
-            {
-
-                try
-                {
-                    DatabaseAcces.OpenConnection();
-                    SqlCommand cmd = new SqlCommand();
-                    cmd.Connection = DatabaseAcces.connect;
-
-                    cmd.CommandText = "SELECT * FROM Materiaal WHERE EventID = @EventID AND AccountID = @AccountID";
-                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
-                    cmd.Parameters.Add(new SqlParameter("AccountID", AccountID));
-
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        int ID = Convert.ToInt32(reader["ID"]);
-                        int Price = Convert.ToInt32(reader["Price"]);
-                        int Typenumber = Convert.ToInt32(reader["Typenumber"].ToString());
-                        string Serie = (reader["Serie"].ToString());
-                        string Brand = (reader["Brand"].ToString());
-                        int? eventid = (reader["EventID"] != DBNull.Value) ? Convert.ToInt32(reader["EventID"]) : 0;
-                        int? accountID = (reader["AccountID"] != DBNull.Value) ? Convert.ToInt32(reader["AccountID"]) : 0;
-                        if (eventid == 0)
-                        {
-                            eventid = null;
-                        }
-                        if (accountID == 0)
-                        {
-                            accountID = null;
-                        }
-
-
-                        Product Product = new Product(ID, Brand, Serie, Typenumber, Price);
-                        ProductList.Add(Product);
-                    }
-                    return ProductList;
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
-
-                }
-                finally
-                {
-                    DatabaseAcces.CloseConnection();
-                }
-            }
-            return ProductList;
+            return CopyList;
         }
         /// <summary>
-        /// Gets a Products that haven't been linked to an event yet
+        /// Gets all Products that haven't been linked to an event yet
         /// </summary>     
         /// <returns>A list of Products</returns>
-        public static List<Product> GetProductAvailable()
+        public static List<Copy> GetProductAvailable()
         {
-            List<Product> ProductList = new List<Product>();
+            List<Copy> CopyList = new List<Copy>();
 
             if (DatabaseAcces.OpenConnection())
             {
@@ -195,33 +117,22 @@ namespace MvcApplicationEvents.Models
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "SELECT * FROM Materiaal WHERE EventID IS NULL";
+                    cmd.CommandText = "SELECT * FROM Copy WHERE EventID IS NULL";
                    
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
                         int ID = Convert.ToInt32(reader["ID"]);
-                        int Price = Convert.ToInt32(reader["Price"]);
-                        int Typenumber = Convert.ToInt32(reader["Typenumber"].ToString());
-                        string Serie = (reader["Serie"].ToString());
-                        string Brand = (reader["Brand"].ToString());
-                        int? eventid = (reader["EventID"] != DBNull.Value) ? Convert.ToInt32(reader["EventID"]) : 0;
-                        int? accountID = (reader["AccountID"] != DBNull.Value) ? Convert.ToInt32(reader["AccountID"]) : 0;
-                        if (eventid == 0)
-                        {
-                            eventid = null;
-                        }
-                        if (accountID == 0)
-                        {
-                            accountID = null;
-                        }
-                       
+                        int Productid = Convert.ToInt32(reader["Productid"]);
+                        int Serialnumber = Convert.ToInt32(reader["Serialnumber"].ToString());
+                        string Barcode = (reader["barcode"].ToString());                   
+                                                                
                         // id brand serie typenummer prijs
-                        Product Product = new Product(ID, Brand, Serie, Typenumber, Price);
-                        ProductList.Add(Product);
+                        Copy Product = new Copy(ID, Serialnumber, Barcode);
+                        CopyList.Add(Product);
                     }
-                    return ProductList;
+                    return CopyList;
                 }
                 catch (SqlException e)
                 {
@@ -233,7 +144,7 @@ namespace MvcApplicationEvents.Models
                     DatabaseAcces.CloseConnection();
                 }
             }
-            return ProductList;
+            return CopyList;
         }
 
 

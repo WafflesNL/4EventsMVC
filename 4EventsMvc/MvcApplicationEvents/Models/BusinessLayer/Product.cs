@@ -26,7 +26,7 @@ namespace MvcApplicationEvents.Models
 
         public void GetAvailableCopies()
         {
-            //this.CopyList = //methode in database
+            this.CopyList = DatabaseGetProduct.GetProductAvailable();
         }
 
 
