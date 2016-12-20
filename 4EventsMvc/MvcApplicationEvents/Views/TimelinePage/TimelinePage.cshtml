@@ -7,6 +7,11 @@
 
 <script type="text/javascript">
 
+    function Gettext() {
+        var Q = document.getElementById("postbox").value;
+        return Q;
+    }
+
 function getSelectedItems(){
     var items = "";
     var frm = document.forms[0].s1;
@@ -27,14 +32,9 @@ function getSelectedItems(){
     function Getindex() {
         var x = document.getElementById("s1").selectedIndex;
         var y = document.getElementById("s1").options;
-        var z = y[x].index;
-        setMyValue(z);
-    }
-
-    function setMyValue(value) {
-        $(document.getElementById("Index")).val(value);
-        var Q = $(document.getElementById("Index"));
-        return alert(JSON.stringify(Q));
+        document.getElementById('Index').value = y[x].index;
+        var q = setMyValue(z);
+        return q;
     }
 </script>
 
@@ -64,9 +64,8 @@ function getSelectedItems(){
                     <div class="form-group">
                         @using (Html.BeginForm("btnSelectPost", "TimelinePageController"))
                         {
-                            <input type="submit" value="Like" onclick="Getindex()" class="btn btn-primary btnOpmaak7" />
-                            @Html.Hidden("Index", null)
-                            <input id="Index" name="Index" type="hidden" value= "setMyValue()" />
+                            <input id="Index" name="Index" type="hidden"/>
+                            <input type="submit" value="Like" onclick="setMyValue()" class="btn btn-primary btnOpmaak7" />                          
                         }                       
                     </div>
                 </form>       
@@ -90,7 +89,7 @@ function getSelectedItems(){
         <br />
         <div class="grid_1 pull_2">
             <form>
-                <textarea class="postbox" type="text" name="Post Box" rows="5">Write text Here</textarea>
+                <textarea id="postbox" class="postbox" type="text" name="Post Box" rows="5">Write text Here</textarea>
             </form>
             <div class="grid_1">
                 <div class="paddingfortimeline">
@@ -100,7 +99,7 @@ function getSelectedItems(){
                         <option value="Entertainment">Entertainment</option>
                         <option value="Gezelligheid">Gezelligheid</option>
                     </select>
-                    <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+                    <form role="form" class="form-horizontal" onclick="alert(Gettext());" method="post">
                         <div class="form-group">
                             <input type="button" value="Post" class="btn btn-primary btnOpmaak7" />
                         </div>
