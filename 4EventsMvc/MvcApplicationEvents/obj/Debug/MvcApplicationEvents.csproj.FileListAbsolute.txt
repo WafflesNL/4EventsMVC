@@ -42,7 +42,6 @@ C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\roslyn\vbc.exe
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\roslyn\VBCSCompiler.exe
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\MvcApplicationEvents.dll.config
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\MvcApplicationEvents.dll
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\MvcApplicationEvents.pdb
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
@@ -64,3 +63,4 @@ C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\obj\Debug\MvcApplicationEvents.dll
 C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\obj\Debug\MvcApplicationEvents.pdb
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\MvcApplicationEvents.dll.config
+C:\Users\Gebruiker\Desktop\4EventsMVC\4EventsMVC\4EventsMvc\MvcApplicationEvents\bin\MvcApplicationEvents.dll.config

@@ -31,6 +31,7 @@ namespace MvcApplicationEvents.Controllers
 
         public ActionResult GetEventInformation(Event parameterEvent)
         {
+                 
             return View("Event", parameterEvent);
         }
 

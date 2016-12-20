@@ -579,7 +579,7 @@ textarea {
 
 .btnOpmaak1
 {
-    width: 100px; 
+    width: 200px; 
     height: 40px;
 }
 .btnOpmaak2
@@ -589,7 +589,24 @@ textarea {
     margin-left: 40px;
 }
 
+.btnOpmaak3
+{
+    width: 400px; 
+}
+
+.btnOpmaak4
+{
+   margin-top: 20px; 
+}
+
+
+
 .btnAccountPosition {
     position: absolute;
     left: 60px;
 }/*test*/
+
+ footer{
+     padding-top: 20px;
+     clear: both;
+ }

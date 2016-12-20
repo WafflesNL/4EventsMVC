@@ -14,14 +14,18 @@ namespace MvcApplicationEvents.Controllers
         {
             return View();
         }
-        public ActionResult btnCreate(string Name, string description, DateTime DateStart, DateTime Dateend, int Maxvisitors, string location)
+        public ActionResult btnCreate(string Eventname, string Eventdescription, DateTime EventDatestart, DateTime EventDateend, int quantity, string Location)
         {
-            Location Location = new Location(location);
-            Location.GetlocationID();
+            Location L = new Location(Location);
+            L.GetlocationID();
 
-            Event Event = new Event(Name, Location, DateStart, Dateend, Maxvisitors, description);
+            Event Event = new Event(Eventname, L, EventDatestart, EventDateend, quantity, Eventdescription);
 
-            if (Event.CreateEvent(Event))
+            if (Eventname == "" || Eventdescription =="" || EventDatestart < System.DateTime.Now || EventDateend < System.DateTime.Now || quantity < 5)
+            {
+                return View("CreateEvent");
+            }
+            else if(Event.CreateEvent(Event))
             {
                 return RedirectToAction("Home", "Home"); 
             }
