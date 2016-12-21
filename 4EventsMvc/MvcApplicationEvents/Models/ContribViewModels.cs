@@ -8,8 +8,7 @@ namespace MvcApplicationEvents.Models
 {
     public class ContribViewModels
     {
-        public IEnumerable<string> SelectedConts { get; set; }
-        public IEnumerable<SelectListItem> Contribs { get; set; }
+        public List<Contribution> Contriblist { get; set; }
         //Dank Memes
     }
 }

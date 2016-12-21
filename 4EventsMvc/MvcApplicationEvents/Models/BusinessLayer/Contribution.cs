@@ -63,6 +63,11 @@ namespace MvcApplicationEvents.Models
             this.IsSelected = isselected;
         }
 
+        public Contribution(int id)
+        {
+            this.ID = id;
+        }
+
         public bool likePost()
         {
             if (DatabaseEditContribution.LikePost(ID))
