@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "MaterialView";
+}
+@using MvcApplicationEvents.Models;
+@model List<Product>
+
+<h2>MaterialView</h2>
+
+@foreach (Product P in Model)
+{
+    <p>@P.Brand</p>
+}

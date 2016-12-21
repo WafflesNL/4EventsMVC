@@ -23,6 +23,8 @@ namespace MvcApplicationEvents.Controllers
         //hiermee maakt gebruiker nieuwe reservering mee aan
         public ActionResult btnCreateReservation(Event Event, Place Place, DateTime dateStart, DateTime dateend)
         {
+            //dit moet nog getest worden met data passen
+
             Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password);        
             Reservation Reservation = new Reservation(dateStart, dateend, Place ,Account ,Event);      
             if (Reservation.CreateReservation(Reservation))
