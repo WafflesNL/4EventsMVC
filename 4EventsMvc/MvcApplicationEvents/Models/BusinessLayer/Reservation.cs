@@ -42,8 +42,6 @@ namespace MvcApplicationEvents.Models
         }
 
 
-
-
         public bool CreateReservation(Reservation Reservation)
         {
             bool check = DatabaseCreateReservation.CreateReservation(Reservation);

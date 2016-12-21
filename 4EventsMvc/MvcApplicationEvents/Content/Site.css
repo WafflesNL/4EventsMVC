@@ -60,10 +60,10 @@ textarea {
 }
 
 .buttonstyle7 {
-    min-width: 140px;
-    min-height: 40px;
-    margin-top: 20px;
-    text-align: center;
+    min-width: 10px;
+    min-height: 30px;
+   /*margin-top: 20px;*/
+    /*text-align: center;*/
 }
 
 .buttonstyle8 {
