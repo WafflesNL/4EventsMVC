@@ -9,8 +9,8 @@ namespace MvcApplicationEvents.Models
     public static class CurrentAccount
     {
         public static string Username { get; set; }
-        public static string Password{ get; set; }
-        public static int ID { get; set; }
+        public static string Password { get; set; }
+        public static int? ID { get; set; } = 0;
         public static Function Function { get; set; }
         public static string Email { get; set; }
 
@@ -175,10 +175,11 @@ namespace MvcApplicationEvents.Models
         /// <returns>Void</returns>
         public static void RemovePropertys()
         {
-            ID = 0;
+            ID = null;
             Username = null;
             Password = null;
-            Function = Function.Bezoeker;      
+            Function = Function.Bezoeker;
+            Email = "";   
         }
 
 

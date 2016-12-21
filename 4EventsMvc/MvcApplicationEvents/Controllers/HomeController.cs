@@ -43,7 +43,7 @@ namespace MvcApplicationEvents.Controllers
                     return RedirectToAction("GetEventInformation", "Event", Event);
                     
                 case ("Reserveren"):
-                    return RedirectToAction("ReservationPage", "ReservationPage", Event);
+                    return RedirectToAction("ReservationsPage", "ReservationsPage", Event);
                     
                 default:
                     return View("Home");

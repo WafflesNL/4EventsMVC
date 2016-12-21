@@ -16,12 +16,8 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult OwnAcount()
+        public ActionResult btnChangeAccount(Account Account, string Name, string Password, string PasswordA)
         {
-
-
-
-
             return View();
         }
 

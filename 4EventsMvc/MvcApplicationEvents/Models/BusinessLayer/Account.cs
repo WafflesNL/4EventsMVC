@@ -7,7 +7,7 @@ namespace MvcApplicationEvents.Models
 {
     public class Account
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public Function Function { get; set; }
@@ -29,7 +29,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="RentalList">List of Rentals an account currently has</param>
         /// <param name="ContributionList">List of Contributions an account currently has</param>
         /// <param name="ReservationList">List of Reservations an account currently has<param> 
-        public Account(int ID, string username, string email, string password, Function function, List<Wristband> WristbandList, List<Rental> RentalList, List<Contribution> ListContribution , List<Reservation> ListReservation)
+        public Account(int? ID, string username, string email, string password, Function function, List<Wristband> WristbandList, List<Rental> RentalList, List<Contribution> ListContribution , List<Reservation> ListReservation)
         {
             this.ID = ID;    
             this.Username = username;
@@ -42,7 +42,7 @@ namespace MvcApplicationEvents.Models
             this.Email = email;
         } 
 
-        public Account(int ID, string username, string password, Function function, string email)
+        public Account(int? ID, string username, string password, Function function, string email)
         {
             this.ID = ID;
             this.Username = username;
@@ -70,7 +70,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="username">Username of a user used for Authentication</param>
         /// <param name="password">Password of a user used for Authentication</param>
         /// <param name="id">Function of a user used for authorization<param> 
-        public Account(int ID, string username, string password)
+        public Account(int? ID, string username, string password)
         {
             this.ID = ID;
             this.Username = username;

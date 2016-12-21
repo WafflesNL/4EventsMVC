@@ -10,7 +10,7 @@ namespace MvcApplicationEvents.Controllers
     public class ReservationsPageController : Controller
     {
         // GET: ReservationsPage
-        public ActionResult ReservationsPage()
+        public ActionResult ReservationsPage(Event Event)
         {
             List<Place> placelist = new List<Place>();
             for (int i = 0; i < 12; i++)
@@ -19,6 +19,9 @@ namespace MvcApplicationEvents.Controllers
             }
             return View(placelist);
         }
+
+
+
 
         //hiermee maakt gebruiker nieuwe reservering mee aan
         public ActionResult btnCreateReservation(Event Event, Place Place, DateTime dateStart, DateTime dateend)

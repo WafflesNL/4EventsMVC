@@ -22,7 +22,7 @@ namespace MvcApplicationEvents.Models
                     cmd.Connection = DatabaseAcces.connect;
 
 
-                    cmd.CommandText = "select * from RESERVATION where r.EventID = @EventID";
+                    cmd.CommandText = "select * from RESERVATION r where r.EventID = @EventID";
                     cmd.Parameters.Add(new SqlParameter("EventID", EventID));
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -38,7 +38,7 @@ namespace MvcApplicationEvents.Models
                         Event Event = DatabaseGetEvent.GetEventByID(EventID);
                         List<Account> AccountList = DatabaseGetAccount.GetAccountsInReservation(ID);
 
-                        Reservation Reservation = new Reservation(ID, Paid, datestart, dateend, Place, null, AccountList, null);                 
+                        Reservation Reservation = new Reservation(ID, Paid, datestart, dateend, Place, null, AccountList, Event);                 
                         ReservationList.Add(Reservation);
                     }
 
