@@ -120,7 +120,7 @@ namespace MvcApplicationEvents.Models
                     cmd.Connection = DatabaseAcces.connect;              
                     cmd.CommandType = CommandType.StoredProcedure;
                     //   cmd.CommandText = "SELECT * FROM Copy WHERE EventID IS NULL";
-                   // cmd.ExecuteNonQuery();
+                 //   cmd.ExecuteNonQuery();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())

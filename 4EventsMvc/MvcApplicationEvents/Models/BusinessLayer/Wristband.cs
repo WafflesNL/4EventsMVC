@@ -11,6 +11,10 @@ namespace MvcApplicationEvents.Models
         public int Barcode { get; set; }
         public bool Active { get; set; }
 
+        public Wristband()
+        {
+        }
+
         public Wristband(int id, int barcode, bool active)
         {
             this.ID = id;
@@ -18,15 +22,17 @@ namespace MvcApplicationEvents.Models
             this.Active = active;
         }
 
-        public void Activate()
+        public void Activate(string barcode)
         {
+            DatabaseCheckWristband.ChangePresentStatus(barcode);
             Active = true;
         }
 
-        public void Deactivate()
-        {
-            Active = false;
-        }
+     //   public bool Deactivate(string barcode)
+     //   {
+     //       Active = false;
+     //       return Active;
+     //   }
 
 
 
