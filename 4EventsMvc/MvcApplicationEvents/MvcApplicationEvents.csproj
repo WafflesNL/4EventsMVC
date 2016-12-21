@@ -132,6 +132,7 @@
     <Compile Include="Models\BusinessLayer\Contribution.cs" />
     <Compile Include="Models\BusinessLayer\Copy.cs" />
     <Compile Include="Models\BusinessLayer\Static\CurrentAccount.cs" />
+    <Compile Include="Models\ContribViewModels.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseCheckWristband.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseAccountManagement\DatabaseLogin.cs" />
     <Compile Include="Models\DatabaseLayer\DatabaseLocationManagement\DatabaseGetlocation.cs" />

@@ -30,7 +30,7 @@ namespace MvcApplicationEvents.Controllers
                 listSelectListItems.Add(selectList);
             }
 
-            ContribViewModel ContribViewModel = new ContribViewModel()
+            ContribViewModels ContribViewModel = new ContribViewModels()
             {
                 Contribs = listSelectListItems
             };
