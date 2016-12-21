@@ -186,6 +186,9 @@
     <Content Include="Views\TimelinePage\TimelinePage.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Account\Account.cshtml" />
+    <Content Include="Views\GuestListView\GuestListView.cshtml" />
+    <Content Include="Views\MaterialView\MaterialView.cshtml" />
+    <Content Include="Views\ReservationView\ReservationView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -195,9 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GuestListView\" />
-    <Folder Include="Views\Material\" />
-    <Folder Include="Views\ReservationView\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
