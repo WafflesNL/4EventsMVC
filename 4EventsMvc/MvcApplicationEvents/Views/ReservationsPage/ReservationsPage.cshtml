@@ -3,21 +3,23 @@
     ViewBag.Title = "ReservationsPage";
 }
 @using MvcApplicationEvents.Models;
-@model List<Place>
+@model Event
+
 <br />
 <div class="container_16">
 
 @{ int tel = 0; }
 
     <div class="rows">
-        @for (int i = 0; i < Model.Count / 8; i++)
+        @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
         {
             <div class="col-md-2">
                 @for (int k = 0; k < 8; k++)
                 {
-                    using (Html.BeginForm("Action", "Controller", Model[tel]))
+                    using (Html.BeginForm("Action", "Controller", Model.Location.PlaceList[tel]))
                     {
-                    <div class="DivStyle1"><input type="submit" value="@Model[tel].Number" class="btn btn-default"/></div>
+                      <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="Place" class="btn btn-default"/></div>
+                      <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
                     }
                     tel = tel + 1;
                 }

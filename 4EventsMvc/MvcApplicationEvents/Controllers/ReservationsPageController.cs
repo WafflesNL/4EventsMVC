@@ -9,20 +9,24 @@ namespace MvcApplicationEvents.Controllers
 {
     public class ReservationsPageController : Controller
     {
+        Event Event;
         // GET: ReservationsPage
         public ActionResult ReservationsPage(Event Event)
         {
-            List<Place> placelist = new List<Place>();
-            for (int i = 0; i < 40; i++)
-            {
-                placelist.Add(new Place(1, 5, 10, false));
-            }
-            return View(placelist);
+            Event.GetLocation();
+            Event.Location.Getplaces();
+            return View(Event);
         }
 
-        //public ActionResult SeePlace(Place Place)
+        //public ActionResult SeePlace(Place Place, string EventName)
         //{
+
+
+
         //    ViewBag.Place = Place.Number;
+
+
+
 
         //    return View("", );
         //}

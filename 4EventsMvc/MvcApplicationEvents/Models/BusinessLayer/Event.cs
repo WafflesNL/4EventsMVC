@@ -143,18 +143,21 @@ namespace MvcApplicationEvents.Models
             }
         }
 
-        //public bool GetGuests()
-        //{
-        //    ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
-        //    if (ReservationList.Count != 0)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+
+        public bool GetLocation()
+        {
+            Location = DatabaseGetlocation.GetLocationEventID(ID);
+            if (Location != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         //public bool GetMaterial()
         //{
