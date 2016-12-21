@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MvcApplicationEvents.Models
 {
@@ -18,8 +19,8 @@ namespace MvcApplicationEvents.Models
         public byte[] File { get; set; }
         public string Attachment { get; set; }
         public Message Message { get; set; }
+        public bool IsSelected { get; set; }
 
-   
         /// <summary>
         /// Create Constructor
         /// </summary> 
@@ -27,7 +28,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="likes">The amount of likes of a post</param> 
         /// <param name="file">The file belonging to the post</param>
         /// <param name="postID">This is the ID of the post reacted to</param>
-        public Contribution(DateTime datetime, string category, int likes, int reports, int postid, Message message)
+        public Contribution(DateTime datetime, string category, int likes, int reports, int postid, Message message, bool isselected)
         {           
             this.Category = category;    
             this.Likes = likes;
@@ -35,6 +36,7 @@ namespace MvcApplicationEvents.Models
             this.PostID = postid;
             this.DateTime = datetime;
             this.Message = message;
+            this.IsSelected = isselected;
         }
 
         /// <summary>
@@ -47,7 +49,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="postID">This is the ID of the post reacted to</param>
         /// <param name="file">The file belonging to the post</param>
         /// <param name="Message">This is the ID of the post reacted to</param>
-        public Contribution(int id, DateTime datetime, string category, int likes, int reports, int postid, byte[] file, Message message, string attachment)
+        public Contribution(int id, DateTime datetime, string category, int likes, int reports, int postid, byte[] file, Message message, string attachment, bool isselected)
         {
             this.ID = id;
             this.Category = category;
@@ -58,6 +60,7 @@ namespace MvcApplicationEvents.Models
             this.Message = message;
             this.Attachment = attachment;
             this.DateTime = datetime;
+            this.IsSelected = isselected;
         }
 
         public bool likePost()

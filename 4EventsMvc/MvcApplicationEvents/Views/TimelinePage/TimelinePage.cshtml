@@ -3,54 +3,17 @@
     ViewBag.Title = "TimelinePage";
 }
 @using MvcApplicationEvents.Models;
-@model List<Contribution>
-
-<script type="text/javascript">
-
-    function Gettext() {
-        var Q = document.getElementById("postbox").value;
-        return Q;
-    }
-
-function getSelectedItems(){
-    var items = "";
-    var frm = document.forms[0].s1;
-    var len = frm.length;
-    for(i=0;i<len;i++){
-        if(frm[i].selected){
-            items += frm[i].value + "";
-        }
-    }
-    return items;
-}
-
-    function post()
-    {
-        document.getElementById('contrib').value = getSelectedItems();
-    }
-
-    function Getindex() {
-        var x = document.getElementById("s1").selectedIndex;
-        var y = document.getElementById("s1").options;
-        document.getElementById('Index').value = y[x].index;
-        var q = setMyValue(z);
-        return q;
-    }
-</script>
+@model MvcApplicationEvents.Models.ContribViewModel
 
 <br />
 <div class="container_16">
     <div class="grid_9 pull_1">
-        <form id="form1">
-            <div>
-                 <select id="s1" class="timeline" size="20" name="Options">
-                        @foreach (var C in Model)
-                        {
-                            <option>@C.PostID.ToString(), @C.Message.Title, @C.Likes.ToString(), @C.Reports.ToString()</option>
-                        }
-                 </select>
-            </div>
-        </form>
+        @using (Html.BeginForm())
+        {
+            @Html.ListBoxFor(m => m.SelectedConts, Model.Contribs, new { size = 20 })
+            <br />
+            <input type="submit" value="Submit" />
+        }
         <div class="grid_1 push_4">
             <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
                 <div class="form-group">
@@ -62,11 +25,7 @@ function getSelectedItems(){
             <div class="marginsforbuttonstimeline">
                 <form role="form" class="form-horizontal" method="post">
                     <div class="form-group">
-                        @using (Html.BeginForm("btnSelectPost", "TimelinePageController"))
-                        {
-                            <input id="Index" name="Index" type="hidden"/>
-                            <input type="submit" value="Like" onclick="setMyValue()" class="btn btn-primary btnOpmaak7" />                          
-                        }                       
+                        <input type="submit" value="Like" onclick="setMyValue()" class="btn btn-primary btnOpmaak7" />                                              
                     </div>
                 </form>       
                 <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
