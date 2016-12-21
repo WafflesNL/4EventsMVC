@@ -10,6 +10,7 @@ namespace MvcApplicationEvents.Models
     {
         public static string GetUser(string accountname)
         {
+
             try
             {
                 UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
@@ -73,8 +74,8 @@ namespace MvcApplicationEvents.Models
         public static Function GetGroupFromUser(string accountname)
         {
            
-           // try
-          //  {
+            try
+            {
                UserPrincipal user = UserPrincipal.FindByIdentity(new PrincipalContext
               (ContextType.Domain, "ptsevents.local"), IdentityType.SamAccountName, accountname);
                 foreach (GroupPrincipal group in user.GetGroups())
@@ -86,12 +87,12 @@ namespace MvcApplicationEvents.Models
                     }               
                 }
             return 0;
-       //     }
-        //    catch (Exception)
-          //  {
+          }
+            catch (Exception)
+            {
                  // do something with the error 
-          //  }
-          //  return 0;
+            }
+            return 0;
         }
     }
 }

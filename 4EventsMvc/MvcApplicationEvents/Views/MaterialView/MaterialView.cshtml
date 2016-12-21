@@ -7,7 +7,18 @@
 
 <h2>MaterialView</h2>
 
-@foreach (Product P in Model)
+<form action=@Url.Action("GetAll","MaterialView")>
+    <input class="btn-primary" type="submit" value="Get it all" />
+</form>
+
+@if (Model.Count != 0)
+{
+foreach (Product P in Model)
 {
     <p>@P.Brand</p>
+    <p>@P.Serie</p>
+    <p>@P.Type</p>
+    <p>@P.Prijs</p>
+    <p>@P.Aantal</p>
+} 
 }

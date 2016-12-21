@@ -15,8 +15,17 @@ namespace MvcApplicationEvents.Controllers
             ParameterEvent.GetGuestList();
             List<Account> GuestList = ParameterEvent.GuestList;
 
-            return View(GuestList);
+            return View(ParameterEvent);
         }
+
+        public ActionResult CheckIn(string barcode, Event EventParameter)
+        {
+            Wristband w = new Wristband();
+            w.Activate(barcode);
+            return View("GuestListView");
+        }
+
+
 
     }
 }

@@ -10,7 +10,13 @@ namespace MvcApplicationEvents.Controllers
     public class MaterialViewController : Controller
     {
         // GET: Material
-        public ActionResult MaterialView(Event ParameterEvent)
+        public ActionResult MaterialView()
+        {
+            List<Product> empty = new List<Product>();
+           return View(empty);
+        }
+
+        public ActionResult MaterialViewForEvent(Event ParameterEvent)
         {
             //ParameterEvent.get();
             //List<Product> ProductList = ParameterEvent.productList;
@@ -19,6 +25,14 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-     
+        public ActionResult GetAll()
+        {
+            Product product = new Product();
+            List<Product> productlist = new List<Product>();
+            productlist = product.GetAvailableCopies();
+            return View("MaterialView", productlist);
+        }
+
+
     }
 }
