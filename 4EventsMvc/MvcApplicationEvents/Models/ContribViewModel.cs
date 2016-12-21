@@ -10,5 +10,6 @@ namespace MvcApplicationEvents.Models
     {
         public IEnumerable<string> SelectedConts { get; set; }
         public IEnumerable<SelectListItem> Contribs { get; set; }
+        //Dank Memes
     }
 }
