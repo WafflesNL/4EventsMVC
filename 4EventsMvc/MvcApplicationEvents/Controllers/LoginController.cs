@@ -19,9 +19,27 @@ namespace MvcApplicationEvents.Controllers
         {
             if (CurrentAccount.Login(tbPassword, tbName) == true)
             {
+                switch (CurrentAccount.ID)
+                {
+                    case (1):
+                        CurrentAccount.Function = Function.Bezoeker;
+                        break;
+                    case (2):
+                        CurrentAccount.Function = Function.Beheerder;
+                        break;
+                    case (3):
+                        CurrentAccount.Function = Function.AccountBeheerder;
+                        break;
+                    case (4):
+                        CurrentAccount.Function = Function.Medewerker;
+                        break;
+                    case (0):
+                        CurrentAccount.ID = 0;
+                        break;
+                }
+
                 return RedirectToAction("Home", "Home");
             }
-
             else
             {
                 return View("Login");
@@ -29,5 +47,13 @@ namespace MvcApplicationEvents.Controllers
            
             
         }
+
+        public ActionResult LogOut ()
+        {
+            CurrentAccount.RemovePropertys();
+            return View("Login");
+        }
+
+
     }
 }
