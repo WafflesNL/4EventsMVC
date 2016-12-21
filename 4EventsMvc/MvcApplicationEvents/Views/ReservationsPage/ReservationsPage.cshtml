@@ -6,21 +6,29 @@
 @model List<Place>
 <br />
 <div class="container_16">
-    <div class="grid_1 pull_1">
-      
-        <div class="row">
-            @for (int i = 0; i < Model.Count / 8; i++)
-            {
-                <div class="col-md-2">
-                    @for (int k = 0; k < 8; k++)
+
+@{ int tel = 0; }
+
+    <div class="rows">
+        @for (int i = 0; i < Model.Count / 8; i++)
+        {
+            <div class="col-md-2">
+                @for (int k = 0; k < 8; k++)
+                {
+                    using (Html.BeginForm("Action", "Controller", Model[tel]))
                     {
-                        <div><p>test</p></div>
+                    <div class="DivStyle1"><input type="submit" value="@Model[tel].Number" class="btn btn-default"/></div>
                     }
-                </div>
-            }
-        </div>
+                    tel = tel + 1;
+                }
+            </div>
+        }
+    </div>
+    
 
+    <div class="grid_1 pull_1">
 
+        <p>Huidige Locatie is @ViewBag.Place</p>
         <!--listboxen-->
         <div class="grid_1">
             <form>
