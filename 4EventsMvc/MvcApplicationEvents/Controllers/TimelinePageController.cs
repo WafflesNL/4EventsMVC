@@ -17,25 +17,25 @@ namespace MvcApplicationEvents.Controllers
         public ActionResult TimelinePage(Event Event)
         {
             Contriblist = DatabaseGetContribution.GetContributions(Event.ID);
-            List<SelectListItem> listSelectListItems = new List<SelectListItem>();
+            //List<SelectListItem> listSelectListItems = new List<SelectListItem>();
 
-            foreach (Contribution c in Contriblist)
-            {
-                SelectListItem selectList = new SelectListItem()
-                {
-                    Text = c.Message.Content,
-                    Value = c.ID.ToString(),
-                    Selected = c.IsSelected
-                };
-                listSelectListItems.Add(selectList);
-            }
+            //foreach (Contribution c in Contriblist)
+            //{
+            //    SelectListItem selectList = new SelectListItem()
+            //    {
+            //        Text = c.Message.Content,
+            //        Value = c.ID.ToString(),
+            //        Selected = c.IsSelected
+            //    };
+            //    listSelectListItems.Add(selectList);
+            //}
 
-            ContribViewModels ContribViewModel = new ContribViewModels()
-            {
-                Contribs = listSelectListItems
-            };
+            //ContribViewModels ContribViewModel = new ContribViewModels()
+            //{
+            //    Contribs = listSelectListItems
+            //};
 
-            return View(ContribViewModel);
+            return View(Contriblist);
         }
 
         [HttpPost]
@@ -51,6 +51,12 @@ namespace MvcApplicationEvents.Controllers
                 sb.Append("You selected - " + string.Join(",", selectedConts));
                 return sb.ToString();
             }
+        }
+
+        public void Like(int ID)
+        {
+            Contribution C = new Contribution(ID);
+            C.likePost();
         }
     }
 }

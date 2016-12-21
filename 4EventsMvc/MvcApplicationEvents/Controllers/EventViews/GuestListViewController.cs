@@ -22,7 +22,8 @@ namespace MvcApplicationEvents.Controllers
         {
             Wristband w = new Wristband();
             w.Activate(barcode);
-            return View("GuestListView");
+            EventParameter.GetGuestList();
+            return View("GuestListView", EventParameter);
         }
 
 

@@ -3,7 +3,8 @@
     ViewBag.Title = "TimelinePage";
 }
 @using MvcApplicationEvents.Models;
-@model MvcApplicationEvents.Models.ContribViewModels
+@using MvcApplicationEvents.Controllers;
+@model List<Contribution>
 
 
 <br />
@@ -11,12 +12,10 @@
     <div class="grid_9 pull_1">
         @using (Html.BeginForm())
         {
-        foreach(SelectListItem ctrib in Model.Contribs)
+        foreach(Contribution ctrib in Model)
         {
-            <p>@ctrib.Text</p>
+            <p>@ctrib.Message.Content @ctrib.Likes<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Like(Convert.ToInt32(ctrib.ID));};window.location.reload()">">Like</a></p>
         }
-            <br />
-            <input type="submit" value="Submit" />
         }
         <div class="grid_1 push_4">
             <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
