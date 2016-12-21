@@ -212,11 +212,6 @@ namespace MvcApplicationEvents.Models
             return Event;
         }
 
-
-
-
-
-
         /// <summary>
         /// Tostring methods for event
         /// </summary>

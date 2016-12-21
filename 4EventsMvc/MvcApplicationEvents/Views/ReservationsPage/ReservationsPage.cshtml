@@ -7,19 +7,19 @@
 <br />
 <div class="container_16">
     <div class="grid_1 pull_1">
-        <table>
-            <tbody>
-                @for (int i = 0; i < Model.Count / 4; i++)
+      
+            
+                @for (int i = 0; i < Model.Count / 8; i++)
                 {
-                    <tr>
+                    <div>
                         @for (int k = 0; k < 4; k++)
                         {
-                            <td class="tablepadding"><button class="buttonstyle5">@Html.ActionLink("Placeholder", "TimelinePage", "TimelinePage", new { area = "" }, new { @class = "navbar-brand buttonstyle7" })</button></td>
+                            <div><p>test</p></div>
                         }
-                    </tr>
+                    </div>
                 }
-            </tbody>
-        </table>
+           
+        
 
 
         <!--listboxen-->
