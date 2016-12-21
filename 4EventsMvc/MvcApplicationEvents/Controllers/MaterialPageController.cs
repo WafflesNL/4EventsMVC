@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcApplicationEvents.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,9 @@ namespace MvcApplicationEvents.Controllers
         // GET: MaterialPage
         public ActionResult MaterialPage()
         {
+            Product product = new Product();
+            List < Product > productlist = new List<Product>();
+            productlist =  product.GetAvailableCopies();
             return View();
         }
     }

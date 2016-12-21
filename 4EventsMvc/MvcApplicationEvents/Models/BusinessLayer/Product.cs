@@ -7,7 +7,7 @@ namespace MvcApplicationEvents.Models
 {
     public class Product
     {
-        List<Copy> CopyList = new List<Copy>();
+        List<Product> CopyList = new List<Product>();
 
         public int ID { get; set; }
         public string Brand { get; set; }
@@ -17,6 +17,10 @@ namespace MvcApplicationEvents.Models
 
         public int Aantal { get; set; } 
 
+        public Product()
+        {
+
+        }
         public Product(int id, string brand, string serie, string type, int prijs)
         {
             this.ID = id;
@@ -36,9 +40,10 @@ namespace MvcApplicationEvents.Models
             this.Aantal = aantal;
         }
 
-        public void GetAvailableCopies()
+        public List<Product> GetAvailableCopies()
         {
             this.CopyList = DatabaseGetProduct.GetProductAvailable();
+            return CopyList;
         }
 
 
