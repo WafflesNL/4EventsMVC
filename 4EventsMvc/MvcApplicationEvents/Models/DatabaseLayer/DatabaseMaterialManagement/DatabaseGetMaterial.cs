@@ -21,6 +21,7 @@ namespace MvcApplicationEvents.Models
             if (DatabaseAcces.OpenConnection())
             {
 
+
                 try
                 {
                     DatabaseAcces.OpenConnection();
