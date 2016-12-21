@@ -23,13 +23,9 @@
             </div>     
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (CurrentAccount.ID == 1 || CurrentAccount.ID == 2 || CurrentAccount.ID == 3 || CurrentAccount.ID == 4)
-                    {
-                    <li>@Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                 
-                    }
                     @if (CurrentAccount.ID != null && CurrentAccount.ID != 0)
                     {
+                        <li>@Html.ActionLink("Home", "Home", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                         <li>@Html.ActionLink("Log Out", "LogOut", "Login", new { area = "" }, new { @class = "navbar-brand" })</li>
                     }
                 </ul>
