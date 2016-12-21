@@ -80,7 +80,7 @@ namespace MvcApplicationEvents.Models
                             File = null;
                         }
 
-                        Contribution contribution = new Contribution(ID, date, category, likes , reports, contributionid, File, new Message(title, content), Attachment);            
+                        Contribution contribution = new Contribution(ID, date, category, likes , reports, contributionid, File, new Message(title, content), Attachment, false);            
                         ContributionList.Add(contribution);
                     }
 
