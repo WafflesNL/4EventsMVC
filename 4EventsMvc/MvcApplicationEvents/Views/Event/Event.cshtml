@@ -2,39 +2,41 @@
 @{
     ViewBag.Title = "Event";
 }
+@model MvcApplicationEvents.Models.Event
 
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
-        <form>
-            Eventnaam:
-            <input id="eventname" type="text" name="Eventname" readonly><br>
-            Eventbeschrijving:
-            <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6" readonly></textarea>
-        </form>
-        <p>Locatie:</p>
-        <select id="select" disabled>
-            <option value="Tilburg">Tilburg</option>
-            <option value="Eindhoven">Eindhoven</option>
-            <option value="Amsterdam">Amsterdam</option>
-            <option value="Den Haag">Den Haag</option>
-        </select>
-        <form>
-            BeginDatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
-            EindDatum
-            <input type="date" name="EventDate" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day"><br>
-        </form>
-        <form>
-            Max aantal Bezoekers:
-            <input type="number" name="quantity" min="5"><br />
-        </form>
+        @using (Html.BeginForm("btnChangeEvent", "Event", Model))
+        {
+            <p>Eventnaam:</p>
+            <input id="eventname" type="text" name="Eventname" value="@Model.Name"><br>
+
+            <p>Eventbeschrijving:</p>
+            <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6">@Model.Description</textarea>
+
+            <p>Locatie:</p>
+            <input id="locatie" type="text" name="Location" value="@Model.Location" readonly><br>
+
+            <p>BeginDatum</p>
+            <input type="text" name="EventDates" value="@Model.DateStart.ToString()" readonly><br>
+
+            <p>EindDatum</p>
+            <input type="text" name="EventDate" value="@Model.DateEnd.ToString()" readonly><br>
+
+           <p>Max aantal Bezoekers:</p> 
+            <input type="number" name="quantity" min="5" value="@Model.MaxVisitors" readonly><br />
+
+            <input name="ButtonValue" value="Opslaan" type="submit"class="btn btn-primary btnOpmaak5"/>
+            <input name="ButtonValue" value="GastenLijst" type="submit" class="btn btn-primary btnOpmaak5" />
+            <input name="ButtonValue" value="Materiaal" type="submit" class="btn btn-primary btnOpmaak5" />
+            <input name="ButtonValue" value="Reserveringen" type="submit" class="btn btn-primary btnOpmaak5" />
+
+        }
         @Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
         @Html.ActionLink("Aanwezige Bezoekers", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
         @Html.ActionLink("Reserveringen", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
-        @Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
+       
     </div>
 
     <!--Account sidebar-->

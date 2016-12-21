@@ -25,7 +25,7 @@ namespace MvcApplicationEvents.Models
                     cmd.CommandText = "EditEvent";
                     cmd.Parameters.AddWithValue("@Name", Event.Name);
                     cmd.Parameters.AddWithValue("@Description", Event.Description);
-                    cmd.Parameters.AddWithValue("@ID", Event.DateStart);         
+                    cmd.Parameters.AddWithValue("@ID", Event.ID);         
 
                     cmd.ExecuteNonQuery();
 
