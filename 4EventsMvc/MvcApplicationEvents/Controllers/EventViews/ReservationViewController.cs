@@ -10,20 +10,14 @@ namespace MvcApplicationEvents.Controllers
     public class ReservationViewController : Controller
     {
         // GET: ReservationView
-        public ActionResult ReservationView()
+        public ActionResult ReservationView(Event ParameterEvent)
         {
-            return View();
+            ParameterEvent.GetReservations();
+            List<Reservation> ReservationList = ParameterEvent.ReservationList;
+
+            return View(ReservationList);
         }
 
-        public ActionResult GetReservationList(Event parameterEvent)
-        {
-            Event Event = parameterEvent;
-
-            Event.GetReservations();
-
-            List<Reservation> ReservationList = Event.ReservationList; 
-
-            return View("ReservationView", ReservationList);
-        }
+  
     }
 }

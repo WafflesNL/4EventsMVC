@@ -10,20 +10,13 @@ namespace MvcApplicationEvents.Controllers
     public class GuestListViewController : Controller
     {
         // GET: GuestListView
-        public ActionResult GuestListView()
-        {
-            return View();
+        public ActionResult GuestListView(Event ParameterEvent)
+        {       
+            ParameterEvent.GetGuestList();
+            List<Account> GuestList = ParameterEvent.GuestList;
+
+            return View(GuestList);
         }
 
-        public ActionResult GetGuestList(Event parameterEvent)
-        {
-            Event Event = parameterEvent;
-
-            Event.GetGuestList();
-
-            List<Account> AccountList = Event.GuestList;
-
-            return View("GuestListView", AccountList);
-        }
     }
 }
