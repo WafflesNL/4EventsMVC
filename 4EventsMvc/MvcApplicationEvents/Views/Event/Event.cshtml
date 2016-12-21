@@ -7,30 +7,36 @@
 <br />
 <div class="container_16">
     <div class="grid_3 push_4">
-        <form>
-            Eventnaam:
+        @using (Html.BeginForm("btnChangeEvent", "Event", Model))
+        {
+            <p>Eventnaam:</p>
             <input id="eventname" type="text" name="Eventname" value="@Model.Name"><br>
-            Eventbeschrijving:
+
+            <p>Eventbeschrijving:</p>
             <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6">@Model.Description</textarea>
-        </form>
-        <p>Locatie:</p>
-        <input id="locatie" type="text" name="Location" value="@Model.Location" readonly><br>
-        <form>
-            BeginDatum
+
+            <p>Locatie:</p>
+            <input id="locatie" type="text" name="Location" value="@Model.Location" readonly><br>
+
+            <p>BeginDatum</p>
             <input type="text" name="EventDates" value="@Model.DateStart.ToString()" readonly><br>
-        </form>
-        <form>
-            EindDatum
-            <input type="text" name="EventDatee" value="@Model.DateEnd.ToString()" readonly><br>
-        </form>
-        <form>
-            Max aantal Bezoekers:
+
+            <p>EindDatum</p>
+            <input type="text" name="EventDate" value="@Model.DateEnd.ToString()" readonly><br>
+
+           <p>Max aantal Bezoekers:</p> 
             <input type="number" name="quantity" min="5" value="@Model.MaxVisitors" readonly><br />
-        </form>
+
+            <input name="ButtonValue" value="Opslaan" type="submit"class="btn btn-primary btnOpmaak5"/>
+            <input name="ButtonValue" value="GastenLijst" type="submit" class="btn btn-primary btnOpmaak5" />
+            <input name="ButtonValue" value="Materiaal" type="submit" class="btn btn-primary btnOpmaak5" />
+            <input name="ButtonValue" value="Reserveringen" type="submit" class="btn btn-primary btnOpmaak5" />
+
+        }
         @Html.ActionLink("Materiaalbeheer", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
         @Html.ActionLink("Aanwezige Bezoekers", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
         @Html.ActionLink("Reserveringen", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
-        @Html.ActionLink("Opslaan", "Accountview", "Accountview", new { area = "" }, new { @class = "btn btn-primary btnOpmaak5" })
+       
     </div>
 
     <!--Account sidebar-->

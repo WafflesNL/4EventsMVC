@@ -15,39 +15,44 @@ namespace MvcApplicationEvents.Controllers
             return View();
         }
 
-        public ActionResult btnChangeEvent(int ID, string Name, string description)
+        public ActionResult GetEventInformation(Event EventParameter)
         {
-            Event Event = new Event(ID, Name, description);
+            return View("Event", EventParameter);
+        }
 
-            if (Event.EditEvent(Event))
+
+        public ActionResult btnChangeEvent(Event EventParameter, string Eventname, string Eventdescription, string ButtonValue)
+        {
+            switch (ButtonValue)
             {
-                return RedirectToAction("Home", "Home");
+                case ("Opslaan"):
+                    Event Event = new Event(EventParameter.ID, Eventname, Eventdescription);
+
+                    if (Event.EditEvent(Event))
+                    {
+                        return RedirectToAction("Home", "Home");
+                    }
+                    else
+                    {
+                        return View("Event", EventParameter); //failed and other reactions still have to be added
+                    }
+                case ("GastenLijst"):
+                    return RedirectToAction("GuestListView", "GuestListView", EventParameter);
+                  
+                case ("Materiaal"):
+                    return RedirectToAction("MaterialView", "MaterialView", EventParameter);
+                
+                case ("Reserveringen"):
+                    return RedirectToAction("ReservationView", "ReservationView", EventParameter);
+                
+                default:
+                    return View("Event");
             }
-            else
-            {
-                return View("Event"); //failed and other reactions still have to be added
-            }      
+
+       
         }
 
-        public ActionResult GetEventInformation(Event parameterEvent)
-        {          
-            return View("Event", parameterEvent);
-        }
-
-        //haalt data op voor andere forms
-        public ActionResult btnGuestList(Event Event)
-        {
-            return RedirectToAction("GetGuestList", "GuestListView", new { parameterEvent = Event });          
-        }
-
-        public ActionResult btnMaterialList(Event Event)
-        {
-            return RedirectToAction("GetMaterialList", "MaterialView", new { parameterEvent = Event });
-        }
-
-        public ActionResult btnReservationList(Event Event)
-        {
-            return RedirectToAction("GetReservationList", "ReservationView", new { parameterEvent = Event });
-        }
+      
+     
     }
 }
