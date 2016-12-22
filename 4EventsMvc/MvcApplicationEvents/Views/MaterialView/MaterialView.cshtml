@@ -11,10 +11,20 @@
     <input class="btn-primary" type="submit" value="Get it all" />
 </form>
 
+ <!-- <form action= RazerAT Url.Action("GetRented","MaterialView")>
+    <input class="btn-primary" type="submit" value="Get all rented items" />
+</form>
+-->
+@using (Html.BeginForm("Return", "MaterialView", Model))
+{
+    <input type="text" name="barcode" />
+    <input type="submit" value="Return">
+}
+
 @using (Html.BeginForm("Rent", "MaterialView", Model))
 {
     <input type="text" name="barcode" />
-    <input type="submit" value="Submit">
+    <input type="submit" value="Rent">
 
 
 

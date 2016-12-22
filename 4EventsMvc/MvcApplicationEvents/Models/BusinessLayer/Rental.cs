@@ -40,14 +40,9 @@ namespace MvcApplicationEvents.Models
 
         }
 
-        public void GetcopyList()
-        {
-          //  this.CopyList = //databasecode;
-        }
-
         public bool Rent(List<Product> productlist, string barcode)
         {
-            if (DatabaseCreateMaterial.CreateBestelling(productlist, barcode) == true)
+            if (DatabaseCreateMaterial.CreateRental(productlist, barcode) == true)
             {
                 return true;
             }
@@ -57,6 +52,20 @@ namespace MvcApplicationEvents.Models
                 return false;
             }
             
+        }
+
+        public bool Return(string barcode)
+
+        {
+            if (DatabaseCreateMaterial.ReturnItems(barcode) == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
 
 

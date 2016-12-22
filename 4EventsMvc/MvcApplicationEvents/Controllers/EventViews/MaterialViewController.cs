@@ -33,6 +33,14 @@ namespace MvcApplicationEvents.Controllers
             return View("MaterialView", productlist);
         }
 
+        public ActionResult GetAllRented()
+        {
+            Product product = new Product();
+            List<Product> productlist = new List<Product>();
+       //     productlist = product.GetAvailableCopies();
+            return View("MaterialView", productlist);
+        }
+
         public ActionResult Rent(string barcode)
         {
             Rental rental = new Rental();
@@ -42,6 +50,11 @@ namespace MvcApplicationEvents.Controllers
             rental.Rent(productlist, barcode);
             return RedirectToAction("GetAll");
         }
-
+        public ActionResult Return(string barcode)
+        {
+            Rental rental = new Rental();
+            rental.Return;
+            return RedirectToAction("GetAll");
+        }
     }
 }
