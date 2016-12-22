@@ -33,6 +33,15 @@ namespace MvcApplicationEvents.Controllers
             return View("MaterialView", productlist);
         }
 
+        public ActionResult Rent(string barcode)
+        {
+            Rental rental = new Rental();
+            List<Product> productlist = new List<Product>();
+            Product product = new Product(1, "", "", "", 20, 3);
+            productlist.Add(product);
+            rental.Rent(productlist, barcode);
+            return RedirectToAction("GetAll");
+        }
 
     }
 }
