@@ -11,6 +11,7 @@ namespace MvcApplicationEvents.Models
         public int Capacity { get; set; }
         public int Number { get; set; }
         public bool Reserved { get; set; }
+        public bool GrayedOut { get; set; } = false;
 
         public Place(int id, int capacity, int number, bool reserved)
         {
@@ -20,6 +21,38 @@ namespace MvcApplicationEvents.Models
             this.Reserved = reserved;
         }
 
+        public Place(int id, int number)
+        {
+            this.ID = id;
+            this.Number = number;          
+        }
+
+        public Place()
+        {
+
+        }
+
+        public bool GetID(int Number, int EventID)
+        {
+            Place place = DatabaseGetPlace.GetPlaceinformation(Number, EventID);
+            if (place != null)
+            {
+                this.ID = place.ID;
+                this.Number = place.Number;
+                this.Capacity = place.Capacity;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public void GrayOut()
+        {
+            this.GrayedOut = true;
+        }
 
 
     }

@@ -16,7 +16,7 @@
             <textarea id="eventdesc" type="text" name="Eventdescription" cols="40" rows="6">@Model.Description</textarea>
 
             <p>Locatie:</p>
-            <input id="locatie" type="text" name="Location" value="@Model.Location" readonly><br>
+            <input id="locatie" type="text" name="Location" value="@Model.Location.Name.ToString()" readonly><br>
 
             <p>BeginDatum</p>
             <input type="text" name="EventDates" value="@Model.DateStart.ToString()" readonly><br>

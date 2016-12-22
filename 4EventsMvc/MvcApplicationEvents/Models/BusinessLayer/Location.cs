@@ -8,7 +8,7 @@ namespace MvcApplicationEvents.Models
     public class Location
     {
         //test
-        List<Place> PlaceList = new List<Place>();
+        public List<Place> PlaceList = new List<Place>();
 
         public int ID { get; set; }
         public string Name { get; set; }

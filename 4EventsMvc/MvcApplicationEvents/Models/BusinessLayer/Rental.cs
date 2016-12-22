@@ -15,6 +15,10 @@ namespace MvcApplicationEvents.Models
         public int Price { get; set; }
         public bool Paid { get; set; }
 
+        public Rental()
+        {
+
+        }
         //aanmaken
         public Rental(DateTime datein, DateTime dateout, int price, bool paid)
         {   
@@ -36,9 +40,32 @@ namespace MvcApplicationEvents.Models
 
         }
 
-        public void GetcopyList()
+        public bool Rent(List<Product> productlist, string barcode)
         {
-          //  this.CopyList = //databasecode;
+            if (DatabaseCreateMaterial.CreateRental(productlist, barcode) == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+            
+        }
+
+        public bool Return(string barcode)
+
+        {
+            if (DatabaseCreateMaterial.ReturnItems(barcode) == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
 
 

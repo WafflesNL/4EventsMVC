@@ -93,6 +93,48 @@ namespace MvcApplicationEvents.Models
             return null;
         }
 
+        public static Location GetLocationEventID(int EventID)
+        {
+            if (DatabaseAcces.OpenConnection())
+            {
 
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
+
+                    cmd.CommandText = "SELECT * FROM LOCATION l Join Event e on l.ID = e.locationid Where e.ID = @EventID";
+                    cmd.Parameters.Add(new SqlParameter("EventID", EventID));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int LocatieID = Convert.ToInt32(reader["ID"]);
+                        string name = (reader["name"].ToString());
+                        string street = (reader["street"].ToString());
+                        string nr = (reader["nr"].ToString());
+                        string postcode = (reader["postcode"].ToString());
+                        string place = (reader["place"].ToString());
+
+                        Location Location = new Location(LocatieID, name, street, nr, postcode, place);
+                        return Location;
+                    }
+
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
+            }
+
+            return null;
+        }
     }
 }

@@ -12,34 +12,89 @@ namespace MvcApplicationEvents.Controllers
         // GET: ReservationsPage
         public ActionResult ReservationsPage(Event Event)
         {
-            List<Place> placelist = new List<Place>();
-            for (int i = 0; i < 12; i++)
-            {
-                placelist.Add(new Place(1, 5, 10, false));
-            }
-            return View(placelist);
+            ViewBag.Place = "geen Plek geselecteerd";
+            Event.GetLocation();
+            Event.Location.Getplaces();
+            return View(Event);
         }
 
+        public ActionResult SeePlace(string EventName, Place Place)
+        {
+            Event Event = new Event();
+            Event.Name = EventName;
+            Event Event2 = Event.GetEventInformationByname();
+            Event2.GetLocation();
+            Event2.Location.Getplaces();
 
+            ViewBag.Place = Place.Number;
+
+            return View("ReservationsPage", Event2);
+        }
 
 
         //hiermee maakt gebruiker nieuwe reservering mee aan
-        public ActionResult btnCreateReservation(Event Event, Place Place, DateTime dateStart, DateTime dateend)
+        public ActionResult btnCreateReservation(Event Event, int PlaceNumber, DateTime EventDatestart, DateTime EventDateend)
         {
-            //dit moet nog getest worden met data passen
+            Place Place = new Place();        
+            Place.GetID(PlaceNumber, Event.ID);
 
-            Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password);        
-            Reservation Reservation = new Reservation(dateStart, dateend, Place ,Account ,Event);      
+            Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password);
+            Reservation Reservation = new Reservation(EventDatestart, EventDateend, Place, Account, Event);
             if (Reservation.CreateReservation(Reservation))
             {
-                return View();
+                return RedirectToAction("Home","Home");
             }
             else
-            {
-                return View(); //moet nog fouten afhandeling in
-            }
-           
+            {                           
+                Event Event2 = Event.GetEventInformationByname();
+                Event2.GetLocation();
+                Event2.Location.Getplaces();
+                ViewBag.Place = "geen Plek geselecteerd";
+                return View("ReservationsPage", Event2); //moet nog fouten afhandeling in
+            }       
         }
+
+        public ActionResult Sort(int DM, string GOK, Event Event)
+        {       
+                Event Event2 = Event.GetEventInformationByname();
+                Event2.GetLocation();
+                Event2.Location.Getplaces();
+
+                foreach (Place P in Event2.Location.PlaceList)
+                {
+                    if (GOK == "Kleiner dan")
+                    {
+                        if (P.Capacity < DM)
+                        {
+                            P.GrayOut();
+                        }
+                    }
+                    else if (GOK == "Groter dan")
+                    {
+                        if (P.Capacity > DM)
+                        {
+                            P.GrayOut();
+                        }
+                    }
+                }
+
+                ViewBag.title = "geen Plek geselecteerd";
+
+                return View("ReservationsPage", Event2);              
+        }
+
+
+        public ActionResult Free(DateTime datestart, DateTime dateend, Event Event)
+        {
+            Event Event2 = Event.GetEventInformationByname();
+            Event2.GetLocation();
+            Event2.Location.Getplaces();
+
+
+
+            return View("ReservationsPage", Event2);
+        }
+
 
     }
 }

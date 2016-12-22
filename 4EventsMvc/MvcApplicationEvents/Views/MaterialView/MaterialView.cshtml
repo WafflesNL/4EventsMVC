@@ -11,14 +11,33 @@
     <input class="btn-primary" type="submit" value="Get it all" />
 </form>
 
-@if (Model.Count != 0)
+ <!-- <form action= RazerAT Url.Action("GetRented","MaterialView")>
+    <input class="btn-primary" type="submit" value="Get all rented items" />
+</form>
+-->
+@using (Html.BeginForm("Return", "MaterialView", Model))
 {
-foreach (Product P in Model)
+    <input type="text" name="barcode" />
+    <input type="submit" value="Return">
+}
+
+@using (Html.BeginForm("Rent", "MaterialView", Model))
 {
-    <p>@P.Brand</p>
-    <p>@P.Serie</p>
-    <p>@P.Type</p>
-    <p>@P.Prijs</p>
-    <p>@P.Aantal</p>
-} 
+    <input type="text" name="barcode" />
+    <input type="submit" value="Rent">
+
+
+
+if (Model.Count != 0)
+{
+    foreach (Product P in Model)
+    {
+    <p>@P.Brand</p> 
+    <p>@P.Serie</p>  
+    <p>@P.Type</p>  
+    <p>@P.Prijs</p>  
+    <p>@P.Aantal</p>    <input type="number" min="0" max="@P.Aantal" name="count" />
+
+        }
+    }
 }

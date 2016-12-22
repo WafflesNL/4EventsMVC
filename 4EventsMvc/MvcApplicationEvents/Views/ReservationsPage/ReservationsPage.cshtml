@@ -3,48 +3,81 @@
     ViewBag.Title = "ReservationsPage";
 }
 @using MvcApplicationEvents.Models;
-@model List<Place>
+@model Event
+
 <br />
-<div class="container_16">
-    <div class="grid_1 pull_1">
-      
-        <div class="row">
-            @for (int i = 0; i < Model.Count / 8; i++)
+
+
+    @{ int tel = 0; }
+<div class="row">
+    <div class="col-md-12">
+        <div class="rows">
+            @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
             {
                 <div class="col-md-2">
                     @for (int k = 0; k < 8; k++)
                     {
-                        <div><p>test</p></div>
+                        using (Html.BeginForm("SeePlace", "ReservationsPage", Model.Location.PlaceList[tel]))
+                        {
+                            if (Model.Location.PlaceList[tel].GrayedOut == true)
+                            {
+                                <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-primary" /></div>
+                            }
+                            else
+                            {
+                                <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-default" /></div>
+                            }
+                            <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
+                        }
+                        tel = tel + 1;
                     }
                 </div>
             }
         </div>
+    </div>
+</div>
 
 
-        <!--listboxen-->
-        <div class="grid_1">
-            <form>
-                <textarea class="accountlistbox" type="text" name="Post Box" rows="10">Lijst van Accounts</textarea>
-            </form>
-            <button class="buttonstyle8">@Html.ActionLink("Voeg Toe", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-            <button class="buttonstyle8">@Html.ActionLink("Verwijder", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        </div>
-        <div class="grid_1 push_3">
-            <form>
-                <textarea class="accountlistbox1" type="text" name="Post Box" rows="10">Lijst van Gereserveerde Accounts</textarea>
-            </form>
-        </div>
-        <div class="grid_1">
-            <button class="buttonstyle8">@Html.ActionLink("Geselecteerde Plaatsen", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        </div>
-    </div>
 
-    <!--Account sidebar-->
-    <div class="grid_1 push_11">
-        <div class="logo">
-            <img src="~/Content/Images/4Events.jpg">
-            <p class="logotext">ICT4Events</p>
+
+    <div class="row">
+        <div class="col-md-12 position1">
+
+            <p>Huidige Locatie is @ViewBag.Place</p>
+
+            @using (Html.BeginForm("Sort", "ReservationsPage", Model))
+            {
+                <select class="form-control" name="GOK">
+                    <option value="Kleiner dan" selected>Kleiner dan</option>
+                    <option value="Groter dan">Groter dan</option>
+                </select>
+
+                <input type="number" name="DM" min="1" max="100" class="form-control"><p> in dm³     </p><input name="test" value="test" type="submit" class="btn btn-primary" /><br />
+            }
+ 
+            @using (Html.BeginForm("btnCreateReservation", "ReservationsPage", Model))
+            {            
+                <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+                <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+                
+                <input name="PlaceNumber" type="hidden" value="@ViewBag.Place" />
+                <input name="Reserveer" value="Reserveer" type="submit" class="btn btn-primary"/>          
+            }
+
+            </div>
         </div>
-        @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
-    </div>
-    </div>
+
+
+
+
+        <!--Account sidebar-->
+        <div class="grid_1 push_11">
+            <div class="logo">
+                <img src="~/Content/Images/4Events.jpg">
+                <p class="logotext">ICT4Events</p>
+            </div>
+            @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
+        </div>
+ 
+
+
