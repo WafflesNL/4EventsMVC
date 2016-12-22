@@ -6,55 +6,58 @@
 @model Event
 
 <br />
-<div class="container_16">
 
-@{ int tel = 0; }
 
-    <div class="rows">
-        @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
-        {
-            <div class="col-md-2">
-                @for (int k = 0; k < 8; k++)
+    @{ int tel = 0; }
+<div class="row">
+    <div class="col-md-12">
+        <div class="rows">
+            @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
+            {
+                <div class="col-md-2">
+                    @for (int k = 0; k < 8; k++)
                 {
-                    using (Html.BeginForm("Action", "Controller", Model.Location.PlaceList[tel]))
+                    using (Html.BeginForm("SeePlace", "ReservationsPage", Model.Location.PlaceList[tel]))
                     {
-                      <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="Place" class="btn btn-default"/></div>
-                      <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
+                            <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-default" /></div>
+                            <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
+                        }
+                        tel = tel + 1;
                     }
-                    tel = tel + 1;
-                }
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12 position1">
+
+            <p>Huidige Locatie is @ViewBag.Place</p>
+            @using (Html.BeginForm("btnCreateReservation", "ReservationsPage", Model))
+            {
+                <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+                <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+
+                <input name="PlaceNumber" type="hidden" value="@ViewBag.Place" />
+                <input name="Reserveer" value="Reserveer" type="submit" class="btn btn-primary"/>
+            }
+
             </div>
-        }
-    </div>
-    
+        </div>
 
-    <div class="grid_1 pull_1">
 
-        <p>Huidige Locatie is @ViewBag.Place</p>
-        <!--listboxen-->
-        <div class="grid_1">
-            <form>
-                <textarea class="accountlistbox" type="text" name="Post Box" rows="10">Lijst van Accounts</textarea>
-            </form>
-            <button class="buttonstyle8">@Html.ActionLink("Voeg Toe", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-            <button class="buttonstyle8">@Html.ActionLink("Verwijder", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        </div>
-        <div class="grid_1 push_3">
-            <form>
-                <textarea class="accountlistbox1" type="text" name="Post Box" rows="10">Lijst van Gereserveerde Accounts</textarea>
-            </form>
-        </div>
-        <div class="grid_1">
-            <button class="buttonstyle8">@Html.ActionLink("Geselecteerde Plaatsen", "Accountview", "Accountview", new { area = "" }, new { @class = "navbar-brand" })</button>
-        </div>
-    </div>
 
-    <!--Account sidebar-->
-    <div class="grid_1 push_11">
-        <div class="logo">
-            <img src="~/Content/Images/4Events.jpg">
-            <p class="logotext">ICT4Events</p>
+
+        <!--Account sidebar-->
+        <div class="grid_1 push_11">
+            <div class="logo">
+                <img src="~/Content/Images/4Events.jpg">
+                <p class="logotext">ICT4Events</p>
+            </div>
+            @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
         </div>
-        @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
-    </div>
-    </div>
+ 
+
+

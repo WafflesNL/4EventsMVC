@@ -20,6 +20,34 @@ namespace MvcApplicationEvents.Models
             this.Reserved = reserved;
         }
 
+        public Place(int id, int number)
+        {
+            this.ID = id;
+            this.Number = number;          
+        }
+
+        public Place()
+        {
+
+        }
+
+        public bool GetID(int Number, int EventID)
+        {
+            Place place = DatabaseGetPlace.GetPlaceinformation(Number, EventID);
+            if (place != null)
+            {
+                this.ID = place.ID;
+                this.Number = place.Number;
+                this.Capacity = place.Capacity;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
 
     }

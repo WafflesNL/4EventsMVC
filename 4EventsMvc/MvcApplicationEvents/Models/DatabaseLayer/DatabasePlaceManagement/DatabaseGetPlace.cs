@@ -100,6 +100,46 @@ namespace MvcApplicationEvents.Models
        
         }
 
+        public static Place GetPlaceinformation(int number, int eventID)
+        {
+            if (DatabaseAcces.OpenConnection())
+            {
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
+
+                    cmd.CommandText = "select * from place p join LOCATION l on p.locationid = l.ID join Event E on l.ID = E.locationid where number = @number and e.ID = @EventID";
+                    cmd.Parameters.Add(new SqlParameter("@number", number));
+                    cmd.Parameters.Add(new SqlParameter("EventID", eventID));
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        int ID = Convert.ToInt32(reader["ID"]);
+                        int capacity = Convert.ToInt32(reader["capacity"]);
+                     
+                        //bool reserved = Convert.ToBoolean(reader["paid"]);
+                        Place Place = new Place(ID, capacity, number, false);
+                        return Place;
+                    }
+
+
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
+
+            }
+            return null;
+        }
 
     }
 }

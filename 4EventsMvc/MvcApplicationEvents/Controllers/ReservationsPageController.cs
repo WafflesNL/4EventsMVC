@@ -9,43 +9,47 @@ namespace MvcApplicationEvents.Controllers
 {
     public class ReservationsPageController : Controller
     {
-        Event Event;
         // GET: ReservationsPage
         public ActionResult ReservationsPage(Event Event)
         {
+            ViewBag.Place = "nog niets geselecteerd";
             Event.GetLocation();
             Event.Location.Getplaces();
             return View(Event);
         }
 
-        //public ActionResult SeePlace(Place Place, string EventName)
-        //{
+        public ActionResult SeePlace(string EventName, Place Place)
+        {
+            Event Event = new Event();
+            Event.Name = EventName;
+            Event Event2 = Event.GetEventInformationByname();
+            Event2.GetLocation();
+            Event2.Location.Getplaces();
 
+            ViewBag.Place = Place.Number;
 
+            return View("ReservationsPage", Event2);
+        }
 
-        //    ViewBag.Place = Place.Number;
-
-
-
-
-        //    return View("", );
-        //}
 
         //hiermee maakt gebruiker nieuwe reservering mee aan
-        public ActionResult btnCreateReservation(Event Event, Place Place, DateTime dateStart, DateTime dateend)
+        public ActionResult btnCreateReservation(Event Event, int PlaceNumber, DateTime EventDatestart, DateTime EventDateend)
         {
-            //dit moet nog getest worden met data passen
+            Place Place = new Place();        
+            Place.GetID(PlaceNumber, Event.ID);
 
-            Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password);        
-            Reservation Reservation = new Reservation(dateStart, dateend, Place ,Account ,Event);      
+            Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password);
+            Reservation Reservation = new Reservation(EventDatestart, EventDateend, Place, Account, Event);
             if (Reservation.CreateReservation(Reservation))
             {
-                return View();
+                return RedirectToAction("Home","Home");
             }
             else
             {
                 return View(); //moet nog fouten afhandeling in
             }
+
+     
            
         }
 
