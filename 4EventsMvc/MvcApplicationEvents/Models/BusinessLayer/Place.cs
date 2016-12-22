@@ -11,6 +11,7 @@ namespace MvcApplicationEvents.Models
         public int Capacity { get; set; }
         public int Number { get; set; }
         public bool Reserved { get; set; }
+        public bool GrayedOut { get; set; } = false;
 
         public Place(int id, int capacity, int number, bool reserved)
         {
@@ -48,6 +49,10 @@ namespace MvcApplicationEvents.Models
 
         }
 
+        public void GrayOut()
+        {
+            this.GrayedOut = true;
+        }
 
 
     }
