@@ -45,6 +45,11 @@ namespace MvcApplicationEvents.Models
             this.CopyList = DatabaseGetProduct.GetProductAvailable();
             return CopyList;
         }
+        public List<Product> GetAllRentedItems()
+        {
+            this.CopyList = DatabaseGetProduct.GetRentedProducts();
+            return CopyList;
+        }
 
 
 

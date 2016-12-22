@@ -57,35 +57,34 @@ namespace MvcApplicationEvents.Models
             }
             return CopyList;
         }
-
-        public static List<Copy> GetProductforAccount(string barcode)
+        public static List<Product> GetRentedProducts()
         {
-            List<Copy> CopyList = new List<Copy>();
+            List<Product> CopyList = new List<Product>();
 
             if (DatabaseAcces.OpenConnection())
             {
-
                 try
                 {
                     DatabaseAcces.OpenConnection();
-                    SqlCommand cmd = new SqlCommand();
+                    SqlCommand cmd = new SqlCommand("GetRentedMaterial");
                     cmd.Connection = DatabaseAcces.connect;
-
-                    cmd.CommandText = "SELECT * FROM Copy WHERE barcode = @barcode";
-
-                    cmd.Parameters.Add(new SqlParameter("barcode", barcode));
-
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    //   cmd.CommandText = "SELECT * FROM Copy WHERE EventID IS NULL";
+                    //   cmd.ExecuteNonQuery();
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        int ID = Convert.ToInt32(reader["ID"]);
-                        int Productid = Convert.ToInt32(reader["Productid"]);
-                        int Serialnumber = Convert.ToInt32(reader["Serialnumber"].ToString());
-                        string Barcode = (reader["barcode"].ToString());
+                        int ID = Convert.ToInt32(reader["Count"]);
+                        int Price = Convert.ToInt32(reader["Price"]);
+                        int Count = Convert.ToInt32(reader["Count"]);
+                        string Brand = (reader["Brand"].ToString());
+                        string Serie = (reader["Serie"].ToString());
+                        string Type = (reader["Type"].ToString());
+
 
                         // id brand serie typenummer prijs
-                        Copy Product = new Copy(ID, Serialnumber, Barcode);
+                        Product Product = new Product(ID, Brand, Serie, Type, Price, Count);
                         CopyList.Add(Product);
                     }
                     return CopyList;
@@ -102,6 +101,7 @@ namespace MvcApplicationEvents.Models
             }
             return CopyList;
         }
+
 
         /// <summary>
         /// Gets all Products that haven't been linked to an event yet

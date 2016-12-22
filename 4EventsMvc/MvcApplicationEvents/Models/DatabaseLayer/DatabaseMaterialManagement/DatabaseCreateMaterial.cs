@@ -9,7 +9,7 @@ namespace MvcApplicationEvents.Models
 {
     public static class DatabaseCreateMaterial
     {
-        public static bool CreateBestelling(List<Product> id, string Barcode)
+        public static bool CreateRental(List<Product> id, string Barcode)
         {
            if (DatabaseAcces.OpenConnection())
             {
@@ -18,9 +18,7 @@ namespace MvcApplicationEvents.Models
                     DatabaseAcces.OpenConnection();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
-
                     cmd.CommandType = CommandType.StoredProcedure;
-
                     cmd.CommandText = "CreateRental";
 
                     using (var table = new DataTable())
@@ -35,16 +33,12 @@ namespace MvcApplicationEvents.Models
 
                         var pList = new SqlParameter("@ProductList", SqlDbType.Structured);
                         cmd.Parameters.AddWithValue("@Barcode", Barcode); //voor klantID door te geven
-
                         pList.TypeName = "dbo.IntList";
                         pList.Value = table;
-
                         cmd.Parameters.Add(pList);
                         cmd.ExecuteNonQuery();
                     }
-
                     return true;
-
                 }
                 catch (SqlException e)
                 {
@@ -55,7 +49,32 @@ namespace MvcApplicationEvents.Models
                 {
                     DatabaseAcces.CloseConnection();
                 }
-
+            }
+            return true;
+        }
+        public static bool ReturnItems(string Barcode)
+        {
+            if (DatabaseAcces.OpenConnection())
+            {
+                try
+                {
+                    DatabaseAcces.OpenConnection();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = DatabaseAcces.connect;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "ReturnProduct";
+                    cmd.Parameters.Add("@barcode", SqlDbType.VarChar).Value = Barcode;
+                    cmd.ExecuteNonQuery();                                   
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
+                    return false;
+                }
+                finally
+                {
+                    DatabaseAcces.CloseConnection();
+                }
             }
             return true;
         }
