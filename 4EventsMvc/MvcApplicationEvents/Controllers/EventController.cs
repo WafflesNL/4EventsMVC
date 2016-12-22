@@ -17,7 +17,8 @@ namespace MvcApplicationEvents.Controllers
 
         public ActionResult GetEventInformation(Event EventParameter)
         {
-            return View("Event", EventParameter);
+            Event Event2 = EventParameter.GetEventInformationByname();
+            return View("Event", Event2);
         }
 
 
@@ -34,7 +35,8 @@ namespace MvcApplicationEvents.Controllers
                     }
                     else
                     {
-                        return View("Event", EventParameter); //failed and other reactions still have to be added
+                        Event Event2 = EventParameter.GetEventInformationByname();
+                        return View("Event", Event2); //failed and other reactions still have to be added
                     }
                 case ("GastenLijst"):
                     return RedirectToAction("GuestListView", "GuestListView", EventParameter);
