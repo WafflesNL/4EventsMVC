@@ -78,6 +78,25 @@ textarea {
     display: inline-block;
 }
 
+.buttonstyle10 {
+    min-width: 140px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.paddingtop {
+    padding-top: 10px;
+    margin-top: 10px;
+}
+
+.btnreserve{
+    width:75px;
+}
+
+.placeholdpost {
+    margin-left: -25px;
+}
+
 .logo{
     margin-left: 33px;
 }
