@@ -5,23 +5,28 @@
 @using MvcApplicationEvents.Controllers;
 @model List<Contribution>
 
+<br />
 <script type="text/javascript">
-    function GetPost()
+    function Like(ID)
     {
-        var Q = document.getElementById("postbox").value;
-        @{ string dank = null; }
-        @dank = Q;
-    }
+        $.ajax({
+        type: "POST",
+        url: "~/TimelinePage/Like",
+        data: ID,
+        dataType: "json"
+        });
+        }
 </script>
 
-<br />
 <div class="container_16">
     <div class="grid_9 pull_1">
         @using (Html.BeginForm())
         {
             foreach (Contribution ctrib in Model)
             {
-                <p>@ctrib.Message.Content @ctrib.Likes @ctrib.Reports<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Like(Convert.ToInt32(ctrib.ID));};window.location.reload()">Like</a><a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a></p>
+                <p>@ctrib.Message.Content @ctrib.Likes @ctrib.Reports</p>
+                <a name="ID" href="#" onclick="javascript:Like(@ctrib.ID);">Like</a>
+                @*<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a>*@
             }
         }
         <div class="grid_1 push_5">
@@ -33,11 +38,11 @@
         </div>
         <br />
         <div class="grid_1 pull_1">
-            @using (@Html.BeginForm())
+            @using (@Html.BeginForm("TimelinePage", "TimelinePage"))
             {
-                <textarea id="postbox" class="postbox">Write T</textarea>
-                <div class="form-group placeholdpost" onclick="GetPost();">
-                    <input type="button" value="Post" class="btn btn-primary btnOpmaak7" onclick="@{((TimelinePageController)this.ViewContext.Controller).Post(dank);};window.location.reload()" />
+                <input type="text" id="postbox" name="content" class="postbox" />
+                <div class="form-group placeholdpost">
+                    <button type="submit" id="postbtn" name="content" class="btn btn-primary btnOpmaak7">Post</button>
                 </div>
             }
             <div class="grid_1">

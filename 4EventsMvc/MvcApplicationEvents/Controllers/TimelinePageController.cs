@@ -53,11 +53,13 @@ namespace MvcApplicationEvents.Controllers
         }
 
         [HttpPost]
-        public void Post(string content)
+        public ActionResult TimelinePage(Event Event, string content)
         {
+            Contriblist = DatabaseGetContribution.GetContributions(Event.ID);
             Message Post = new Message(null, content);
-            Contribution C = new Contribution(Post);
-            C.AddMessage(Post);
+            Contribution C = new Contribution(DateTime.Now, "Mededeling", 0, 0, 99, Post, (int)CurrentAccount.ID);
+            C.AddMessage(C);
+            return View(Contriblist);
         }
     }
 }

@@ -44,7 +44,6 @@ C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPojec
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\roslyn\VBCSCompiler.exe.config
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\4EventsTestPoject.dll
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\4EventsTestPoject.pdb
-C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\MvcApplicationEvents.dll
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\System.Web.Mvc.dll
 C:\Users\Bart\Documents\GitHub\4EventsMVC\4EventsMVC\4EventsMvc\4EventsTestPoject\bin\Debug\System.Web.Razor.dll

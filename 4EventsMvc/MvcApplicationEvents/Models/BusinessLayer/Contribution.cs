@@ -20,6 +20,7 @@ namespace MvcApplicationEvents.Models
         public string Attachment { get; set; }
         public Message Message { get; set; }
         public bool IsSelected { get; set; }
+        public int AccountID { get; set; }
 
         /// <summary>
         /// Create Constructor
@@ -28,7 +29,7 @@ namespace MvcApplicationEvents.Models
         /// <param name="likes">The amount of likes of a post</param> 
         /// <param name="file">The file belonging to the post</param>
         /// <param name="postID">This is the ID of the post reacted to</param>
-        public Contribution(DateTime datetime, string category, int likes, int reports, int postid, Message message, bool isselected)
+        public Contribution(DateTime datetime, string category, int likes, int reports, int postid, Message message, int accountid)
         {           
             this.Category = category;    
             this.Likes = likes;
@@ -36,7 +37,7 @@ namespace MvcApplicationEvents.Models
             this.PostID = postid;
             this.DateTime = datetime;
             this.Message = message;
-            this.IsSelected = isselected;
+            this.AccountID = accountid;
         }
 
         /// <summary>
@@ -108,9 +109,9 @@ namespace MvcApplicationEvents.Models
             this.File = file;
         }
 
-        public void AddMessage(Message message)
+        public void AddMessage(Contribution Contrib)
         {
-            this.Message = message;
+            DatabaseCreateContribution.CreateContribution(Contrib, 1);
         }
 
 
