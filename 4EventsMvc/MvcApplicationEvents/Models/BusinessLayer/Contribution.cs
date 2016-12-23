@@ -68,6 +68,11 @@ namespace MvcApplicationEvents.Models
             this.ID = id;
         }
 
+        public Contribution(Message message)
+        {
+            this.Message = message;
+        }
+
         public bool likePost()
         {
             if (DatabaseEditContribution.LikePost(ID))
