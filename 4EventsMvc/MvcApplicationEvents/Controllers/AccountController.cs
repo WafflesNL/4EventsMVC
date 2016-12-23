@@ -13,7 +13,7 @@ namespace MvcApplicationEvents.Controllers
         public ActionResult Account()
         {
             Account Account = new Account(CurrentAccount.ID, CurrentAccount.Username, CurrentAccount.Password, CurrentAccount.Function , CurrentAccount.Email); 
-            return View();
+            return View(Account);
         }
 
         public ActionResult btnChangeAccount(Account Account, string Name, string Password, string PasswordA)

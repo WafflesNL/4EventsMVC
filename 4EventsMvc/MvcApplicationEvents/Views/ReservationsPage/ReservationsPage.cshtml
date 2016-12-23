@@ -57,8 +57,8 @@
  
             @using (Html.BeginForm("btnCreateReservation", "ReservationsPage", Model))
             {            
-                <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
-                <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+                <input type="date" class="form-control" name="EventDatestart" min="@Model.DateStart.Year-@Model.DateStart.Month-@Model.DateStart.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+                <input type="date" class="form-control" name="EventDateend" min="@Model.DateStart.Year-@Model.DateStart.Month-@Model.DateStart.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
                 
                 <input name="PlaceNumber" type="hidden" value="@ViewBag.Place" />
                 <input name="Reserveer" value="Reserveer" type="submit" class="btn btn-primary"/>          
