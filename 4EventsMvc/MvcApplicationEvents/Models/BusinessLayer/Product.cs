@@ -21,6 +21,7 @@ namespace MvcApplicationEvents.Models
         {
 
         }
+
         public Product(int id, string brand, string serie, string type, int prijs)
         {
             this.ID = id;
