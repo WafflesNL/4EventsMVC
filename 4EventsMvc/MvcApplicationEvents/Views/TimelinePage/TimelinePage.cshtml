@@ -1,39 +1,45 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "TimelinePage";
 }
 @using MvcApplicationEvents.Models;
 @using MvcApplicationEvents.Controllers;
 @model List<Contribution>
 
+<script type="text/javascript">
+    function GetPost()
+    {
+        var Q = document.getElementById("postbox").value;
+        @{ string dank = null; }
+        @dank = Q;
+    }
+</script>
 
 <br />
 <div class="container_16">
     <div class="grid_9 pull_1">
         @using (Html.BeginForm())
         {
-        foreach(Contribution ctrib in Model)
-        {
-            <p>@ctrib.Message.Content @ctrib.Likes<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Like(Convert.ToInt32(ctrib.ID));};window.location.reload()">Like</a><a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a></p>
+            foreach (Contribution ctrib in Model)
+            {
+                <p>@ctrib.Message.Content @ctrib.Likes @ctrib.Reports<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Like(Convert.ToInt32(ctrib.ID));};window.location.reload()">Like</a><a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a></p>
+            }
         }
-        }
-        <div class="grid_1 push_4">
-            <form role="form" class="form-horizontal" onclick="alert(getSelectedItems());" method="post">
+        <div class="grid_1 push_5">
+            <form role="form" class="form-horizontal" method="post">
                 <div class="form-group">
                     <input type="button" value="Filter Posts" class="btn btn-primary btnOpmaak7" />
                 </div>
-            </form>  
+            </form>
         </div>
-            </div>
         <br />
-        <div class="grid_1 pull_2">
-                @using (@Html.BeginForm())
-                    {
-                        @Html.TextArea("Textareavalue", null, new { Value = (string)ViewBag.ShowCreateButton, @class = "form-control postbox"})
-                            <div class="form-group">
-                                <input type="submit" value="Post" class="btn btn-primary btnOpmaak7" onclick="@{((TimelinePageController)this.ViewContext.Controller).Post("Textareavalue");}" />
-                             </div>
-                    }
+        <div class="grid_1 pull_1">
+            @using (@Html.BeginForm())
+            {
+                <textarea id="postbox" class="postbox">Write T</textarea>
+                <div class="form-group placeholdpost" onclick="GetPost();">
+                    <input type="button" value="Post" class="btn btn-primary btnOpmaak7" onclick="@{((TimelinePageController)this.ViewContext.Controller).Post(dank);};window.location.reload()" />
+                </div>
+            }
             <div class="grid_1">
                 <div class="paddingfortimeline">
                     <select>
@@ -42,17 +48,13 @@
                         <option value="Entertainment">Entertainment</option>
                         <option value="Gezelligheid">Gezelligheid</option>
                     </select>
-                    <form role="form" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            @*<input type="button" value="Post" class="btn btn-primary btnOpmaak7" onclick="@{((TimelinePageController)this.ViewContext.Controller).Post();}" />*@
-                        </div>
-                    </form>  
                 </div>
             </div>
         </div>
     </div>
+
     <!--Account sidebar-->
-    <div class="grid_1 push_4">
+    <div class="grid_1 push_3">
         <div class="logo">
             <img src="~/Content/Images/4Events.jpg">
             <p class="logotext">ICT4Events</p>

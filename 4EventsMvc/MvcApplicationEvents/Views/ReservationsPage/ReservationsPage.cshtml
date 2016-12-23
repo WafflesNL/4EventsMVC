@@ -7,38 +7,43 @@
 
 <br />
 
+<div class="container_16">
+    <div class="grid_1 push_13">
+        <div class="logo">
+            <img src="~/Content/Images/4Events.jpg">
+            <p class="logotext">ICT4Events</p>
+        </div>
+        @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
+    </div>
 
     @{ int tel = 0; }
-<div class="row">
-    <div class="col-md-12">
-        <div class="rows">
-            @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
+    <div class="row">
+        <div class="col-md-12">
+            <div class="rows">
+                @for (int i = 0; i < Model.Location.PlaceList.Count / 8; i++)
             {
-                <div class="col-md-2">
-                    @for (int k = 0; k < 8; k++)
-                    {
-                        using (Html.BeginForm("SeePlace", "ReservationsPage", Model.Location.PlaceList[tel]))
+                    <div class="col-md-2">
+                        @for (int k = 0; k < 8; k++)
                         {
-                            if (Model.Location.PlaceList[tel].GrayedOut == true)
+                            using (Html.BeginForm("SeePlace", "ReservationsPage", Model.Location.PlaceList[tel]))
                             {
-                                <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-primary" /></div>
+                                if (Model.Location.PlaceList[tel].GrayedOut == true)
+                                {
+                                    <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-primary btnreserve" /></div>
+                                }
+                                else
+                                {
+                                    <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-default btnreserve" /></div>
+                                }
+                                <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
                             }
-                            else
-                            {
-                                <div class="DivStyle1"><input type="submit" value="@Model.Location.PlaceList[tel].Number" name="PlaceNumber" class="btn btn-default" /></div>
-                            }
-                            <input type="hidden" name="EventName" id="FullName" value="@Model.Name" />
+                            tel = tel + 1;
                         }
-                        tel = tel + 1;
-                    }
-                </div>
-            }
+                    </div>
+                }
+            </div>
         </div>
     </div>
-</div>
-
-
-
 
     <div class="row">
         <div class="col-md-12 position1">
@@ -52,32 +57,21 @@
                     <option value="Groter dan">Groter dan</option>
                 </select>
 
-                <input type="number" name="DM" min="1" max="100" class="form-control"><p> in dm³     </p><input name="test" value="test" type="submit" class="btn btn-primary" /><br />
+                <input type="number" name="DM" min="1" max="100" class="form-control">
+                <p> in dm³     </p>
+                <input name="Sort" value="Sorteer" type="submit" class="btn btn-primary buttonstyle10" />
             }
- 
+
             @using (Html.BeginForm("btnCreateReservation", "ReservationsPage", Model))
-            {            
-                <input type="date" class="form-control" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
+            {
+                <input type="date" class="form-control paddingtop" name="EventDatestart" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
                 <input type="date" class="form-control" name="EventDateend" min="@DateTime.Now.Year-@DateTime.Now.Month-@DateTime.Now.Day" max="@Model.DateEnd.Year-@Model.DateEnd.Month-@Model.DateEnd.Day"><br>
-                
+
                 <input name="PlaceNumber" type="hidden" value="@ViewBag.Place" />
-                <input name="Reserveer" value="Reserveer" type="submit" class="btn btn-primary"/>          
+                <input name="Reserveer" value="Reserveer" type="submit" class="btn btn-primary" />
             }
 
-            </div>
         </div>
-
-
-
-
-        <!--Account sidebar-->
-        <div class="grid_1 push_11">
-            <div class="logo">
-                <img src="~/Content/Images/4Events.jpg">
-                <p class="logotext">ICT4Events</p>
-            </div>
-            @Html.ActionLink("Account", "Account", "Account", new { area = "" }, new { @class = "btn btn-primary btnOpmaak2" })
-        </div>
- 
-
+    </div>
+</div>
 
