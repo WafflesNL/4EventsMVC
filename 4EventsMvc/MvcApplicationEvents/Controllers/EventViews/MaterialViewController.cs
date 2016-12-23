@@ -50,11 +50,11 @@ namespace MvcApplicationEvents.Controllers
             rental.Rent(productlist, barcode);
             return RedirectToAction("GetAll");
         }
-        public ActionResult Return(string barcode)
-        {
-            Rental rental = new Rental();
-            rental.Return;
-            return RedirectToAction("GetAll");
-        }
+        //public ActionResult Return(string barcode)
+        //{
+        //    Rental rental = new Rental();
+        //    rental.Return;
+        //    return RedirectToAction("GetAll");
+        //}
     }
 }

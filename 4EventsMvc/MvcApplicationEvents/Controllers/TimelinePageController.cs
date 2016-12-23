@@ -39,24 +39,25 @@ namespace MvcApplicationEvents.Controllers
         }
 
         [HttpPost]
-        public string TimelinePage(IEnumerable<string> selectedConts)
-        {
-            if (selectedConts == null)
-            {
-                return "No cities selected";
-            }
-            else
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append("You selected - " + string.Join(",", selectedConts));
-                return sb.ToString();
-            }
-        }
-
         public void Like(int ID)
         {
             Contribution C = new Contribution(ID);
             C.likePost();
+        }
+
+        [HttpPost]
+        public void Report(int ID)
+        {
+            Contribution C = new Contribution(ID);
+            C.ReportPost();
+        }
+
+        [HttpPost]
+        public void Post(string content)
+        {
+            Message Post = new Message(null, content);
+            Contribution C = new Contribution(Post);
+            C.AddMessage(Post);
         }
     }
 }
