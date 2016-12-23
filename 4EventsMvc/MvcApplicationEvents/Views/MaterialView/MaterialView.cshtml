@@ -28,14 +28,15 @@
 
 
 
-if (Model.Count != 0)
-{
-    foreach (Product P in Model)
+    if (Model.Count != 0)
     {
-    <p>@P.Brand</p> 
-    <p>@P.Serie</p>  
-    <p>@P.Type</p>  
-    <p>@P.Prijs</p>  
+        foreach (Product P in Model)
+        {
+                        <input type="hidden" value="@P.ID" name="id" />
+    <p>@P.Brand</p>     <input type="hidden" value="@P.Brand" name="brand" />
+    <p>@P.Serie</p>     <input type="hidden" value="@P.Serie" name="serie" />
+    <p>@P.Type</p>      <input type="hidden" value="@P.Type" name="type" />
+    <p>@P.Prijs</p>     <input type="hidden" value="@P.Prijs" name="price" />
     <p>@P.Aantal</p>    <input type="number" min="0" max="@P.Aantal" name="count" />
 
         }
