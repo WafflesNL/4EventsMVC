@@ -125,7 +125,7 @@ namespace MvcApplicationEvents.Models
 
                     while (reader.Read())
                     {
-                        int ID = Convert.ToInt32(reader["Count"]);
+                        int ID = Convert.ToInt32(reader["ID"]);
                         int Price = Convert.ToInt32(reader["Price"]);
                         int Count = Convert.ToInt32(reader["Count"]);
                         string Brand = (reader["Brand"].ToString());

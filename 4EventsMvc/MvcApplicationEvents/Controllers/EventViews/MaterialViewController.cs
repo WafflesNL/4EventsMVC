@@ -41,20 +41,21 @@ namespace MvcApplicationEvents.Controllers
             return View("MaterialView", productlist);
         }
 
-        public ActionResult Rent(string barcode)
+        public ActionResult Rent(string barcode, int id, string brand, string serie, string type, int price, int count)
         {
             Rental rental = new Rental();
-            List<Product> productlist = new List<Product>();
-            Product product = new Product(1, "", "", "", 20, 3);
-            productlist.Add(product);
+              List<Product> productlist = new List<Product>();
+            Product product = new Product(id, brand, serie, type, price, count);
+              productlist.Add(product);
             rental.Rent(productlist, barcode);
             return RedirectToAction("GetAll");
         }
-        //public ActionResult Return(string barcode)
-        //{
-        //    Rental rental = new Rental();
-        //    rental.Return;
-        //    return RedirectToAction("GetAll");
-        //}
+        public ActionResult Return(string barcode)
+        {
+            Rental rental = new Rental();
+            rental.Return(barcode);
+            return RedirectToAction("GetAll");
+        }
+
     }
 }
