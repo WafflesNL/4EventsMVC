@@ -7,15 +7,18 @@
 
 <br />
 <script type="text/javascript">
-    function Like(ID)
-    {
-        $.ajax({
-        type: "POST",
-        url: "~/TimelinePage/Like",
-        data: ID,
-        dataType: "json"
-        });
+    function Like(link) {
+
+        var MyAppUrlSettings = {
+            MyUsefulUrl: '@Url.Action("Like", "TimelinePage")'
         }
+        $.ajax({
+            type: "POST",
+            url: MyAppUrlSettings.MyUsefulUrl,
+            data: link,
+            dataType: "json"
+        });
+    }
 </script>
 
 <div class="container_16">
@@ -25,7 +28,8 @@
             foreach (Contribution ctrib in Model)
             {
                 <p>@ctrib.Message.Content @ctrib.Likes @ctrib.Reports</p>
-                <a name="ID" href="#" onclick="javascript:Like(@ctrib.ID);">Like</a>
+                int TempID = ctrib.ID;
+                <a name="link" href="#" onclick="javascript:Like(@TempID);">Like</a>
                 @*<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a>*@
             }
         }
@@ -42,7 +46,7 @@
             {
                 <input type="text" id="postbox" name="content" class="postbox" />
                 <div class="form-group placeholdpost">
-                    <button type="submit" id="postbtn" name="content" class="btn btn-primary btnOpmaak7">Post</button>
+                    <button type="submit" id="postbtn" name="content" class="btn btn-primary btnOpmaak7" onclick="window.location.reload();">Post</button>
                 </div>
             }
             <div class="grid_1">

@@ -37,6 +37,7 @@ namespace MvcApplicationEvents.Models
                 }
                 catch (SqlException e)
                 {
+
                     Console.WriteLine("Query Failed: " + e.StackTrace + e.Message.ToString());
                 }
                 finally

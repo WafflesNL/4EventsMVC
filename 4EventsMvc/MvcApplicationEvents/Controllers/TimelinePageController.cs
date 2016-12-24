@@ -41,8 +41,10 @@ namespace MvcApplicationEvents.Controllers
         [HttpPost]
         public void Like(int ID)
         {
-            Contribution C = new Contribution(ID);
-            C.likePost();
+                Contribution C = new Contribution(ID);
+                C.likePost();
+                RedirectToAction("TimelinePage");
+            
         }
 
         [HttpPost]
@@ -50,16 +52,25 @@ namespace MvcApplicationEvents.Controllers
         {
             Contribution C = new Contribution(ID);
             C.ReportPost();
+            RedirectToAction("TimelinePage");
         }
-
+        
         [HttpPost]
         public ActionResult TimelinePage(Event Event, string content)
         {
             Contriblist = DatabaseGetContribution.GetContributions(Event.ID);
-            Message Post = new Message(null, content);
+
+            Message Post = new Message("Title", content);
             Contribution C = new Contribution(DateTime.Now, "Mededeling", 0, 0, 99, Post, (int)CurrentAccount.ID);
-            C.AddMessage(C);
-            return View(Contriblist);
+            if (Contriblist.Exists(x => x.Message == Post))
+            {
+                return View(Contriblist);
+            }
+            else
+            {
+                C.AddMessage(C);
+                return View(Contriblist);
+            }
         }
     }
 }
