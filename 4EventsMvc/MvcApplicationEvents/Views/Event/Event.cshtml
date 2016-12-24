@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Event";
 }
-@using 
+@using MvcApplicationEvents.Models;
 @model MvcApplicationEvents.Models.Event
 
 <br />
@@ -28,7 +28,7 @@
            <p>Max aantal Bezoekers:</p> 
             <input type="number" name="quantity" min="5" value="@Model.MaxVisitors" readonly><br />
 
-            @if (curr)
+            @if (CurrentAccount.Function == Function.Beheerder)
             {
             <input name="ButtonValue" value="Opslaan" type="submit"class="btn btn-primary btnOpmaak5"/>
             }

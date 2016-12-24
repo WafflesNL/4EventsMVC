@@ -28,17 +28,31 @@ namespace MvcApplicationEvents.Models
             this.Reserved = reserved;
         }
 
+        /// <summary>
+        /// creates a place
+        /// </summary>
+        /// <param name="id">ID of the place<param>
+        /// <param name="number">number of the place<param> 
         public Place(int id, int number)
         {
             this.ID = id;
             this.Number = number;          
         }
 
+        /// <summary>
+        /// creates a place
+        /// </summary>
         public Place()
         {
 
         }
 
+        /// <summary>
+        /// Gets the place id by the numbe and the eventID
+        /// </summary>
+        /// <param name="number">Number of the place</param>
+        /// <param name="EventID">EventID</param>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool GetID(int Number, int EventID)
         {
             Place place = DatabaseGetPlace.GetPlaceinformation(Number, EventID);
@@ -56,6 +70,9 @@ namespace MvcApplicationEvents.Models
 
         }
 
+        /// <summary>
+        /// sets GrayedOut in pace to true
+        /// </summary>
         public void GrayOut()
         {
             this.GrayedOut = true;
