@@ -156,8 +156,7 @@ namespace MvcApplicationEvents.Models
             return EventList;
         }
 
-        /// <summ
-        /// ary>
+        /// <summary>
         /// Gets the password that belongs to the corresponding AccountID
         /// </summary>
         /// <returns>Void</returns>

@@ -40,8 +40,16 @@ namespace MvcApplicationEvents.Models
             this.ContributionList = ContributionList;
             this.ReservationList = ReservationList;
             this.Email = email;
-        } 
+        }
 
+        /// <summary>
+        /// Used to Get account information from the database
+        /// </summary>
+        /// <param name="ID">Username of a user used for Authentication</param>
+        /// <param name="Username">Username of a user used for Authentication</param>
+        /// <param name="Password">Password of a user used for Authentication</param>
+        /// <param name="Function">Function of a user used for authorization</param>
+        /// <param name="Email">Email of the User<param> 
         public Account(int? ID, string username, string password, Function function, string email)
         {
             this.ID = ID;

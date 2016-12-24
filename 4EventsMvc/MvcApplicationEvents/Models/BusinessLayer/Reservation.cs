@@ -18,7 +18,14 @@ namespace MvcApplicationEvents.Models
         public DateTime Datestart { get; set; }
         public DateTime Dateend { get; set; }
 
-        //aanmaken
+        /// <summary>
+        /// creates a rental
+        /// </summary>  
+        /// <param name="datestart">date start of the reservation<param>
+        /// <param name="dateend">date end of the reservation<param
+        /// <param name="place">Place that is coupled eith the reservation<param>
+        /// <param name="account">person in the reservation<param>
+        /// <param name="event">Event that is reserved for<param>
         public Reservation(DateTime datestart, DateTime dateend, Place place, Account Account, Event Event) //List<Account> accountlist
         {      
             this.Datestart = datestart;
@@ -28,7 +35,17 @@ namespace MvcApplicationEvents.Models
             this.Event = Event;
         }
 
-        //ophalen
+        /// <summary>
+        /// creates a rental
+        /// </summary>  
+        /// <param name="id">Id of the reservation<param>
+        /// <param name="paid">true if paid false if not<param>
+        /// <param name="datestart">date start of the reservation<param>
+        /// <param name="dateend">date end of the reservation<param
+        /// <param name="place">Place that is coupled eith the reservation<param>
+        /// <param name="person">Payinf Person for the reservation<param>
+        /// <param name="Accountlist">Everybody in the reserverstion<param>
+        /// <param name="event">Event that is reserved for<param>
         public Reservation(int id, bool paid, DateTime datestart, DateTime dateend, Place place, Person person, List<Account> accountlist, Event Event)
         {
             this.ID = id;
@@ -41,7 +58,11 @@ namespace MvcApplicationEvents.Models
             this.Event = Event;
         }
 
-
+        /// <summary>
+        /// Creates a new reservation in the database.
+        /// </summary>
+        /// <param name="reservation">The reservation to be created as Event object.</param>
+        /// <returns>Return true if it was created false if it was not.</returns>
         public bool CreateReservation(Reservation Reservation)
         {
             bool check = DatabaseCreateReservation.CreateReservation(Reservation);
