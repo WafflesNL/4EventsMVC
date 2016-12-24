@@ -26,7 +26,7 @@ namespace MvcApplicationEvents.Models
                     cmd.Parameters.AddWithValue("@Category", Contribution.Category);
                     cmd.Parameters.AddWithValue("@Content", Contribution.Message.Content);
                     cmd.Parameters.AddWithValue("@Title", Contribution.Message.Title);
-                    cmd.Parameters.AddWithValue("@File", Contribution.File);
+                    //cmd.Parameters.AddWithValue("@File", Contribution.File);
                     cmd.Parameters.AddWithValue("@ContributionID", Contribution.ContributionID);
                     cmd.Parameters.AddWithValue("@EventID", EventID);
                     cmd.Parameters.AddWithValue("@AccountID", CurrentAccount.ID);
