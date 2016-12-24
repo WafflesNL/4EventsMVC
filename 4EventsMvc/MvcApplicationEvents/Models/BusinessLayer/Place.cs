@@ -13,6 +13,13 @@ namespace MvcApplicationEvents.Models
         public bool Reserved { get; set; }
         public bool GrayedOut { get; set; } = false;
 
+        /// <summary>
+        /// creates a place
+        /// </summary>
+        /// <param name="id">ID of the place<param>
+        /// <param name="capacity">amount of space in dm²<param>
+        /// <param name="number">number of the place<param>
+        /// <param name="reserved">false if place is reserved true if not<param>  
         public Place(int id, int capacity, int number, bool reserved)
         {
             this.ID = id;

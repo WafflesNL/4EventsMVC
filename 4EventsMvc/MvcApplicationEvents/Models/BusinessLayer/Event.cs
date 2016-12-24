@@ -70,7 +70,7 @@ namespace MvcApplicationEvents.Models
         /// <summary>
         /// Used to edit a event in the database
         /// </summary>
-        /// /// <param name="id">The id of the event as int<param>
+        /// <param name="id">The id of the event as int<param>
         /// <param name="Name">The name of the event as string<param>
         /// <param name="Description">The description of the event as string</param>
         public Event(int id, string Name, string description)
@@ -103,7 +103,11 @@ namespace MvcApplicationEvents.Models
             return Check;
         }
 
-        //alle post van huidig event worden hiermee opgehaald
+
+        /// <summary>
+        /// Gets all posts from the current event
+        /// </summary>
+        /// <returns>True if the operation succeeded false if not</returns>
         public bool GetContributions()
         {
             ContributionList = DatabaseGetContribution.GetContributions(ID);
@@ -117,6 +121,10 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        /// <summary>
+        /// Gets all reservations from the current event
+        /// </summary>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool GetReservations()
         {
             ReservationList = DatabaseGetReservation.GetReservationEvent(ID);
@@ -130,6 +138,10 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        /// <summary>
+        /// Gets all Guests (Accounts) from the current event
+        /// </summary>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool GetGuestList()
         {
             GuestList = DatabaseGetAccount.GetGuest(ID);
@@ -143,7 +155,10 @@ namespace MvcApplicationEvents.Models
             }
         }
 
-
+        /// <summary>
+        /// Gets the location from the current event
+        /// </summary>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool GetLocation()
         {
             Location = DatabaseGetlocation.GetLocationEventID(ID);
@@ -172,7 +187,11 @@ namespace MvcApplicationEvents.Models
         //    }
         //}
 
-        //maakt nieuw contribution aan voor huidig event
+        /// <summary>
+        /// Creates a new contribution
+        /// </summary>
+        /// <param name="contribution">contribution that has to be added to the database</param>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool CreateContribution(Contribution Contribution)
         {
             if (DatabaseCreateContribution.CreateContribution(Contribution, this.ID))
@@ -185,6 +204,12 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+
+        /// <summary>
+        /// checks in a account
+        /// </summary>
+        /// <param name="Barcode">wristband code the account is coupled with</param>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool CheckinAccount(string Barcode)
         {
             if (DatabaseEditEvent.checkIn(Barcode))
@@ -197,6 +222,11 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        /// <summary>
+        /// checks out a account
+        /// </summary>
+        /// <param name="Barcode">wristband code the account is coupled with</param>
+        /// <returns>Returns true if the event is allowed in the database false if it is not</returns>
         public bool CheckoutAccount(string barcode)
         {
             if (DatabaseEditEvent.checkOut(barcode))
@@ -209,6 +239,10 @@ namespace MvcApplicationEvents.Models
             }
         }
 
+        /// <summary>
+        /// Gets all eventinformation by name
+        /// </summary>
+        /// <returns>Returns a event with all the correct information</returns>
         public Event GetEventInformationByname()
         {
             Event Event = DatabaseGetEvent.GetEventByName(Name);        
