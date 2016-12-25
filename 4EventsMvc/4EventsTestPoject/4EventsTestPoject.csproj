@@ -55,7 +55,7 @@
     <Compile Include="BeheerSysteemTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReservationSystemTest.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="MediasharingsysteemTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MvcApplicationEvents\MvcApplicationEvents.csproj">

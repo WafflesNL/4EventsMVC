@@ -10,34 +10,24 @@ namespace MvcApplicationEvents.Controllers
 {
     public class TimelinePageController : Controller
     {
-        Event Event; //Ik weet niet of dit zo werkt dus er zal mee getest moeten worden.
+        Event Event;
         public List<Contribution> Contriblist = new List<Contribution>();
-
+        /// <summary>
+        /// Original Action to View
+        /// </summary>
+        /// <param name="Event">Event which is matched with the Timeline</param>
+        /// <returns>View TimelinePage</returns>
         [HttpGet]
         public ActionResult TimelinePage(Event Event)
         {
             Contriblist = DatabaseGetContribution.GetContributions(Event.ID);
-            //List<SelectListItem> listSelectListItems = new List<SelectListItem>();
-
-            //foreach (Contribution c in Contriblist)
-            //{
-            //    SelectListItem selectList = new SelectListItem()
-            //    {
-            //        Text = c.Message.Content,
-            //        Value = c.ID.ToString(),
-            //        Selected = c.IsSelected
-            //    };
-            //    listSelectListItems.Add(selectList);
-            //}
-
-            //ContribViewModels ContribViewModel = new ContribViewModels()
-            //{
-            //    Contribs = listSelectListItems
-            //};
-
             return View(Contriblist);
         }
 
+        /// <summary>
+        /// Like Function
+        /// </summary>
+        /// <param name="ID">ID from selected post</param>
         [HttpPost]
         public void Like(int ID)
         {
@@ -47,6 +37,10 @@ namespace MvcApplicationEvents.Controllers
             
         }
 
+        /// <summary>
+        /// Report Function
+        /// </summary>
+        /// <param name="ID">ID from selected post</param>
         [HttpPost]
         public void Report(int ID)
         {
@@ -54,7 +48,13 @@ namespace MvcApplicationEvents.Controllers
             C.ReportPost();
             RedirectToAction("TimelinePage");
         }
-        
+
+        /// <summary>
+        /// Adds a post to the database
+        /// </summary>
+        /// <param name="Event">Event which is matched with the Timeline</param>
+        /// <param name="content">The content from the post</param>
+        /// <returns>View TimelinePage</returns>
         [HttpPost]
         public ActionResult TimelinePage(Event Event, string content)
         {
