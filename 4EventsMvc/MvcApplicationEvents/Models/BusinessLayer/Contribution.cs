@@ -9,7 +9,7 @@ namespace MvcApplicationEvents.Models
     public class Contribution
     {
 
-        public int ID { get; set; }
+        public int ID { get; set; }        
         public int ContributionID { get; set; }
         public DateTime DateTime { get; set; }    
         public string Category { get; set; }

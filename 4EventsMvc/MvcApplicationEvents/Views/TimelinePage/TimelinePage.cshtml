@@ -7,26 +7,34 @@
 
 <br />
 <script type="text/javascript">
-    function Like(ID)
-    {
-        $.ajax({
-        type: "POST",
-        url: "~/TimelinePage/Like",
-        data: ID,
-        dataType: "json"
-        });
-        }
+    function Like(link) {
+        jQuery.ajax({
+            url: '@Url.Action("Like", "TimelinePage")',
+            method: "POST",
+            cache: false,
+            data: { Id: link }
+        })
+    }
+
+    function Report(report) {
+        jQuery.ajax({
+            url: '@Url.Action("Report", "TimelinePage")',
+            method: "POST",
+            cache: false,
+            data: { Id: report }
+        })
+    }
 </script>
 
 <div class="container_16">
     <div class="grid_9 pull_1">
         @using (Html.BeginForm())
         {
-            foreach (Contribution ctrib in Model)
+            foreach (var ctrib in Model)
             {
                 <p>@ctrib.Message.Content @ctrib.Likes @ctrib.Reports</p>
-                <a name="ID" href="#" onclick="javascript:Like(@ctrib.ID);">Like</a>
-                @*<a href="#" onclick="@{((TimelinePageController)this.ViewContext.Controller).Report(Convert.ToInt32(ctrib.ID));};window.location.reload()">Report</a>*@
+                <a name="link" href="#" onclick="javascript:Like('@ctrib.ID');">Like</a>
+                <a name="report" href="#" onclick="javascript:Report('@ctrib.ID');">Report</a>
             }
         }
         <div class="grid_1 push_5">
@@ -42,7 +50,7 @@
             {
                 <input type="text" id="postbox" name="content" class="postbox" />
                 <div class="form-group placeholdpost">
-                    <button type="submit" id="postbtn" name="content" class="btn btn-primary btnOpmaak7">Post</button>
+                    <button type="submit" id="postbtn" name="content" class="btn btn-primary btnOpmaak7" onclick="window.location.reload();">Post</button>
                 </div>
             }
             <div class="grid_1">
