@@ -43,7 +43,7 @@ namespace MvcApplicationEvents.Models
             return null;
         }
 
-        public static List<Account> GetAccountsInReservation(int ReservationID)
+        public static Account GetAccountsInReservation(int ReservationID)
         {
             List<Account> AccountList = new List<Account>();
 
@@ -55,7 +55,7 @@ namespace MvcApplicationEvents.Models
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = DatabaseAcces.connect;
 
-                    cmd.CommandText = "select * from Place p Join Reservation_Place rp ON p.id = rp.Placeid WHERE rp.ReservationID = @ReservationID";
+                    cmd.CommandText = "select * from RESERVATION r Join ACCOUNT_COUPLING ac ON r.ID = ac.reservationid join ACCOUNT a on ac.accountid = a.ID WHERE r.ID = @ReservationID";
                     cmd.Parameters.Add(new SqlParameter("ReservationID", ReservationID));
 
                     SqlDataReader reader = cmd.ExecuteReader();
@@ -68,10 +68,9 @@ namespace MvcApplicationEvents.Models
 
 
                         Account Account = new Account(ID, Username, Password);
-                        AccountList.Add(Account);
+                        return Account;
                     }
 
-                    return AccountList;
 
                 }
                 catch (SqlException e)

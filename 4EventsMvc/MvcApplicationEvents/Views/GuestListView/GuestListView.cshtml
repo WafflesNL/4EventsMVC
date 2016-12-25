@@ -6,16 +6,17 @@
 @using MvcApplicationEvents.Models;
 @model Event
 
+
+
+<h2>Gasten Overzicht</h2>
+
 @using (Html.BeginForm("CheckIn", "GuestListView", Model))
 {
     <input type="text" name="barcode" />
     <input type="submit" value="Submit">
 }
-  @foreach (Account a in Model.GuestList)
-  {
-      @a.Username
-  }
-
-
-
-<h2>GuestListView</h2>
+@foreach (Account a in Model.GuestList)
+{
+    <p>@a.Username</p>
+    <br />
+}

@@ -38,6 +38,24 @@ namespace MvcApplicationEvents.Models
         /// <summary>
         /// creates a rental
         /// </summary>  
+        /// <param name="datestart">date start of the reservation<param>
+        /// <param name="dateend">date end of the reservation<param
+        /// <param name="place">Place that is coupled eith the reservation<param>
+        /// <param name="account">person in the reservation<param>
+        /// <param name="event">Event that is reserved for<param>
+        public Reservation(int id, DateTime datestart, DateTime dateend, Place place, Account Account, Event Event) //List<Account> accountlist
+        {
+            this.ID = id;
+            this.Datestart = datestart;
+            this.Dateend = dateend;
+            this.Place = place;
+            this.Account = Account;
+            this.Event = Event;
+        }
+
+        /// <summary>
+        /// creates a rental
+        /// </summary>  
         /// <param name="id">Id of the reservation<param>
         /// <param name="paid">true if paid false if not<param>
         /// <param name="datestart">date start of the reservation<param>

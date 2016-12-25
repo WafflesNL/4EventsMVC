@@ -9,6 +9,6 @@
 
 @foreach (Reservation A in Model)
 {
-    <p>@A.ID</p>
+    <p>@A.ID  @A.Account.Username  @A.Event.Name</p> 
 }
 

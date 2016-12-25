@@ -36,9 +36,9 @@ namespace MvcApplicationEvents.Models
 
                         Place Place = DatabaseGetPlace.GetPlaceByReservation(ID);
                         Event Event = DatabaseGetEvent.GetEventByID(EventID);
-                        List<Account> AccountList = DatabaseGetAccount.GetAccountsInReservation(ID);
+                        Account Account = DatabaseGetAccount.GetAccountsInReservation(ID);
 
-                        Reservation Reservation = new Reservation(ID, Paid, datestart, dateend, Place, null, AccountList, Event);                 
+                        Reservation Reservation = new Reservation(ID, datestart, dateend, Place, Account, Event);                      
                         ReservationList.Add(Reservation);
                     }
 
